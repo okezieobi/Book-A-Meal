@@ -4,7 +4,8 @@
   "description": "1. Users can create an account and log in\r 2. Admin (Caterer) should be able to manage (i.e: add, modify and delete) meal options in\r the application. Examples of meal options are: Beef with rice, Beef with fries etc\r 3. Admin (Caterer) should be able to setup menu for a specific day by selecting from the\r meal options available on the system.\r 4. Authenticated users (customers) should be able to see the menu for a specific day and\r select an option out of the menu.\r 5. Authenticated users (customers) should be able to change their meal choice.\r 6. Admin (Caterer) should be able to see the orders made by the user\r 7. Admin should be able to see amount of money made by end of day",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "views": " browser-sync -s -w --ignore book-a-meal-samples"
   },
   "repository": {
     "type": "git",
