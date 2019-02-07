@@ -55,28 +55,38 @@
     padding: 0 0 20px 0;
 }
 
-.userBody {
+.signinBody {
     font-family: 'Segoe UI', Tahoma, Geneva;
 }
 
-.userSignupBody {
+.signupBody {
     font-family: 'Segoe UI', Tahoma, Geneva;
     background: orangered;
 }
 
-.userHeader {
+.adminBody {
+    font-family: 'Segoe UI', Tahoma, Geneva;
+}
+
+.signinHeader {
     display: flex;
     justify-content: center;
     color: orangered;
 }
 
-.userSignupHeader {
+.adminHeader {
+    display: flex;
+    justify-content: center;
+    color: orangered;
+}
+
+.signupHeader {
     display: flex;
     justify-content: center;
     color: white;
 }
 
-.userMain {
+.signinMain {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -84,7 +94,7 @@
     border-radius: 10px;
 }
 
-.userSignupMain {
+.signupMain {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -92,7 +102,7 @@
     border-radius: 10px;
 }
 
-.userDescription {
+.signinDescription {
     color: white;
     display: flex;
     flex-flow: column nowrap;
@@ -100,7 +110,7 @@
 
 }
 
-.userSignupDescription {
+.signupDescription {
     color: orangered;
     display: flex;
     flex-flow: column nowrap;
@@ -108,56 +118,65 @@
 
 }
 
-.userForm {
+.signinForm {
     background: white;
     color: orangered;
     border-radius: 10px;
     margin: 10px 0;
 }
 
-.userSignupForm {
+.signupForm {
     background: orangered;
     color: white;
     border-radius: 10px;
     margin: 10px 0;
 }
 
-.userFieldset {
+.signinFieldset {
     border: none;
 }
 
-.userLegend {
+.signupFieldset {
+    border: none;
+}
+
+.signinLegend {
     display: flex;
     justify-content: center
 }
 
-.userButtonSection {
+.signupLegend {
+    display: flex;
+    justify-content: center
+}
+
+.signinButtonSection {
     display: flex;
     justify-content: flex-end;
     padding-top: 10px;
 }
 
-.userSignupButtonSection {
+.signupButtonSection {
     display: flex;
     justify-content: flex-end;
     padding-top: 10px;
 }
 
-.userButtonSection>a {
+.signinButtonSection>a {
     max-width: 35%;
     margin-right: 2px;
     text-decoration: none;
     color: orangered;
 }
 
-.userSignupButtonSection>a {
+.signupButtonSection>a {
     max-width: 36%;
     margin-right: 2px;
     text-decoration: none;
     color: white;
 }
 
-.userButton {
+.signinButton {
     padding: 10px 22px;
     margin-right: 18px;
     border: none;
@@ -166,7 +185,7 @@
     background: orangered;
 }
 
-.userSignupButton {
+.signupButton {
     padding: 10px 22px;
     margin-right: 18px;
     border: none;
@@ -175,7 +194,14 @@
     background: white;
 }
 
-.userInputSection {
+.signinInputSection {
+    display: grid;
+    grid-template-columns: 26% 74%;
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+.signupInputSection {
     display: grid;
     grid-template-columns: 26% 74%;
     grid-gap: 10px;
@@ -196,7 +222,13 @@
 
 
 @media screen and (max-width: 715px) {
-    .userDescription>h2 {
+    .signinDescription>h2 {
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 715px) {
+    .signupDescription>h2 {
         padding: 0 10px;
     }
 }
