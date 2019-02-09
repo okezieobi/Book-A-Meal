@@ -76,8 +76,12 @@
 
 .adminHeader {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     color: orangered;
+}
+
+.adminHeaderIcons {
+    color: inherit;
 }
 
 .signupHeader {
@@ -220,6 +224,63 @@
     font-size: 15px;
 }
 
+.iconForMobile {
+    display: none;
+}
+
+.iconForLargeScreen {
+    display: block;
+}
+
+.adminMain {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.manageMealOptions {
+    background: orangered;
+    color: white;
+    border-radius: 10px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.setMenu {
+    background: orangered;
+    color: white;
+    border-radius: 10px;
+    padding: 0 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.getSummary {
+    background: orangered;
+    color: white;
+    border-radius: 10px;
+    padding: 0 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.manageMealLink,
+.setMenuLink,
+.getSummaryLink {
+    text-decoration: none;
+}
+
+.manageMealIcons,
+.setMenuIcons,
+.getSummaryIcons {
+    font-size: 150px;
+}
+
 
 @media screen and (max-width: 715px) {
     .signinDescription>h2 {
@@ -230,5 +291,35 @@
 @media screen and (max-width: 715px) {
     .signupDescription>h2 {
         padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .iconForLargeScreen {
+        display: none;
+    }
+
+    .iconForMobile {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 360px) {
+
+    .manageMealSection,
+    .setMenuSection {
+        padding-right: 10px;
+    }
+
+    .getSummarySection {
+        padding-top: 5px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+
+    .manageMealSection,
+    .setMenuSection {
+        padding-bottom: 15px;
     }
 }
