@@ -22,7 +22,7 @@
 .indexInputContainer {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .indexInputElements {
@@ -80,10 +80,6 @@
     color: orangered;
 }
 
-.adminHeaderIcons {
-    color: inherit;
-}
-
 .signupHeader {
     display: flex;
     justify-content: center;
@@ -114,6 +110,7 @@
 
 }
 
+
 .signupDescription {
     color: orangered;
     display: flex;
@@ -136,11 +133,34 @@
     margin: 10px 0;
 }
 
+.addMealsForm {
+    background: orange;
+    color: white;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.editOrDeleteMealsForm {
+    background: orangered;
+    color: white;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
 .signinFieldset {
     border: none;
 }
 
 .signupFieldset {
+    border: none;
+}
+
+.addMealsFieldset {
+    border: none;
+}
+
+
+.editOrDeleteMealsFieldset {
     border: none;
 }
 
@@ -154,6 +174,16 @@
     justify-content: center
 }
 
+.addMealsLegend {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.editOrDeleteMealsLegend {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .signinButtonSection {
     display: flex;
     justify-content: flex-end;
@@ -161,6 +191,18 @@
 }
 
 .signupButtonSection {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+.addMealsButtonSection {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+.editOrDeleteMealsButtonSection {
     display: flex;
     justify-content: flex-end;
     padding-top: 10px;
@@ -198,6 +240,26 @@
     background: white;
 }
 
+.addMealsButton {
+    padding: 10px 94px;
+    border: none;
+    border-radius: 4px;
+    color: orangered;
+    background: white;
+}
+
+.editOrDeleteMealsButton {
+    padding: 10px 35px;
+    border: none;
+    border-radius: 4px;
+    color: orangered;
+    background: white;
+}
+
+.editOrDeleteMealsButtonOne {
+    margin-right: 10px;
+}
+
 .signinInputSection {
     display: grid;
     grid-template-columns: 26% 74%;
@@ -211,6 +273,21 @@
     grid-gap: 10px;
     justify-content: center;
 }
+
+.addMealsInputSection {
+    display: grid;
+    grid-template-columns: 29% auto;
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+.editOrDeleteMealsInputSection {
+    display: grid;
+    grid-template-columns: 29% auto;
+    grid-gap: 10px;
+    justify-content: center;
+}
+
 
 .label {
     text-align: right;
@@ -235,7 +312,14 @@
 .adminMain {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.manageMeals {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    border-radius: 10px;
 }
 
 .manageMealOptions {
@@ -282,7 +366,148 @@
 }
 
 
+.adminHeaderHome {
+    color: inherit;
+}
+
+.adminHomeHeading {
+    color: inherit;
+    text-decoration: none;
+}
+
+.adminHomeIcon {
+    font-size: 40px;
+}
+
+.signOutIcon {
+    padding-left: 17px;
+}
+
+.manageMealsMain {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.setMenuMain {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+
+
+.addMenu {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    background: orangered;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+.addMenuLabel {
+    margin-left: 5px;
+}
+
+.addMenuInputItemButton {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.addMenuIcon {
+    font-size: 21px;
+}
+
+.addMenuInputItems {
+    padding: 10px;
+}
+
+
+.editOrDeleteMenuItems {
+    padding: 19px 5px 0 5px;
+}
+
+
+.addMenuInput {
+    border: none;
+    padding: 10px 5px;
+    border-radius: 5px;
+}
+
+.addMenuDateInput {
+    border: none;
+    padding: 8px 5px;
+    border-radius: 5px;
+}
+
+.addMenuButton {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 15px;
+    color: orangered;
+    background: white;
+}
+
+
+
+.editOrDeleteMenuButton {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background: orangered;
+}
+
+.editOrDeleteMenu {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    background: orangered;
+    border-radius: 10px;
+    color: white;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.editOrDeleteContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    background: white;
+    color: orangered;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.editOrDeleteMenuDisplay {
+    margin: 5px;
+}
+
+.mealOptionsDisplay {
+    margin: 12px 0 12px 12px;
+    padding: 5px 15px 5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.mealOptionsInput {
+    background: white
+}
+
+.mealOptionsCheck {
+    background: white;
+    color: orangered;
+}
+
+.addMenuPic {
+    padding-top: 4px;
+}
+
 @media screen and (max-width: 715px) {
+
     .signinDescription>h2 {
         padding: 0 10px;
     }
@@ -301,6 +526,7 @@
 
     .iconForMobile {
         display: block;
+        font-size: 25px;
     }
 }
 
@@ -321,5 +547,28 @@
     .manageMealSection,
     .setMenuSection {
         padding-bottom: 15px;
+    }
+}
+
+@media screen and (min-width: 320px) {
+
+    .addMealsForm,
+    .editOrDeleteMealsForm {
+        padding-right: 10px;
+    }
+
+    .addMealsButton {
+        padding: 10px 87px
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    .addMealsLegend {
+        padding-right: 27px;
+    }
+
+    .editOrDeleteMealsButton {
+        padding: 10px 31px;
     }
 }

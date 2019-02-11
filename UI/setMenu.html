@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Book-A-Meal app">
+    <meta name="author" content="Frank Okezie Obiedere">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+    <title>Book A Meal</title>
+</head>
+
+<body class="adminBody">
+    <header>
+        <nav class="adminHeader">
+            <div class="adminHeaderHome">
+                <a class="adminHomeHeading" href="adminIndex.html">
+                    <h4><i class="fas fa-home adminHomeIcon"></i><br>Home</h4>
+                </a>
+            </div>
+            <div class="iconForMobile">
+                <h2><i class="fas fa-utensils"></i> <i class="fas fa-utensils fa-flip-vertical"></i></h2>
+            </div>
+            <div class="iconForLargeScreen">
+                <h1><i class="fas fa-utensils "></i> Book A Meal <i class="fas fa-utensils fa-flip-vertical"></i></h1>
+            </div>
+            <div class="adminHeaderHome">
+                <a class="adminHomeHeading" href="#">
+                    <h4><i class="fas fa-sign-out-alt adminHomeIcon signOutIcon"></i><br>Sign Out</h4>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="manageMealsMain">
+            <section>
+                <form class="addMenu">
+                    <div class="addMenuInputItems">
+                        <label class="addMenuLabel">Date: </label><br>
+                        <input class="addMenuDateInput" type="date" placeholder="Select date ..." />
+                    </div>
+                    <div class="addMenuInputItems">
+                        <label class="addMenuLabel">Menu: </label><br>
+                        <input class="addMenuInput" type="text" placeholder="Enter Menu ..." />
+                    </div>
+                    <div class="addMenuPic">
+                        <label class="addMenuLabel">Picture: (optional)</label><br>
+                        <input class="addMenuInput mealOptionsCheck" type="file" placeholder="Enter Menu ..." />
+                    </div>
+                    <div class="mealOptionsDisplay">
+                        <label class="addMenuLabel">
+                            <input class="addMealOptionsCheck" type="checkbox" />Meal option 1 <i class="checkmark"></i></label>
+                        <label class="addMenuLabel"><input type="checkbox" />Meal option 1 </label>
+                        <label class="addMenuLabel"><input type="checkbox" /> Meal option 1 </label>
+                    </div>
+                    <div class="addMenuInputItemButton">
+                        <button class="addMenuButton"><i class="fas fa-plus addMenuIcon"></i><br>Add</button>
+                    </div>
+                </form>
+            </section>
+            <section class="editOrDeleteMenu">
+                <section class="editOrDeleteContainer">
+                    <div class="editOrDeleteMenuItems">
+                        <img class="editOrDeleteMenuDisplay" src=" " />
+                    </div>
+                    <div class="editOrDeleteMenuItems">
+                        <p class="editOrDeleteMenuDisplay">Meal option: ???</p>
+                    </div>
+                    <div class="editOrDeleteMenuItems">
+                        <p class="editOrDeleteMenuDisplay">Price: ???</p>
+                    </div>
+                    <div class="editOrDeleteMenuItemButtons"><button class="editOrDeleteMenuButton"><i class="far fa-edit"></i><br>Edit</button></div>
+                    <div class="editOrDeleteMenuItemButtons"><button class="editOrDeleteMenuButton"><i class="fas fa-minus"></i><br>Delete</button></div>
+                </section>
+            </section>
+        </section>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
