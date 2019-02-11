@@ -283,6 +283,7 @@
     border-radius: 4px;
     color: white;
     background: orangered;
+    outline: none;
 }
 
 .signupButton {
@@ -292,6 +293,7 @@
     border-radius: 4px;
     color: orangered;
     background: white;
+    outline: none;
 }
 
 .addMealsButton {
@@ -300,6 +302,7 @@
     border-radius: 4px;
     color: orange;
     background: white;
+    outline: none;
 }
 
 .addMenuButton {
@@ -308,6 +311,7 @@
     border-radius: 4px;
     color: orange;
     background: white;
+    outline: none;
 }
 
 .editOrDeleteMealsButton {
@@ -316,6 +320,7 @@
     border-radius: 4px;
     color: orangered;
     background: white;
+    outline: none;
 }
 
 .editOrDeleteMenuButton {
@@ -324,6 +329,7 @@
     border-radius: 4px;
     color: orangered;
     background: white;
+    outline: none;
 }
 
 .editOrDeleteMealsButtonOne {
@@ -508,6 +514,9 @@
     flex-flow: column nowrap;
 }
 
+.detailsTag {
+    outline: none;
+}
 
 @media screen and (max-width: 715px) {
 
