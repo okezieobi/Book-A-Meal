@@ -123,18 +123,32 @@
     background: white;
     color: orangered;
     border-radius: 10px;
-    margin: 10px 0;
+    margin: 10px 5px;
 }
 
 .signupForm {
     background: orangered;
     color: white;
     border-radius: 10px;
-    margin: 10px 0;
+    margin: 10px 5px;
 }
 
 .addMealsForm {
     background: orange;
+    color: white;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.addMenuForm {
+    background: orange;
+    color: white;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.editOrDeleteMenuForm {
+    background: orangered;
     color: white;
     border-radius: 10px;
     margin: 10px 0;
@@ -159,8 +173,18 @@
     border: none;
 }
 
+.addMenuFieldset {
+    border: none;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+}
 
 .editOrDeleteMealsFieldset {
+    border: none;
+}
+
+.editOrDeleteMenuFieldset {
     border: none;
 }
 
@@ -179,9 +203,27 @@
     justify-content: flex-end;
 }
 
+.addMenuLegend {
+    display: flex;
+    justify-content: center;
+}
+
+.addMenuLegend>legend {
+    margin-right: 25px;
+}
+
 .editOrDeleteMealsLegend {
     display: flex;
     justify-content: flex-end;
+}
+
+.editOrDeleteMenuLegend>legend {
+    margin-right: 25px;
+}
+
+.editOrDeleteMenuLegend {
+    display: flex;
+    justify-content: center;
 }
 
 .signinButtonSection {
@@ -202,7 +244,19 @@
     padding-top: 10px;
 }
 
+.addMenuButtonSection {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
 .editOrDeleteMealsButtonSection {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+.editOrDeleteMenuButtonSection {
     display: flex;
     justify-content: flex-end;
     padding-top: 10px;
@@ -244,7 +298,15 @@
     padding: 10px 94px;
     border: none;
     border-radius: 4px;
-    color: orangered;
+    color: orange;
+    background: white;
+}
+
+.addMenuButton {
+    padding: 10px 116px;
+    border: none;
+    border-radius: 4px;
+    color: orange;
     background: white;
 }
 
@@ -256,7 +318,19 @@
     background: white;
 }
 
+.editOrDeleteMenuButton {
+    padding: 10px 46px;
+    border: none;
+    border-radius: 4px;
+    color: orangered;
+    background: white;
+}
+
 .editOrDeleteMealsButtonOne {
+    margin-right: 10px;
+}
+
+.editOrDeleteMenuButtonOne {
     margin-right: 10px;
 }
 
@@ -281,6 +355,12 @@
     justify-content: center;
 }
 
+.addMenuInputSection {
+    display: grid;
+    grid-template-columns: 28% auto;
+    grid-gap: 10px;
+}
+
 .editOrDeleteMealsInputSection {
     display: grid;
     grid-template-columns: 29% auto;
@@ -288,12 +368,40 @@
     justify-content: center;
 }
 
+.editOrDeleteMenuInputSection {
+    display: grid;
+    grid-template-columns: 29% auto;
+    grid-gap: 10px;
+    justify-content: center;
+}
 
 .label {
     text-align: right;
 }
 
 .input {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background: lightgrey;
+    font-size: 15px;
+}
+
+.addMenuFileInput {
+    border: none;
+    padding: 10px 0 10px 10px;
+    border-radius: 5px;
+    background: orange;
+}
+
+.editOrDeleteMenuFileInput {
+    border: none;
+    padding: 10px 0 10px 10px;
+    border-radius: 5px;
+    background: orangered;
+}
+
+.dateInput {
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -316,6 +424,13 @@
 }
 
 .manageMeals {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.manageMenu {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -394,118 +509,6 @@
 }
 
 
-
-.addMenu {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    background: orangered;
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-
-.addMenuLabel {
-    margin-left: 5px;
-}
-
-.addMenuInputItemButton {
-    padding-top: 10px;
-    padding-left: 10px;
-}
-
-.addMenuIcon {
-    font-size: 21px;
-}
-
-.addMenuInputItems {
-    padding: 10px;
-}
-
-
-.editOrDeleteMenuItems {
-    padding: 19px 5px 0 5px;
-}
-
-
-.addMenuInput {
-    border: none;
-    padding: 10px 5px;
-    border-radius: 5px;
-}
-
-.addMenuDateInput {
-    border: none;
-    padding: 8px 5px;
-    border-radius: 5px;
-}
-
-.addMenuButton {
-    padding: 10px 22px;
-    border: none;
-    border-radius: 15px;
-    color: orangered;
-    background: white;
-}
-
-
-
-.editOrDeleteMenuButton {
-    padding: 10px 22px;
-    border: none;
-    border-radius: 15px;
-    color: white;
-    background: orangered;
-}
-
-.editOrDeleteMenu {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    background: orangered;
-    border-radius: 10px;
-    color: white;
-    margin-top: 10px;
-    padding: 10px;
-}
-
-.editOrDeleteContainer {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    background: white;
-    color: orangered;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.editOrDeleteMenuDisplay {
-    margin: 5px;
-}
-
-.mealOptionsDisplay {
-    margin: 12px 0 12px 12px;
-    padding: 5px 15px 5px 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: row wrap;
-}
-
-.mealOptionsInput {
-    background: white
-}
-
-.mealOptionsCheck {
-    background: white;
-    color: orangered;
-}
-
-.addMenuPic {
-    padding-top: 4px;
-}
-
 @media screen and (max-width: 715px) {
 
     .signinDescription>h2 {
@@ -542,6 +545,10 @@
     }
 }
 
+.addMenuPic {
+    width: 80%;
+}
+
 @media screen and (max-width: 460px) {
 
     .manageMealSection,
@@ -550,25 +557,61 @@
     }
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 460px) {
 
-    .addMealsForm,
-    .editOrDeleteMealsForm {
-        padding-right: 10px;
-    }
-
-    .addMealsButton {
-        padding: 10px 87px
+    .manageMealSection,
+    .setMenuSection {
+        padding-bottom: 15px;
     }
 }
 
 @media screen and (max-width: 320px) {
 
-    .addMealsLegend {
-        padding-right: 27px;
+    .addMealsButton {
+        padding: 10px 85px;
+    }
+
+    .addMenuButton {
+        padding: 10px 120px;
+    }
+
+    .addMealsForm,
+    .addMenuForm,
+    .editOrDeleteMealsForm,
+    .editOrDeleteMenuForm {
+        padding-right: 10px;
     }
 
     .editOrDeleteMealsButton {
         padding: 10px 31px;
+    }
+
+    .editOrDeleteMenuButton {
+        padding: 10px 51px;
+    }
+}
+
+@media screen and (max-width: 406px) {
+
+    .addMenuInputSection,
+    .signinInputSection,
+    .signupInputSection {
+        grid-template-columns: auto;
+    }
+
+    .signupInputSection {
+        grid-template-columns: auto;
+    }
+
+    .addMenuInputSection>.label,
+    .signupInputSection>.label,
+    .signinInputSection>.label {
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    .signupButtonSection,
+    .signinButtonSection {
+        justify-content: center;
     }
 }
