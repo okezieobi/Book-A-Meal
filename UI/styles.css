@@ -380,8 +380,23 @@
     justify-content: center;
 }
 
+.getSummaryDataSection {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    justify-content: space-evenly;
+}
+
 .label {
     text-align: right;
+}
+
+.getSummaryLabel {
+    text-align: right;
+}
+
+.getSummaryData {
+    padding-top: 5px;
 }
 
 .input {
@@ -428,6 +443,12 @@
     justify-content: space-evenly;
 }
 
+.getSummaryMain {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
 .manageMeals {
     display: flex;
     flex-flow: row wrap;
@@ -451,6 +472,18 @@
     flex-direction: column;
     align-items: center;
 }
+
+.getSummaryCard {
+    background: orangered;
+    color: white;
+    border-radius: 10px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 
 
 .setMenu {
