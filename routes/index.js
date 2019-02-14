@@ -1,11 +1,11 @@
-import addOneMealRouter from './addOneMeal';
-import deleteOneMealRouter from './deleteOneMeal';
-import getAllMealsRouter from './getAllMeals';
-import updateOneMealRouter from './updateOneMeal';
+import addOneMealRouter from './addOneMealOption';
+import deleteOneMealRouter from './deleteOneMealOption';
+import getAllMealsRouter from './getAllMealOptions';
+import updateOneMealRouter from './updateOneMealOption';
 import setMenuRouer from './setMenu';
 import getMenuRouter from './getMenu';
 import getAllOrdersRouter from './getAllOrders';
-import selectOneMeal from './selectOneMeal';
+import selectOneMeal from './selectMenuOption';
 import updateOneOrderRouter from './updateOneOrder';
 
 export default (app) => {

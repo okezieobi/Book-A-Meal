@@ -1,4 +1,4 @@
-import deleteOneMeal from '../controllers/deleteOneMeal';
+import deleteOneMeal from '../controllers/deleteOneMealOption';
 import router from './router';
 
 router.delete('/meals/<mealid>', deleteOneMeal);

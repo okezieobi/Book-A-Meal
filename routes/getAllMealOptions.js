@@ -1,4 +1,4 @@
-import getAllMeals from '../controllers/getAllMeals';
+import getAllMeals from '../controllers/getAllMealOptions';
 import router from './router';
 
 router.get('/meals', getAllMeals);
