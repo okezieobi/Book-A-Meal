@@ -4,7 +4,7 @@ import chai, {
 import chaiHttp from 'chai-http';
 import app from '../index';
 
-export default {
+export {
   expect,
   chai,
   chaiHttp,
