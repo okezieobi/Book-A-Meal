@@ -1,19 +1,48 @@
-class Data {
-  constructor() {
-    this.mealOptions = [];
-    this.dailyMenu = [{
-      date: new Date(),
-      menu_name: 'Name of menu',
-      meal_options: this.mealOptions,
-    }];
-    this.orders = [{
-      menu_name: 'Launch',
-      customer_name: 'Frank',
-      menu: this.dailyMenu,
-    }];
+class BookAMeal {}
+
+class Meal extends BookAMeal {
+  constructor(mealName, mealPrice) {
+    super();
+    this.optionList = [];
+    this.optionFormat = {
+      name: mealName,
+      price: mealPrice,
+    };
   }
 }
 
-const data = new Data();
+class Menu extends Meal {
+  constructor(menuName, menuTotal) {
+    super();
+    this.menuList = [];
+    this.menuFormat = {
+      date: new Date(),
+      name: menuName,
+      options: super.optionList,
+      total: menuTotal,
+    };
+  }
+}
 
-export default data;
+class Order extends Menu {
+  constructor(orderName, customerName, orderTotal) {
+    super();
+    this.orderList = [];
+    this.orderFormat = {
+      name: orderName,
+      customer_name: customerName,
+      menu: super.menuList,
+      total: orderTotal,
+    };
+  }
+}
+
+const meals = new Meal();
+const menus = new Menu();
+const orders = new Order();
+
+export default {
+  meals,
+  menus,
+  orders,
+};

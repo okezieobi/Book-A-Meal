@@ -1,7 +1,7 @@
-import data from '../models';
+import meals from '../models';
 // @ts-ignore
-import meals from './index';
+import bookAMeal from './index';
 
-meals.getAll = async () => {};
+bookAMeal.getAll = async () => {};
 
-export default meals.getAll;
+export default bookAMeal.getAll;

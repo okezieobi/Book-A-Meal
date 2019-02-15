@@ -1,7 +1,7 @@
-import data from '../models';
+import menus from '../models';
 // @ts-ignore
-import menu from './index';
+import bookAMeal from './index';
 
-menu.setOne = async () => {};
+bookAMeal.setOne = async () => {};
 
-export default menu.setOne;
+export default bookAMeal.setOne;

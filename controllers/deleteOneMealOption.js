@@ -1,7 +1,7 @@
-import data from '../models';
+import meals from '../models';
 // @ts-ignore
-import meals from './index';
+import bookAmeal from './index';
 
-meals.deleteOne = async () => {};
+bookAmeal.deleteOne = async () => {};
 
-export default meals.deleteOne;
+export default bookAmeal.deleteOne;
