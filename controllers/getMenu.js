@@ -1,4 +1,3 @@
-import menus from '../models';
 // @ts-ignore
 import bookAMeal from './index';
 

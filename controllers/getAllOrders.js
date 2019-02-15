@@ -1,4 +1,3 @@
-import orders from '../models';
 // @ts-ignore
 import bookAMeal from './index';
 
