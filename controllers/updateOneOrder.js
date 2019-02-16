@@ -1,6 +1,6 @@
 // @ts-ignore
 import bookAMeal from './index';
 
-bookAMeal.updateOne = async () => {};
+bookAMeal.updateOneOrder = async () => {};
 
-export default bookAMeal.updateOne;
+export default bookAMeal.updateOneOrder;

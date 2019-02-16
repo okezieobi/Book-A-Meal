@@ -1,6 +1,6 @@
 // @ts-ignore
 import bookAMeal from './index';
 
-bookAMeal.setOne = async () => {};
+bookAMeal.setMenu = async () => {};
 
-export default bookAMeal.setOne;
+export default bookAMeal.setMenu;

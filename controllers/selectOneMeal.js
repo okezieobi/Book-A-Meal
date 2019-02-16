@@ -1,6 +1,6 @@
 // @ts-ignore
 import bookAMeal from './index';
 
-bookAMeal.selectOne = async () => {};
+bookAMeal.selectOneMeal = async () => {};
 
-export default bookAMeal.selectOne;
+export default bookAMeal.selectOneMeal;

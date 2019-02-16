@@ -1,40 +1,65 @@
 class BookAMeal {}
 
 class Meal extends BookAMeal {
-  constructor(mealName, mealPrice, mealId) {
+  constructor() {
     super();
-    this.optionList = [];
-    this.optionFormat = {
+    this.mealOptionList = [];
+  }
+
+  mealFormat(mealId, mealOptionName, mealOptionPrice) {
+    this.mealOptionData = {
       id: mealId,
-      name: mealName,
-      price: mealPrice,
+      name: mealOptionName,
+      price: mealOptionPrice,
+      selected: false,
     };
+    return this.mealOptionData;
   }
 }
 
 class Menu extends Meal {
-  constructor(menuName, menuTotal) {
+  constructor() {
     super();
     this.menuList = [];
-    this.menuFormat = {
+  }
+
+  calculateOptionTotal(optionArray) {
+    this.total = 0;
+    optionArray.forEach((option) => {
+      if (option.selected === true) {
+        this.total += option.price;
+      }
+    });
+    return this.total;
+  }
+
+  menuFormat(menuId, menuName, menuPrice) {
+    this.menuData = {
       date: new Date(),
+      id: menuId,
       name: menuName,
-      options: super.optionList,
-      total: menuTotal,
+      mealOptions: super.mealOptionList,
+      total: menuPrice + this.calculateOptionTotal(super.mealOptionList),
+      selected: false,
     };
+    return this.menuData;
   }
 }
 
+
 class Order extends Menu {
-  constructor(orderName, customerName, orderTotal, orderId) {
+  constructor() {
     super();
     this.orderList = [];
-    this.orderFormat = {
+  }
+
+  orderFormat(orderId, orderName, customerName) {
+    this.orderData = {
       id: orderId,
       name: orderName,
-      customer_name: customerName,
+      customer: customerName,
       menu: super.menuList,
-      total: orderTotal,
+      total: super.calculateOptionTotal(super.menuList),
     };
   }
 }

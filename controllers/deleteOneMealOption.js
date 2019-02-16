@@ -1,6 +1,6 @@
 // @ts-ignore
 import bookAmeal from './index';
 
-bookAmeal.deleteOne = async () => {};
+bookAmeal.deleteOneMealOption = async () => {};
 
-export default bookAmeal.deleteOne;
+export default bookAmeal.deleteOneMealOption;

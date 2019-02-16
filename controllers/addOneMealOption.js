@@ -1,6 +1,6 @@
 // @ts-ignore
-import bookAMeal from './index';
+import logic from './index';
 
-bookAMeal.addOne = async () => {};
+logic.addOneMealOption = async () => {};
 
-export default bookAMeal.addOne;
+export default logic.addOneMealOption;

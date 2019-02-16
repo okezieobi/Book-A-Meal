@@ -1,6 +1,6 @@
 // @ts-ignore
 import bookAMeal from './index';
 
-bookAMeal.getAll = async () => {};
+bookAMeal.getAllMealOptions = async () => {};
 
-export default bookAMeal.getAll;
+export default bookAMeal.getAllMealOptions;
