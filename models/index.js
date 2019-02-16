@@ -6,11 +6,11 @@ class Meal extends BookAMeal {
     this.mealOptionList = [];
   }
 
-  mealFormat(mealId, mealOptionName, mealOptionPrice) {
+  mealFormat(data) {
     this.mealOptionData = {
-      id: mealId,
-      name: mealOptionName,
-      price: mealOptionPrice,
+      id: data.mealId,
+      name: data.mealOptionName,
+      price: data.mealOptionPrice,
       selected: false,
     };
     return this.mealOptionData;
@@ -33,13 +33,13 @@ class Menu extends Meal {
     return this.total;
   }
 
-  menuFormat(menuId, menuName, menuPrice) {
+  menuFormat(data) {
     this.menuData = {
       date: new Date(),
-      id: menuId,
-      name: menuName,
+      id: data.menuId,
+      name: data.menuName,
       mealOptions: super.mealOptionList,
-      total: menuPrice + this.calculateOptionTotal(super.mealOptionList),
+      total: data.menuPrice + this.calculateOptionTotal(super.mealOptionList),
       selected: false,
     };
     return this.menuData;
@@ -53,11 +53,11 @@ class Order extends Menu {
     this.orderList = [];
   }
 
-  orderFormat(orderId, orderName, customerName) {
+  orderFormat(data) {
     this.orderData = {
-      id: orderId,
-      name: orderName,
-      customer: customerName,
+      id: data.orderId,
+      name: data.orderName,
+      customer: data.customerName,
       menu: super.menuList,
       total: super.calculateOptionTotal(super.menuList),
     };
