@@ -41,7 +41,6 @@ class Menu extends Meal {
       name: data.menuName,
       mealOptions: data.mealOptionList,
       total: data.menuPrice + this.calculateTotal(data.mealOptionList, super.mealOptionList),
-      selected: false,
     };
     return this.menuData;
   }
