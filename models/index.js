@@ -26,7 +26,7 @@ class Menu extends Meal {
     this.total = 0;
     optionOneArray.foreEach((optionOne) => {
       optionTwoArray.foreEach((optionTwo) => {
-        if (optionOne === optionTwo) {
+        if (optionOne.name === optionTwo.name) {
           this.total += (optionOne.price || optionTwo.price);
         }
       });
