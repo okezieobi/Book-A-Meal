@@ -1,5 +1,11 @@
 # Book-A-Meal
 
+# Responseive UI
+https://okezieobi.github.io/Book-A-Meal/UI/getSummary.html
+
+# Pivotal Tracker
+https://www.pivotaltracker.com/projects/2241542
+
 # Required Features
 1. Users can create an account and log in
 2. Admin (Caterer) should be able to manage (i.e: add, modify and delete) meal options in
