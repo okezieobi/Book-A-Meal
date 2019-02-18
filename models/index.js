@@ -23,12 +23,24 @@ class Menu extends Meal {
   }
 
 
-  calculateTotal(optionOneArray, optionTwoArray) {
+  totalMenuPrice(optionOneArray, optionTwoArray) {
     this.total = 0;
     optionOneArray.forEach((optionOne) => {
       optionTwoArray.forEach((optionTwo) => {
         if (optionOne === optionTwo.name) {
           this.total += optionTwo.price;
+        }
+      });
+    });
+    return this.total;
+  }
+
+  totalOrderPrice(optionOneArray, optionTwoArray) {
+    this.total = 0;
+    optionOneArray.forEach((optionOne) => {
+      optionTwoArray.forEach((optionTwo) => {
+        if (optionOne === optionTwo.name) {
+          this.total += optionTwo.total;
         }
       });
     });
@@ -41,7 +53,7 @@ class Menu extends Meal {
       id: data.menuId,
       name: data.menuName,
       mealOptions: data.menuOptions.split(' '),
-      total: data.menuPrice + this.calculateTotal(data.menuOptions.split(' '), this.mealOptionList),
+      total: data.menuPrice + this.totalMenuPrice(data.menuOptions.split(' '), this.mealOptionList),
     };
     return this.menuData;
   }
@@ -60,7 +72,7 @@ class Order extends Menu {
       name: data.orderName,
       customer: data.customerName,
       menu: data.menuList.split(' '),
-      total: this.calculateTotal(data.menuList.split(' '), this.menuList),
+      total: this.totalOrderPrice(data.menuList.split(' '), this.menuList),
     };
   }
 }
