@@ -53,7 +53,7 @@ class Menu extends Meal {
       id: data.menuId,
       name: data.menuName,
       mealOptions: data.menuOptions.split(' '),
-      total: data.menuPrice + this.totalMenuPrice(data.menuOptions.split(' '), this.mealOptionList),
+      total: this.totalMenuPrice(data.menuOptions.split(' '), this.mealOptionList),
     };
     return this.menuData;
   }
