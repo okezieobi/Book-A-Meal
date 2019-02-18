@@ -1,7 +1,7 @@
 # Book-A-Meal
 
 # Responseive UI
-https://okezieobi.github.io/Book-A-Meal/UI/getSummary.html
+https://okezieobi.github.io/Book-A-Meal/
 
 # Pivotal Tracker
 https://www.pivotaltracker.com/projects/2241542
