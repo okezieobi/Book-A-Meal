@@ -22,20 +22,7 @@ class Menu extends Meal {
     this.menuList = [];
   }
 
-
-  totalMenuPrice(optionOneArray, optionTwoArray) {
-    this.total = 0;
-    optionOneArray.forEach((optionOne) => {
-      optionTwoArray.forEach((optionTwo) => {
-        if (optionOne === optionTwo.name) {
-          this.total += optionTwo.price;
-        }
-      });
-    });
-    return this.total;
-  }
-
-  totalOrderPrice(optionOneArray, optionTwoArray) {
+  totalPrice(optionOneArray, optionTwoArray) {
     this.total = 0;
     optionOneArray.forEach((optionOne) => {
       optionTwoArray.forEach((optionTwo) => {
@@ -53,7 +40,7 @@ class Menu extends Meal {
       id: data.menuId,
       name: data.menuName,
       mealOptions: data.menuOptions.split(' '),
-      total: this.totalMenuPrice(data.menuOptions.split(' '), this.mealOptionList),
+      total: this.totalPrice(data.menuOptions.split(' '), this.mealOptionList),
     };
     return this.menuData;
   }
@@ -72,7 +59,7 @@ class Order extends Menu {
       name: data.orderName,
       customer: data.customerName,
       menu: data.menuList.split(' '),
-      total: this.totalOrderPrice(data.menuList.split(' '), this.menuList),
+      total: this.totalPrice(data.menuList.split(' '), this.menuList),
     };
   }
 }
