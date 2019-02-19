@@ -7,7 +7,6 @@ bookAMeal.setMenu = async (req, res) => {
     const {
       menuName,
       menuOptions,
-      menuPrice,
     } = req.body;
     if (!menuName || menuName === '') {
       res.status(400).send({
@@ -15,15 +14,7 @@ bookAMeal.setMenu = async (req, res) => {
       });
     } else if ((/^[A-Za-z]+$/).test(menuName) === false) {
       res.status(400).send({
-        message: 'Fail! Menu name must be letters',
-      });
-    } else if (!menuPrice || menuPrice === '') {
-      res.status(400).send({
-        message: 'Fail! Menu price is required',
-      });
-    } else if ((/^[0-9]+$/).test(menuPrice) === false) {
-      res.status(400).send({
-        message: 'Fail! Menu price must be numbers',
+        message: 'Fail! Menu name must be letters with no spacing',
       });
     } else if (!menuOptions) {
       res.status(400).send({
@@ -31,10 +22,10 @@ bookAMeal.setMenu = async (req, res) => {
       });
     } else if ((/^[A-Za-z\s]+$/).test(menuOptions) === false) {
       res.status(400).send({
-        message: 'Fail Menu options must be spaced with only commas',
+        message: 'Fail! Menu options must be letters and seperated by spaces',
       });
     } else {
-      req.body.menuId = data.meals.mealOptionList.length;
+      req.body.menuId = data.menus.menuList.length;
       const createdMenu = await data.menus.menuFormat(req.body);
       await data.menus.menuList.push(createdMenu);
       res.status(201).send({
