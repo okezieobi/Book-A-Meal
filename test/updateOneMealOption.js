@@ -30,10 +30,11 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const resData = response.body.data;
     expect(response).to.have.status(200);
     expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('data');
+    expect(response.body).to.have.property('message').equal('Meal option found! Meal option successfully updated');
     expect(resData).to.have.property('id').equal(testId);
     expect(resData).to.has.property('name').equal(testDataTwo.mealOptionName);
     expect(resData).to.has.property('price').equal(testDataTwo.mealOptionPrice);
-    expect(response.body).to.have.property('message').equal('Meal option found! Meal option successfully updated');
   });
 
   it('should ALSO update a meal option at "/v1/meals/:id" with PUT if all request parameters are valid and meal option does NOT exist', async () => {
@@ -46,10 +47,11 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const resData = response.body.data;
     expect(response).to.have.status(201);
     expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('data');
+    expect(response.body).to.have.property('message').equal('Meal option not found! Meal option successfully created');
     expect(resData).to.have.property('id').equal(resData.id);
     expect(resData).to.has.property('name').equal(testDataTwo.mealOptionName);
     expect(resData).to.has.property('price').equal(testDataTwo.mealOptionPrice);
-    expect(response.body).to.have.property('message').equal('Meal option not found! Meal option successfully created');
   });
 
   it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option name in request does not exist and meal option exists', async () => {
