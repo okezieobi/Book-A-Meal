@@ -60,6 +60,7 @@ class Order extends Menu {
       menu: data.menuList.split(' '),
       total: this.totalPrice(data.menuList.split(' '), this.menuList),
     };
+    return this.orderData;
   }
 }
 
