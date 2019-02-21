@@ -16,7 +16,7 @@ bookAMeal.setMenu = async (req, res) => {
       res.status(400).send({
         message: 'Fail! Menu name must be letters with no spacing',
       });
-    } else if (!menuOptions) {
+    } else if (!menuOptions || menuOptions === '') {
       res.status(400).send({
         message: 'Fail! Menu options are required',
       });

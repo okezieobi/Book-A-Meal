@@ -86,6 +86,17 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', () => {
     expect(response.body).to.have.property('message').equal('Fail! Menu options are required');
   });
 
+  it('should not create a menu at "/v1/menus" with POST if menu options in request is an empty string', async () => {
+    const testData = {
+      menuName: 'Launch',
+      menuOptions: '',
+    };
+    const response = await chai.request(app).post('/v1/menus').send(testData);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Menu options are required');
+  });
+
   it('should not create a menu at "/v1/menus" with POST if menu options in request are not letters', async () => {
     const testData = {
       menuName: 'Launch',
