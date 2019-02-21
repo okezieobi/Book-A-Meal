@@ -56,7 +56,6 @@ class Order extends Menu {
   orderFormat(data) {
     this.orderData = {
       id: data.orderId,
-      name: data.orderName,
       customer: data.customerName,
       menu: data.menuList.split(' '),
       total: this.totalPrice(data.menuList.split(' '), this.menuList),
