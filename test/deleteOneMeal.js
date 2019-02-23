@@ -4,6 +4,8 @@ import {
   chaiHttp,
   app,
   mealSetup,
+  menuSetup,
+  orderSetup,
 } from './index';
 
 chai.use(chaiHttp);
@@ -12,6 +14,8 @@ describe('Test endpoint at "/v1/meals/:id" to delete a meals option with DELETE'
   let testId = 0;
   before(() => {
     mealSetup.setUpMealData();
+    menuSetup.setupMenuData();
+    orderSetup.setupOrderData();
     testId += mealSetup.testId;
   });
 
