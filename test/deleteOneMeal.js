@@ -10,26 +10,15 @@ chai.use(chaiHttp);
 
 describe('Test endpoint at "/v1/meals/:id" to delete a meals option with DELETE', () => {
   let testId = 0;
+
   before(async () => {
-    const testDataOne = {
-      id: data.meals.mealOptionList.length,
+    const testData = {
+      id: 0,
       name: 'Dodo',
       price: 100,
     };
-    const testDataTwo = {
-      id: data.meals.mealOptionList.length,
-      name: 'Rice',
-      price: 1000,
-    };
-    const testDataThree = {
-      id: data.meals.mealOptionList.length,
-      name: 'Beans',
-      price: 10000,
-    };
-
-    const testDataList = [testDataOne, testDataTwo, testDataThree];
-    await data.meals.mealOptionList.push(...testDataList);
-    testId += testDataOne.id;
+    await data.meals.mealOptionList.push(testData);
+    testId += testData.id;
   });
 
   it('should delete a meal option at "/v1/meals/:id" with DELETE if meals option exists', async () => {
