@@ -3,30 +3,18 @@ import {
   chai,
   chaiHttp,
   app,
+  mealSetup,
+  menuSetup,
+  orderSetup,
 } from './index';
-import data from '../models';
 
 chai.use(chaiHttp);
 
 describe('Test endpoint at "/v1/menus" to set menus with POST', () => {
-  before(async () => {
-    const testDataOne = {
-      id: data.meals.mealOptionList.length,
-      name: 'Dodo',
-      price: 100,
-    };
-    const testDataTwo = {
-      id: data.meals.mealOptionList.length,
-      name: 'Rice',
-      price: 1000,
-    };
-    const testDataThree = {
-      id: data.meals.mealOptionList.length,
-      name: 'Beans',
-      price: 10000,
-    };
-    const testDataList = [testDataOne, testDataTwo, testDataThree];
-    await data.menus.mealOptionList.push(...testDataList);
+  before(() => {
+    mealSetup.setUpMealData();
+    menuSetup.setupMenuData();
+    orderSetup.setupOrderData();
   });
 
   it('should set a menu at "/v1/menus" with post if all request data are valid', async () => {
