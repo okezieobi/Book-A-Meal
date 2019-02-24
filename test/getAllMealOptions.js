@@ -3,18 +3,16 @@ import {
   chai,
   chaiHttp,
   app,
-  mealSetup,
-  menuSetup,
-  orderSetup,
+  dataSetup,
 } from './index';
 
 chai.use(chaiHttp);
 
 describe('Test endpoint at "/v1/meals" wih GET to retrieve all meal options', () => {
   before(() => {
-    mealSetup.setUpMealData();
-    menuSetup.setupMenuData();
-    orderSetup.setupOrderData();
+    dataSetup.meals();
+    dataSetup.menus();
+    dataSetup.orders();
   });
 
   it('should get all meal options at "/v1/meals" with GET', async () => {
