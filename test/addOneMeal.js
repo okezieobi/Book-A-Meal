@@ -3,18 +3,16 @@ import {
   chai,
   chaiHttp,
   app,
-  mealSetup,
-  menuSetup,
-  orderSetup,
+  dataSetup,
 } from './index';
 
 chai.use(chaiHttp);
 
 describe('Test endpoint at "/v1/meals" to create a meal option with POST', () => {
   before(() => {
-    mealSetup.setUpMealData();
-    menuSetup.setupMenuData();
-    orderSetup.setupOrderData();
+    dataSetup.meals();
+    dataSetup.menus();
+    dataSetup.orders();
   });
   it('should create a meal option at "/v1/meal" with post if all request data are valid', async () => {
     const testData = {
