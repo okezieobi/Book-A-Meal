@@ -9,7 +9,7 @@ bookAMeal.updateOneOrder = async (req, res) => {
     });
   } else if (!req.body.menuList || req.body.menuList === '' || (/^[A-Za-z\s]+$/).test(req.body.menuList) === false) {
     res.status(400).send({
-      message: 'Fail! Menu list is required Or must be letters and seperated by spaces',
+      message: 'Fail! Menu list must be letters and seperated by spaces Or is required',
     });
   } else {
     const find = data.orders.orderList.find(order => order.id === parseInt(req.params.id, 10));
