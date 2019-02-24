@@ -48,7 +48,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', (
     const response = await chai.request(app).put(`/v1/orders/${testOrderId}`).send(testData);
     expect(response).to.have.status(400);
     expect(response).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Customer name is required Or must be letters');
+    expect(response.body).to.have.property('message').equal('Fail! Customer name is required or must be letters');
   });
 
   it('should not update amenu order at "/v1/orders" with PUT if customer name and menu order do NOT exist', async () => {
@@ -60,7 +60,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', (
     const response = await chai.request(app).put(`/v1/orders/${wrongId}`).send(testData);
     expect(response).to.have.status(400);
     expect(response).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Customer name is required Or must be letters');
+    expect(response.body).to.have.property('message').equal('Fail! Customer name is required or must be letters');
   });
 
   it('should not update amenu order at "/v1/orders" with PUT if customer name is an empty string and menu order exists', async () => {
@@ -71,7 +71,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', (
     const response = await chai.request(app).put(`/v1/orders/${testOrderId}`).send(testData);
     expect(response).to.have.status(400);
     expect(response).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Customer name is required Or must be letters');
+    expect(response.body).to.have.property('message').equal('Fail! Customer name is required or must be letters');
   });
 
   it('should not update amenu order at "/v1/orders" with PUT if customer name is an empty string and menu order does not exist', async () => {
@@ -83,7 +83,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', (
     const response = await chai.request(app).put(`/v1/orders/${wrongId}`).send(testData);
     expect(response).to.have.status(400);
     expect(response).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Customer name is required Or must be letters');
+    expect(response.body).to.have.property('message').equal('Fail! Customer name is required or must be letters');
   });
 
   it('should not update amenu order at "/v1/orders" with PUT if customer name are not letters and menu order exists', async () => {
@@ -94,7 +94,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', (
     const response = await chai.request(app).put(`/v1/orders/${testOrderId}`).send(testData);
     expect(response).to.have.status(400);
     expect(response).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Customer name is required Or must be letters');
+    expect(response.body).to.have.property('message').equal('Fail! Customer name is required or must be letters');
   });
 
   it('should not update amenu order at "/v1/orders" with PUT if customer name are not letters and menu order does NOT exist', async () => {
@@ -106,7 +106,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', (
     const response = await chai.request(app).put(`/v1/orders/${wrongId}`).send(testData);
     expect(response).to.have.status(400);
     expect(response).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Customer name is required Or must be letters');
+    expect(response.body).to.have.property('message').equal('Fail! Customer name is required or must be letters');
   });
 
   it('should not update amenu order at "/v1/orders" with PUT if menu list does not exist and menu order exists', async () => {
@@ -116,7 +116,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', (
     const response = await chai.request(app).put(`/v1/orders/${testOrderId}`).send(testData);
     expect(response).to.have.status(400);
     expect(response).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces Or is required');
+    expect(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces or is required');
   });
 
   it('should not update amenu order at "/v1/orders" with PUT if menu list and menu order do not exist', async () => {
@@ -127,7 +127,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', (
     const response = await chai.request(app).put(`/v1/orders/${wrongId}`).send(testData);
     expect(response).to.have.status(400);
     expect(response).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces Or is required');
+    expect(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces or is required');
   });
 
   it('should not update amenu order at "/v1/orders" with PUT if menu list is an empty string and menu order exists', async () => {
@@ -138,7 +138,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', (
     const response = await chai.request(app).put(`/v1/orders/${testOrderId}`).send(testData);
     expect(response).to.have.status(400);
     expect(response).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces Or is required');
+    expect(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces or is required');
   });
 
   it('should not update amenu order at "/v1/orders" with PUT if menu list is an empty string and menu order does not exist', async () => {
@@ -150,7 +150,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', (
     const response = await chai.request(app).put(`/v1/orders/${wrongId}`).send(testData);
     expect(response).to.have.status(400);
     expect(response).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces Or is required');
+    expect(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces or is required');
   });
 
   it('should not update amenu order at "/v1/orders" with PUT if menu list are not letters and menu order exists', async () => {
@@ -161,7 +161,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', (
     const response = await chai.request(app).put(`/v1/orders/${testOrderId}`).send(testData);
     expect(response).to.have.status(400);
     expect(response).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces Or is required');
+    expect(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces or is required');
   });
 
   it('should not update amenu order at "/v1/orders" with PUT if menu list are not letters and menu order exists', async () => {
@@ -173,6 +173,6 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', (
     const response = await chai.request(app).put(`/v1/orders/${wrongId}`).send(testData);
     expect(response).to.have.status(400);
     expect(response).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces Or is required');
+    expect(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces or is required');
   });
 });
