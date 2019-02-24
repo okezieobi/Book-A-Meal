@@ -1,3 +1,9 @@
+/* eslint-disable import/first */
+/* eslint-disable no-multiple-empty-lines */
+/* eslint-disable import/no-duplicates */
+/* eslint-disable import/no-unresolved */
+// @ts-nocheck
+
 import chai, {
   expect,
 } from 'chai';
@@ -6,28 +12,26 @@ import app from '../index';
 
 import data from '../models';
 
-class BookAMealSetup {}
-
-class MealSetup extends BookAMealSetup {
-  async setUpMealData() {
+class Data {
+  async meals() {
     this.testId = 0;
     this.secondTestId = 0;
     this.thirdTestId = 0;
 
     this.testDataOne = {
       mealId: data.meals.mealOptionList.length,
-      mealName: 'Dodo',
-      mealPrice: 100,
+      mealOptionName: 'Dodo',
+      mealOptionPrice: 100,
     };
     this.testDataTwo = {
       mealId: data.meals.mealOptionList.length,
-      mealName: 'Rice',
-      mealPrice: 1000,
+      mealOptionName: 'Rice',
+      mealOptionPrice: 1000,
     };
     this.testDataThree = {
       mealId: data.meals.mealOptionList.length,
-      mealName: 'Beans',
-      mealPrice: 10000,
+      mealOptionName: 'Beans',
+      mealOptionPrice: 10000,
     };
 
     this.addMealOne = await data.meals.mealFormat(this.testDataOne);
@@ -39,10 +43,8 @@ class MealSetup extends BookAMealSetup {
     this.secondTestId += this.addMealTwo.id;
     this.thirdTestId += this.addMealThree.id;
   }
-}
 
-class MenuSetup extends MealSetup {
-  async setupMenuData() {
+  async menus() {
     this.testId = 0;
     this.secondTestId = 0;
     this.thirdTestId = 0;
@@ -72,10 +74,8 @@ class MenuSetup extends MealSetup {
     this.secondTestId += this.addTwo.id;
     this.thirdTestId += this.addThree.id;
   }
-}
 
-class OrderSetup extends MenuSetup {
-  async setupOrderData() {
+  async orders() {
     this.testId = 0;
     this.secondTestId = 0;
     this.thirdTestId = 0;
@@ -107,16 +107,12 @@ class OrderSetup extends MenuSetup {
   }
 }
 
-const mealSetup = new MealSetup();
-const menuSetup = new MenuSetup();
-const orderSetup = new OrderSetup();
+const dataSetup = new Data();
 
 export {
   expect,
   chai,
   chaiHttp,
   app,
-  mealSetup,
-  menuSetup,
-  orderSetup,
+  dataSetup,
 };

@@ -3,9 +3,7 @@ import {
   chai,
   chaiHttp,
   app,
-  mealSetup,
-  menuSetup,
-  orderSetup,
+  dataSetup,
 } from './index';
 
 chai.use(chaiHttp);
@@ -13,10 +11,10 @@ chai.use(chaiHttp);
 describe('Test endpoint at "/v1/meals/:id" to delete a meals option with DELETE', () => {
   let testId = 0;
   before(() => {
-    mealSetup.setUpMealData();
-    menuSetup.setupMenuData();
-    orderSetup.setupOrderData();
-    testId += mealSetup.testId;
+    dataSetup.meals();
+    dataSetup.menus();
+    dataSetup.orders();
+    testId += dataSetup.testId;
   });
 
   it('should delete a meal option at "/v1/meals/:id" with DELETE if meals option exists', async () => {
