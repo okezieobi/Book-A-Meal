@@ -3,22 +3,20 @@ import {
   chai,
   chaiHttp,
   app,
+  mealSetup,
+  menuSetup,
+  orderSetup,
 } from './index';
-import data from '../models';
 
 chai.use(chaiHttp);
 
 describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option with PUT', () => {
   let testId = 0;
-
-  before(async () => {
-    const testDataOne = {
-      id: 0,
-      name: 'Dodo',
-      price: 100,
-    };
-    await data.meals.mealOptionList.push(testDataOne);
-    testId += testDataOne.id;
+  before(() => {
+    mealSetup.setUpMealData();
+    menuSetup.setupMenuData();
+    orderSetup.setupOrderData();
+    testId += mealSetup.testId;
   });
 
   it('should update a meal option at "/v1/meals/:id" with PUT if all request parameters are valid and meal option exists', async () => {
