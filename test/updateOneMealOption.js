@@ -3,9 +3,7 @@ import {
   chai,
   chaiHttp,
   app,
-  mealSetup,
-  menuSetup,
-  orderSetup,
+  dataSetup,
 } from './index';
 
 chai.use(chaiHttp);
@@ -13,10 +11,10 @@ chai.use(chaiHttp);
 describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option with PUT', () => {
   let testId = 0;
   before(() => {
-    mealSetup.setUpMealData();
-    menuSetup.setupMenuData();
-    orderSetup.setupOrderData();
-    testId += mealSetup.testId;
+    dataSetup.meals();
+    dataSetup.menus();
+    dataSetup.orders();
+    testId += dataSetup.testId;
   });
 
   it('should update a meal option at "/v1/meals/:id" with PUT if all request parameters are valid and meal option exists', async () => {
