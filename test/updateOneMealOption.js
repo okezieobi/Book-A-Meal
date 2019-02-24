@@ -23,14 +23,9 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       mealOptionPrice: 100,
     };
     const response = await chai.request(app).put(`/v1/meals/${testId}`).send(testDataTwo);
-    const resData = response.body.data;
     expect(response).to.have.status(200);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('data');
     expect(response.body).to.have.property('message').equal('Meal option found! Meal option successfully updated');
-    expect(resData).to.have.property('id').equal(testId);
-    expect(resData).to.has.property('name').equal(testDataTwo.mealOptionName);
-    expect(resData).to.has.property('price').equal(testDataTwo.mealOptionPrice);
   });
 
   it('should ALSO update a meal option at "/v1/meals/:id" with PUT if all request parameters are valid and meal option does NOT exist', async () => {
@@ -40,14 +35,9 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       mealOptionPrice: 100,
     };
     const response = await chai.request(app).put(`/v1/meals/${wrongId}`).send(testDataTwo);
-    const resData = response.body.data;
     expect(response).to.have.status(201);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('data');
     expect(response.body).to.have.property('message').equal('Meal option not found! Meal option successfully created');
-    expect(resData).to.have.property('id').equal(resData.id);
-    expect(resData).to.has.property('name').equal(testDataTwo.mealOptionName);
-    expect(resData).to.has.property('price').equal(testDataTwo.mealOptionPrice);
   });
 
   it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option name in request does not exist and meal option exists', async () => {
@@ -57,7 +47,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const response = await chai.request(app).put(`/v1/meals/${testId}`).send(testDataTwo);
     expect(response).to.have.status(400);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! meal option name is required');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option name is required OR must be letters');
   });
 
   it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option name in request does not exist and meal option does NOT exist', async () => {
@@ -68,7 +58,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const response = await chai.request(app).put(`/v1/meals/${wrongId}`).send(testDataTwo);
     expect(response).to.have.status(400);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! meal option name is required');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option name is required OR must be letters');
   });
 
   it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option name in request is an empty string and meal option exists', async () => {
@@ -79,7 +69,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const response = await chai.request(app).put(`/v1/meals/${testId}`).send(testDataTwo);
     expect(response).to.have.status(400);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! meal option name is required');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option name is required OR must be letters');
   });
 
   it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option name in request is an empty string and meal option does NOT exist', async () => {
@@ -91,7 +81,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const response = await chai.request(app).put(`/v1/meals/${wrongId}`).send(testDataTwo);
     expect(response).to.have.status(400);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! meal option name is required');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option name is required OR must be letters');
   });
 
   it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option name in request are NOT letters and meal option exists', async () => {
@@ -102,7 +92,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const response = await chai.request(app).put(`/v1/meals/${testId}`).send(testDataTwo);
     expect(response).to.have.status(400);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Meal option name must be letters');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option name is required OR must be letters');
   });
 
   it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option name in request are NOT letters and meal option does NOT exist', async () => {
@@ -114,7 +104,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const response = await chai.request(app).put(`/v1/meals/${wrongId}`).send(testDataTwo);
     expect(response).to.have.status(400);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Meal option name must be letters');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option name is required OR must be letters');
   });
 
   it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option price in request does not exist and meal option exists', async () => {
@@ -124,7 +114,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const response = await chai.request(app).put(`/v1/meals/${testId}`).send(testDataTwo);
     expect(response).to.have.status(400);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required OR must be numbers');
   });
 
   it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option price in request does not exist and meal option does NOT exist', async () => {
@@ -135,7 +125,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const response = await chai.request(app).put(`/v1/meals/${wrongId}`).send(testDataTwo);
     expect(response).to.have.status(400);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required OR must be numbers');
   });
 
   it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option price in request is an empty string and meal option exists', async () => {
@@ -146,7 +136,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const response = await chai.request(app).put(`/v1/meals/${testId}`).send(testDataTwo);
     expect(response).to.have.status(400);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required OR must be numbers');
   });
 
   it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option price in request is an empty string and meal option does NOT exist', async () => {
@@ -158,7 +148,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const response = await chai.request(app).put(`/v1/meals/${wrongId}`).send(testDataTwo);
     expect(response).to.have.status(400);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required OR must be numbers');
   });
 
   it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option price in request are NOT numbers and meal option exists', async () => {
@@ -169,7 +159,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const response = await chai.request(app).put(`/v1/meals/${testId}`).send(testDataTwo);
     expect(response).to.have.status(400);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Meal option price must be numbers');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required OR must be numbers');
   });
 
   it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option price in request are NOT numbers and meal option does NOT exist', async () => {
@@ -181,6 +171,6 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
     const response = await chai.request(app).put(`/v1/meals/${wrongId}`).send(testDataTwo);
     expect(response).to.have.status(400);
     expect(response.body).to.be.an('object');
-    expect(response.body).to.have.property('message').equal('Fail! Meal option price must be numbers');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required OR must be numbers');
   });
 });
