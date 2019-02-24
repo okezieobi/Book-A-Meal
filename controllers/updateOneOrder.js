@@ -3,50 +3,29 @@ import data from '../models';
 import bookAMeal from './index';
 
 bookAMeal.updateOneOrder = async (req, res) => {
-  try {
-    const {
-      customerName,
-      menuList,
-    } = req.body;
-    const id = parseInt(req.params.id, 10);
-    if (!customerName || customerName === '') {
-      res.status(400).send({
-        message: 'Fail! Customer name is required',
-      });
-    } else if ((/^[A-Za-z]+$/).test(customerName) === false) {
-      res.status(400).send({
-        message: 'Fail! Customer name must be letters',
-      });
-    } else if (!menuList || menuList === '') {
-      res.status(400).send({
-        message: 'Fail! Menu list is required',
-      });
-    } else if ((/^[A-Za-z\s]+$/).test(menuList) === false) {
-      res.status(400).send({
-        message: 'Fail! Menu list must be letters and seperated by spaces',
+  if (!req.body.customerName || req.body.customerName === '' || (/^[A-Za-z]+$/).test(req.body.customerName) === false) {
+    res.status(400).send({
+      message: 'Fail! Customer name is required Or must be letters',
+    });
+  } else if (!req.body.menuList || req.body.menuList === '' || (/^[A-Za-z\s]+$/).test(req.body.menuList) === false) {
+    res.status(400).send({
+      message: 'Fail! Menu list is required Or must be letters and seperated by spaces',
+    });
+  } else {
+    const find = data.orders.orderList.find(order => order.id === parseInt(req.params.id, 10));
+    if (!find) {
+      req.body.orderId = data.orders.orderList.length;
+      await data.orders.orderList.push(await data.orders.orderFormat(req.body));
+      res.status(201).send({
+        message: 'Menu order not found, menu order successfully created',
       });
     } else {
-      const findOrder = data.orders.orderList.find(order => order.id === id);
-      if (!findOrder) {
-        req.body.orderId = data.orders.orderList.length;
-        const createdOrder = await data.orders.orderFormat(req.body);
-        await data.orders.orderList.push(createdOrder);
-        res.status(201).send({
-          message: 'Menu order not found, menu order successfully created',
-          data: createdOrder,
-        });
-      } else {
-        req.body.orderId = findOrder.id;
-        const updatedOrder = await data.orders.orderFormat(req.body);
-        await data.orders.orderList.splice(findOrder.id, 1, updatedOrder);
-        res.status(200).send({
-          message: 'Menu order found, menu order successfully updated',
-          data: updatedOrder,
-        });
-      }
+      req.body.orderId = find.id;
+      await data.orders.orderList.splice(find.id, 1, await data.orders.orderFormat(req.body));
+      res.status(200).send({
+        message: 'Menu order found, menu order successfully updated',
+      });
     }
-  } catch (err) {
-    throw err;
   }
 };
 
