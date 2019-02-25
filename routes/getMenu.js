@@ -1,6 +1,6 @@
 import getMenu from '../controllers/getMenu';
 import router from './router';
 
-router.get('/menu', getMenu);
+router.get('/menus', getMenu);
 
 export default router;
