@@ -1,6 +1,6 @@
 import selectOneMeal from '../controllers/selectOneMeal';
 import router from './router';
 
-router.get('/orders', selectOneMeal);
+router.post('/orders', selectOneMeal);
 
 export default router;
