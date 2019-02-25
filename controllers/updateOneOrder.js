@@ -1,31 +1,30 @@
 import data from '../models';
+import services from '../services';
 // @ts-ignore
 import bookAMeal from './index';
 
 bookAMeal.updateOneOrder = async (req, res) => {
-  if (!req.body.customerName || req.body.customerName === '' || (/^[A-Za-z]+$/).test(req.body.customerName) === false) {
-    res.status(400).send({
-      message: 'Fail! Customer name is required Or must be letters',
-    });
-  } else if (!req.body.menuList || req.body.menuList === '' || (/^[A-Za-z\s]+$/).test(req.body.menuList) === false) {
-    res.status(400).send({
-      message: 'Fail! Menu list must be letters and seperated by spaces Or is required',
-    });
-  } else {
-    const find = data.orders.orderList.find(order => order.id === parseInt(req.params.id, 10));
-    if (!find) {
-      req.body.orderId = data.orders.orderList.length;
-      await data.orders.orderList.push(await data.orders.orderFormat(req.body));
-      res.status(201).send({
-        message: 'Menu order not found, menu order successfully created',
-      });
+  try {
+    if (!req.body.customerName || req.body.customerName === '') {
+      res.status(400).send(services.orderErrOne);
+    } else if ((/^[A-Za-z]+$/).test(req.body.customerName) === false) {
+      res.status(400).send(services.orderErrTwo);
+    } else if (!req.body.menuList || req.body.menuList === '') {
+      res.status(400).send(services.orderErrThree);
+    } else if ((/^[A-Za-z\s]+$/).test(req.body.menuList) === false) {
+      res.status(400).send(services.orderErrFour);
     } else {
-      req.body.orderId = find.id;
-      await data.orders.orderList.splice(find.id, 1, await data.orders.orderFormat(req.body));
-      res.status(200).send({
-        message: 'Menu order found, menu order successfully updated',
-      });
+      const findOrder = services.findOrder(req.params);
+      if (!findOrder) {
+        req.body.orderId = data.orders.orderList.length;
+        services.createOrders(req, res);
+      } else {
+        req.body.orderId = findOrder.id;
+        services.updateOrders(req, res);
+      }
     }
+  } catch (err) {
+    throw err;
   }
 };
 
