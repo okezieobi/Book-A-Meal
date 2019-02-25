@@ -1,26 +1,28 @@
 import data from '../models';
-import services from '../services';
+import {
+  orderServices,
+} from '../services';
 // @ts-ignore
 import bookAMeal from './index';
 
 bookAMeal.updateOneOrder = async (req, res) => {
   try {
     if (!req.body.customerName || req.body.customerName === '') {
-      res.status(400).send(services.orderErrOne);
+      res.status(400).send(orderServices.orderErrOne);
     } else if ((/^[A-Za-z]+$/).test(req.body.customerName) === false) {
-      res.status(400).send(services.orderErrTwo);
+      res.status(400).send(orderServices.orderErrTwo);
     } else if (!req.body.menuList || req.body.menuList === '') {
-      res.status(400).send(services.orderErrThree);
+      res.status(400).send(orderServices.orderErrThree);
     } else if ((/^[A-Za-z\s]+$/).test(req.body.menuList) === false) {
-      res.status(400).send(services.orderErrFour);
+      res.status(400).send(orderServices.orderErrFour);
     } else {
-      const findOrder = services.findOrder(req.params);
+      const findOrder = orderServices.findOrder(req.params);
       if (!findOrder) {
         req.body.orderId = data.orders.orderList.length;
-        services.createOrders(req, res);
+        orderServices.createOrder(req, res);
       } else {
         req.body.orderId = findOrder.id;
-        services.updateOrders(req, res);
+        orderServices.updateOrder(req, res);
       }
     }
   } catch (err) {
