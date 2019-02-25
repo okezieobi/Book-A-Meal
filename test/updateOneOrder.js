@@ -27,6 +27,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', (
     expect(response).to.have.status(200);
     expect(response).to.be.an('object');
     expect(response.body).to.have.property('data');
+    expect(response.body).to.have.property('message').equal('Menu order found, menu order successfully updated');
     expect(response.body.data).to.have.property('id');
     expect(response.body.data).to.have.property('customer').equal(testData.customerName);
     expect(response.body.data).to.has.property('total');

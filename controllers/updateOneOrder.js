@@ -16,13 +16,13 @@ bookAMeal.updateOneOrder = async (req, res) => {
     } else if ((/^[A-Za-z\s]+$/).test(req.body.menuList) === false) {
       res.status(400).send(orderServices.orderErrFour);
     } else {
-      const findOrder = orderServices.findOrder(req.params);
+      const findOrder = orderServices.findOne(req.params, data.orders.orderList);
       if (!findOrder) {
         req.body.orderId = data.orders.orderList.length;
-        orderServices.createOrder(req, res);
+        orderServices.createOne(res, data.orders.orderList, data.orders.orderFormat(req.body), 'Menu order not found, menu order successfully created');
       } else {
         req.body.orderId = findOrder.id;
-        orderServices.updateOrder(req, res);
+        orderServices.updateOne(res, data.orders.orderList, data.orders.orderFormat(req.body), 'Menu order found, menu order successfully updated');
       }
     }
   } catch (err) {
