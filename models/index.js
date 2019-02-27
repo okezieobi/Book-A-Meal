@@ -94,10 +94,6 @@ class Data extends Order {
   }
 
   async menus() {
-    this.testId = 0;
-    this.secondTestId = 0;
-    this.thirdTestId = 0;
-
     this.testDataFour = {
       menuId: this.menuList.length,
       menuName: 'Launch',
@@ -122,10 +118,6 @@ class Data extends Order {
   }
 
   async orders() {
-    this.testId = 0;
-    this.secondTestId = 0;
-    this.thirdTestId = 0;
-
     this.testDataSeven = {
       orderId: this.orderList.length,
       customerName: 'Okezie',
