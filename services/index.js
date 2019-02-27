@@ -50,7 +50,7 @@ class Services {
     return this.message;
   }
 
-  mustBeNummbersErr(price) {
+  mustBeNumbersErr(price) {
     this.message = {
       message: `Fail! ${price} must be numbers`,
     };
@@ -62,6 +62,13 @@ class Services {
       message: `Fail! ${name} must be letters and seperated by spaces`,
     };
     return this.message;
+  }
+
+  setupData(arrayData, makeData) {
+    if (arrayData === []) {
+      this.data = makeData;
+    }
+    return this.data;
   }
 }
 
