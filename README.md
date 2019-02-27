@@ -24,3 +24,6 @@ select an option out of the menu.
 the day has been set.
 3. Admin (Caterer) should be able to see order history
 4. The application should be able to host more than one caterer.
+
+TravisCI
+Develop [![Build Status](https://travis-ci.com/okezieobi/Book-A-Meal.svg?branch=develop-%23163671470)](https://travis-ci.com/okezieobi/Book-A-Meal)
