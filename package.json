@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "views": " browser-sync -s -w --ignore book-a-meal-sample-files",
-    "start": "nodemon index.js --exec babel-node --presets env",
-    "release": "npm run clean && npm run build && npm run serve",
+    "dev": "nodemon index.js --exec babel-node --presets env",
+    "start": "npm run clean && npm run build && npm run serve",
     "clean": "rm -rf dist && mkdir dist",
     "build": "babel . -s -D -d dist --presets env --ignore node_modules",
     "serve": "node dist/index.js",
