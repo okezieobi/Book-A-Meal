@@ -1,4 +1,4 @@
-import setMenu from '../controllers/setMenu';
+import setMenu from '../controllers/setMenus';
 import router from './router';
 
 router.post('/menus', setMenu);

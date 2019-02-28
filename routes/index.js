@@ -1,21 +1,23 @@
-import addOneMealRouter from './addOneMealOption';
-import deleteOneMealRouter from './deleteOneMealOption';
-import getAllMealsRouter from './getAllMealOptions';
-import updateOneMealRouter from './updateOneMealOption';
-import setMenuRouer from './setMenu';
-import getMenuRouter from './getMenu';
-import getAllOrdersRouter from './getAllOrders';
-import selectOneMeal from './selectMenuOption';
-import updateOneOrderRouter from './updateOneOrder';
+import addOneMealRouter from './addMeal';
+import deleteOneMealRouter from './deleteMeal';
+import getAllMealsRouter from './getMeals';
+import updateOneMealRouter from './updateMeal';
+import setMenuRouter from './setMenus';
+import getMenuRouter from './getMenus';
+import getAllOrdersRouter from './getOrders';
+import makeOrder from './makeOrder';
+import updateOneOrderRouter from './updateOrder';
+
+const versionNumber = '/v1';
 
 export default (app) => {
-  app.use('/v1', addOneMealRouter);
-  app.use('/v1', deleteOneMealRouter);
-  app.use('/v1', getAllMealsRouter);
-  app.use('/v1', updateOneMealRouter);
-  app.use('/v1', setMenuRouer);
-  app.use('/v1', getMenuRouter);
-  app.use('/v1', getAllOrdersRouter);
-  app.use('/v1', selectOneMeal);
-  app.use('/v1', updateOneOrderRouter);
+  app.use(versionNumber, addOneMealRouter);
+  app.use(versionNumber, deleteOneMealRouter);
+  app.use(versionNumber, getAllMealsRouter);
+  app.use(versionNumber, updateOneMealRouter);
+  app.use(versionNumber, setMenuRouter);
+  app.use(versionNumber, getMenuRouter);
+  app.use(versionNumber, getAllOrdersRouter);
+  app.use(versionNumber, makeOrder);
+  app.use(versionNumber, updateOneOrderRouter);
 };
