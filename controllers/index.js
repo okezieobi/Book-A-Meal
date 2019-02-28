@@ -7,14 +7,6 @@ class BookAMeal {
     });
   }
 
-  async getOne(dataRes, dataMessage, foundData) {
-    this.data = foundData;
-    dataRes.status(200).send({
-      message: dataMessage,
-      data: this.data,
-    });
-  }
-
   findOne(dataParams, arrayData) {
     this.findItem = arrayData.find(item => item.id === parseInt(dataParams.id, 10));
     return this.findItem;
