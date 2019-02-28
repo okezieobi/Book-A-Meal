@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../routes/getMeals.js"],"names":["router","get","getMeals"],"mappings":";;;;;;;AAAA;;AACA;;;;AAEAA,gBAAOC,GAAP,CAAW,QAAX,EAAqBC,iBAArB;;eAEeF,e","sourcesContent":["import getMeals from '../controllers/getMeals';\nimport router from './router';\n\nrouter.get('/meals', getMeals);\n\nexport default router;\n"],"file":"getMeals.js"}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../routes/getOrders.js"],"names":["router","get","getOrders"],"mappings":";;;;;;;AAAA;;AACA;;;;AAEAA,gBAAOC,GAAP,CAAW,SAAX,EAAsBC,kBAAtB;;eAEeF,e","sourcesContent":["import getOrders from '../controllers/getOrders';\nimport router from './router';\n\nrouter.get('/orders', getOrders);\n\nexport default router;\n"],"file":"getOrders.js"}

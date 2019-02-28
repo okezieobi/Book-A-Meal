@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../routes/updateOrder.js"],"names":["router","put","updateOrder"],"mappings":";;;;;;;AAAA;;AACA;;;;AAEAA,gBAAOC,GAAP,CAAW,aAAX,EAA0BC,oBAA1B;;eAEeF,e","sourcesContent":["import updateOrder from '../controllers/updateOrder';\nimport router from './router';\n\nrouter.put('/orders/:id', updateOrder);\n\nexport default router;\n"],"file":"updateOrder.js"}

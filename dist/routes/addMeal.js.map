@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../routes/addMeal.js"],"names":["router","post","addMeal"],"mappings":";;;;;;;AAAA;;AACA;;;;AAEAA,gBAAOC,IAAP,CAAY,QAAZ,EAAsBC,gBAAtB;;eAEeF,e","sourcesContent":["import addMeal from '../controllers/addMeal';\nimport router from './router';\n\nrouter.post('/meals', addMeal);\n\nexport default router;\n"],"file":"addMeal.js"}

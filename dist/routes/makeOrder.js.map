@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../routes/makeOrder.js"],"names":["router","post","makeOrder"],"mappings":";;;;;;;AAAA;;AACA;;;;AAEAA,gBAAOC,IAAP,CAAY,SAAZ,EAAuBC,kBAAvB;;eAEeF,e","sourcesContent":["import makeOrder from '../controllers/makeOrder';\nimport router from './router';\n\nrouter.post('/orders', makeOrder);\n\nexport default router;\n"],"file":"makeOrder.js"}

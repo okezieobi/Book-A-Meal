@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../routes/updateMeal.js"],"names":["router","put","updateMeal"],"mappings":";;;;;;;AAAA;;AACA;;;;AAEAA,gBAAOC,GAAP,CAAW,YAAX,EAAyBC,mBAAzB;;eAEeF,e","sourcesContent":["import updateMeal from '../controllers/updateMeal';\nimport router from './router';\n\nrouter.put('/meals/:id', updateMeal);\n\nexport default router;\n"],"file":"updateMeal.js"}

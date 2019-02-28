@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../routes/deleteMeal.js"],"names":["router","delete","deleteMeal"],"mappings":";;;;;;;AAAA;;AACA;;;;AAEAA,gBAAOC,MAAP,CAAc,YAAd,EAA4BC,mBAA5B;;eAEeF,e","sourcesContent":["import deleteMeal from '../controllers/deleteMeal';\nimport router from './router';\n\nrouter.delete('/meals/:id', deleteMeal);\n\nexport default router;\n"],"file":"deleteMeal.js"}

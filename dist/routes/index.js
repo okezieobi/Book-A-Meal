@@ -5,36 +5,38 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _addOneMealOption = _interopRequireDefault(require("./addOneMealOption"));
+var _addMeal = _interopRequireDefault(require("./addMeal"));
 
-var _deleteOneMealOption = _interopRequireDefault(require("./deleteOneMealOption"));
+var _deleteMeal = _interopRequireDefault(require("./deleteMeal"));
 
-var _getAllMealOptions = _interopRequireDefault(require("./getAllMealOptions"));
+var _getMeals = _interopRequireDefault(require("./getMeals"));
 
-var _updateOneMealOption = _interopRequireDefault(require("./updateOneMealOption"));
+var _updateMeal = _interopRequireDefault(require("./updateMeal"));
 
-var _setMenu = _interopRequireDefault(require("./setMenu"));
+var _setMenus = _interopRequireDefault(require("./setMenus"));
 
-var _getMenu = _interopRequireDefault(require("./getMenu"));
+var _getMenus = _interopRequireDefault(require("./getMenus"));
 
-var _getAllOrders = _interopRequireDefault(require("./getAllOrders"));
+var _getOrders = _interopRequireDefault(require("./getOrders"));
 
-var _selectMenuOption = _interopRequireDefault(require("./selectMenuOption"));
+var _makeOrder = _interopRequireDefault(require("./makeOrder"));
 
-var _updateOneOrder = _interopRequireDefault(require("./updateOneOrder"));
+var _updateOrder = _interopRequireDefault(require("./updateOrder"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var versionNumber = '/v1';
+
 var _default = function _default(app) {
-  app.use('/v1', _addOneMealOption.default);
-  app.use('/v1', _deleteOneMealOption.default);
-  app.use('/v1', _getAllMealOptions.default);
-  app.use('/v1', _updateOneMealOption.default);
-  app.use('/v1', _setMenu.default);
-  app.use('/v1', _getMenu.default);
-  app.use('/v1', _getAllOrders.default);
-  app.use('/v1', _selectMenuOption.default);
-  app.use('/v1', _updateOneOrder.default);
+  app.use(versionNumber, _addMeal.default);
+  app.use(versionNumber, _deleteMeal.default);
+  app.use(versionNumber, _getMeals.default);
+  app.use(versionNumber, _updateMeal.default);
+  app.use(versionNumber, _setMenus.default);
+  app.use(versionNumber, _getMenus.default);
+  app.use(versionNumber, _getOrders.default);
+  app.use(versionNumber, _makeOrder.default);
+  app.use(versionNumber, _updateOrder.default);
 };
 
 exports.default = _default;
