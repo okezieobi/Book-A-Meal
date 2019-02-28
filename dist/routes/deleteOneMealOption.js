@@ -1,20 +1,18 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _deleteOneMealOption = require('../controllers/deleteOneMealOption');
+var _deleteOneMealOption = _interopRequireDefault(require("../controllers/deleteOneMealOption"));
 
-var _deleteOneMealOption2 = _interopRequireDefault(_deleteOneMealOption);
-
-var _router = require('./router');
-
-var _router2 = _interopRequireDefault(_router);
+var _router = _interopRequireDefault(require("./router"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_router2.default.delete('/meals/:id', _deleteOneMealOption2.default);
+_router.default.delete('/meals/:id', _deleteOneMealOption.default);
 
-exports.default = _router2.default;
+var _default = _router.default;
+exports.default = _default;
 //# sourceMappingURL=deleteOneMealOption.js.map

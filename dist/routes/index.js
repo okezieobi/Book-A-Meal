@@ -1,56 +1,41 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _addOneMealOption = require('./addOneMealOption');
+var _addOneMealOption = _interopRequireDefault(require("./addOneMealOption"));
 
-var _addOneMealOption2 = _interopRequireDefault(_addOneMealOption);
+var _deleteOneMealOption = _interopRequireDefault(require("./deleteOneMealOption"));
 
-var _deleteOneMealOption = require('./deleteOneMealOption');
+var _getAllMealOptions = _interopRequireDefault(require("./getAllMealOptions"));
 
-var _deleteOneMealOption2 = _interopRequireDefault(_deleteOneMealOption);
+var _updateOneMealOption = _interopRequireDefault(require("./updateOneMealOption"));
 
-var _getAllMealOptions = require('./getAllMealOptions');
+var _setMenu = _interopRequireDefault(require("./setMenu"));
 
-var _getAllMealOptions2 = _interopRequireDefault(_getAllMealOptions);
+var _getMenu = _interopRequireDefault(require("./getMenu"));
 
-var _updateOneMealOption = require('./updateOneMealOption');
+var _getAllOrders = _interopRequireDefault(require("./getAllOrders"));
 
-var _updateOneMealOption2 = _interopRequireDefault(_updateOneMealOption);
+var _selectMenuOption = _interopRequireDefault(require("./selectMenuOption"));
 
-var _setMenu = require('./setMenu');
-
-var _setMenu2 = _interopRequireDefault(_setMenu);
-
-var _getMenu = require('./getMenu');
-
-var _getMenu2 = _interopRequireDefault(_getMenu);
-
-var _getAllOrders = require('./getAllOrders');
-
-var _getAllOrders2 = _interopRequireDefault(_getAllOrders);
-
-var _selectMenuOption = require('./selectMenuOption');
-
-var _selectMenuOption2 = _interopRequireDefault(_selectMenuOption);
-
-var _updateOneOrder = require('./updateOneOrder');
-
-var _updateOneOrder2 = _interopRequireDefault(_updateOneOrder);
+var _updateOneOrder = _interopRequireDefault(require("./updateOneOrder"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (app) {
-  app.use('/v1', _addOneMealOption2.default);
-  app.use('/v1', _deleteOneMealOption2.default);
-  app.use('/v1', _getAllMealOptions2.default);
-  app.use('/v1', _updateOneMealOption2.default);
-  app.use('/v1', _setMenu2.default);
-  app.use('/v1', _getMenu2.default);
-  app.use('/v1', _getAllOrders2.default);
-  app.use('/v1', _selectMenuOption2.default);
-  app.use('/v1', _updateOneOrder2.default);
+var _default = function _default(app) {
+  app.use('/v1', _addOneMealOption.default);
+  app.use('/v1', _deleteOneMealOption.default);
+  app.use('/v1', _getAllMealOptions.default);
+  app.use('/v1', _updateOneMealOption.default);
+  app.use('/v1', _setMenu.default);
+  app.use('/v1', _getMenu.default);
+  app.use('/v1', _getAllOrders.default);
+  app.use('/v1', _selectMenuOption.default);
+  app.use('/v1', _updateOneOrder.default);
 };
+
+exports.default = _default;
 //# sourceMappingURL=index.js.map

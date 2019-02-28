@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -11,6 +12,6 @@ var BookAMeal = function BookAMeal() {
 };
 
 var bookAMeal = new BookAMeal();
-
-exports.default = bookAMeal;
+var _default = bookAMeal;
+exports.default = _default;
 //# sourceMappingURL=index.js.map

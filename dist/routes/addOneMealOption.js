@@ -1,20 +1,18 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _addOneMealOption = require('../controllers/addOneMealOption');
+var _addOneMealOption = _interopRequireDefault(require("../controllers/addOneMealOption"));
 
-var _addOneMealOption2 = _interopRequireDefault(_addOneMealOption);
-
-var _router = require('./router');
-
-var _router2 = _interopRequireDefault(_router);
+var _router = _interopRequireDefault(require("./router"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_router2.default.post('/meals', _addOneMealOption2.default);
+_router.default.post('/meals', _addOneMealOption.default);
 
-exports.default = _router2.default;
+var _default = _router.default;
+exports.default = _default;
 //# sourceMappingURL=addOneMealOption.js.map

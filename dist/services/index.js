@@ -3,14 +3,21 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Services = function () {
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Services =
+/*#__PURE__*/
+function () {
   function Services() {
     _classCallCheck(this, Services);
   }
@@ -18,7 +25,9 @@ var Services = function () {
   _createClass(Services, [{
     key: "getAll",
     value: function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dataRes, dataMessage, array) {
+      var _getAll = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee(dataRes, dataMessage, array) {
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -38,7 +47,7 @@ var Services = function () {
       }));
 
       function getAll(_x, _x2, _x3) {
-        return _ref.apply(this, arguments);
+        return _getAll.apply(this, arguments);
       }
 
       return getAll;
@@ -54,7 +63,9 @@ var Services = function () {
   }, {
     key: "createOne",
     value: function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dataRes, arrayData, dataFormat, dataMessage) {
+      var _createOne = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee2(dataRes, arrayData, dataFormat, dataMessage) {
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -82,7 +93,7 @@ var Services = function () {
       }));
 
       function createOne(_x4, _x5, _x6, _x7) {
-        return _ref2.apply(this, arguments);
+        return _createOne.apply(this, arguments);
       }
 
       return createOne;
@@ -90,7 +101,9 @@ var Services = function () {
   }, {
     key: "updateOne",
     value: function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(dataRes, arrayData, dataFormat, dataMessage, updateId) {
+      var _updateOne = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee3(dataRes, arrayData, dataFormat, dataMessage, updateId) {
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -118,7 +131,7 @@ var Services = function () {
       }));
 
       function updateOne(_x8, _x9, _x10, _x11, _x12) {
-        return _ref3.apply(this, arguments);
+        return _updateOne.apply(this, arguments);
       }
 
       return updateOne;
@@ -126,7 +139,9 @@ var Services = function () {
   }, {
     key: "deleteOne",
     value: function () {
-      var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(dataRes, arrayData, deleteId) {
+      var _deleteOne = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee4(dataRes, arrayData, deleteId) {
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
@@ -147,7 +162,7 @@ var Services = function () {
       }));
 
       function deleteOne(_x13, _x14, _x15) {
-        return _ref4.apply(this, arguments);
+        return _deleteOne.apply(this, arguments);
       }
 
       return deleteOne;
@@ -156,7 +171,7 @@ var Services = function () {
     key: "requiredNameErr",
     value: function requiredNameErr(name) {
       this.message = {
-        message: "Fail! " + name + " is required"
+        message: "Fail! ".concat(name, " is required")
       };
       return this.message;
     }
@@ -164,7 +179,7 @@ var Services = function () {
     key: "mustBeLettersErr",
     value: function mustBeLettersErr(name) {
       this.message = {
-        message: "Fail! " + name + " must be letters"
+        message: "Fail! ".concat(name, " must be letters")
       };
       return this.message;
     }
@@ -172,7 +187,7 @@ var Services = function () {
     key: "mustBeNumbersErr",
     value: function mustBeNumbersErr(price) {
       this.message = {
-        message: "Fail! " + price + " must be numbers"
+        message: "Fail! ".concat(price, " must be numbers")
       };
       return this.message;
     }
@@ -180,7 +195,7 @@ var Services = function () {
     key: "stringToArrayErr",
     value: function stringToArrayErr(name) {
       this.message = {
-        message: "Fail! " + name + " must be letters and seperated by spaces"
+        message: "Fail! ".concat(name, " must be letters and seperated by spaces")
       };
       return this.message;
     }
@@ -190,6 +205,7 @@ var Services = function () {
       if (arrayData === []) {
         this.data = makeData;
       }
+
       return this.data;
     }
   }]);
@@ -198,6 +214,6 @@ var Services = function () {
 }();
 
 var services = new Services();
-
-exports.default = services;
+var _default = services;
+exports.default = _default;
 //# sourceMappingURL=index.js.map

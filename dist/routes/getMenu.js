@@ -1,20 +1,18 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _getMenu = require('../controllers/getMenu');
+var _getMenu = _interopRequireDefault(require("../controllers/getMenu"));
 
-var _getMenu2 = _interopRequireDefault(_getMenu);
-
-var _router = require('./router');
-
-var _router2 = _interopRequireDefault(_router);
+var _router = _interopRequireDefault(require("./router"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_router2.default.get('/menus', _getMenu2.default);
+_router.default.get('/menus', _getMenu.default);
 
-exports.default = _router2.default;
+var _default = _router.default;
+exports.default = _default;
 //# sourceMappingURL=getMenu.js.map

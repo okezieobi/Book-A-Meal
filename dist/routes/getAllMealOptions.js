@@ -1,20 +1,18 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _getAllMealOptions = require('../controllers/getAllMealOptions');
+var _getAllMealOptions = _interopRequireDefault(require("../controllers/getAllMealOptions"));
 
-var _getAllMealOptions2 = _interopRequireDefault(_getAllMealOptions);
-
-var _router = require('./router');
-
-var _router2 = _interopRequireDefault(_router);
+var _router = _interopRequireDefault(require("./router"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_router2.default.get('/meals', _getAllMealOptions2.default);
+_router.default.get('/meals', _getAllMealOptions.default);
 
-exports.default = _router2.default;
+var _default = _router.default;
+exports.default = _default;
 //# sourceMappingURL=getAllMealOptions.js.map

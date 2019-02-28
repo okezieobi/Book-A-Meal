@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _expressPromiseRouter = require('express-promise-router');
-
-var _expressPromiseRouter2 = _interopRequireDefault(_expressPromiseRouter);
+var _expressPromiseRouter = _interopRequireDefault(require("express-promise-router"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var router = (0, _expressPromiseRouter2.default)();
-exports.default = router;
+var router = (0, _expressPromiseRouter.default)();
+var _default = router;
+exports.default = _default;
 //# sourceMappingURL=router.js.map

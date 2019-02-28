@@ -1,31 +1,24 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _express = require('express');
+var _express = _interopRequireDefault(require("express"));
 
-var _express2 = _interopRequireDefault(_express);
+var _bodyParser = _interopRequireDefault(require("body-parser"));
 
-var _bodyParser = require('body-parser');
-
-var _bodyParser2 = _interopRequireDefault(_bodyParser);
-
-var _routes = require('./routes');
-
-var _routes2 = _interopRequireDefault(_routes);
+var _routes = _interopRequireDefault(require("./routes"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var app = (0, _express2.default)();
-
-app.use(_bodyParser2.default.urlencoded({
+var app = (0, _express.default)();
+app.use(_bodyParser.default.urlencoded({
   extended: true
 }));
-app.use(_bodyParser2.default.json());
-
-(0, _routes2.default)(app);
-
-exports.default = app;
+app.use(_bodyParser.default.json());
+(0, _routes.default)(app);
+var _default = app;
+exports.default = _default;
 //# sourceMappingURL=app.js.map
