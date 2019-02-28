@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../routes/getMenu.js"],"names":["router","get","getMenu"],"mappings":";;;;;;AAAA;;;;AACA;;;;;;AAEAA,iBAAOC,GAAP,CAAW,QAAX,EAAqBC,iBAArB;;kBAEeF,gB","file":"getMenu.js","sourcesContent":["import getMenu from '../controllers/getMenu';\nimport router from './router';\n\nrouter.get('/menus', getMenu);\n\nexport default router;\n"]}

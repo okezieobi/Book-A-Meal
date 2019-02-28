@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../routes/setMenu.js"],"names":["router","post","setMenu"],"mappings":";;;;;;AAAA;;;;AACA;;;;;;AAEAA,iBAAOC,IAAP,CAAY,QAAZ,EAAsBC,iBAAtB;;kBAEeF,gB","file":"setMenu.js","sourcesContent":["import setMenu from '../controllers/setMenu';\nimport router from './router';\n\nrouter.post('/menus', setMenu);\n\nexport default router;\n"]}

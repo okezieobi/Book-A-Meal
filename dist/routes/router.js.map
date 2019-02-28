@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../routes/router.js"],"names":["router"],"mappings":";;;;;;AAAA;;;;;;AAEA,IAAMA,SAAS,qCAAf;kBACeA,M","file":"router.js","sourcesContent":["import Router from 'express-promise-router';\n\nconst router = Router();\nexport default router;\n"]}
