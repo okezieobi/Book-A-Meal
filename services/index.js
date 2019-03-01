@@ -84,7 +84,11 @@ class Services {
       this.sendErr(this.requiredNameErr(nameTwo), resData, errCode);
       return;
     }
-    this.sendErr(this.stringToArrayErr(nameTwo), resData, errCode);
+    if ((/^[A-Za-z\s]+$/).test(dataTwo) === false && (/^[0-9]+$/).test(dataTwo) === true) {
+      this.sendErr(this.stringToArrayErr(nameTwo), resData, errCode);
+      return;
+    }
+    this.sendErr(this.mustBeNumbersErr(nameTwo), resData, errCode);
   }
 }
 
