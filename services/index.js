@@ -66,29 +66,29 @@ class Services {
     return this.message;
   }
 
-  sendErr(message, dataRes, number) {
-    this.error = dataRes.status(number).send(message);
+  sendErr400(message, dataRes) {
+    this.error = dataRes.status(400).send(message);
     return this.error;
   }
 
-  processErr(dataOne, dataTwo, nameOne, nameTwo, resData, errCode) {
+  processErr(dataOne, dataTwo, nameOne, nameTwo, resData) {
     if (!dataOne || dataOne === '') {
-      this.sendErr(this.requiredNameErr(nameOne), resData, errCode);
+      this.sendErr400(this.requiredNameErr(nameOne), resData);
       return;
     }
     if ((/^[A-Za-z]+$/).test(dataOne) === false) {
-      this.sendErr(this.mustBeLettersErr(nameOne), resData, errCode);
+      this.sendErr400(this.mustBeLettersErr(nameOne), resData);
       return;
     }
     if (!dataTwo || dataTwo === '') {
-      this.sendErr(this.requiredNameErr(nameTwo), resData, errCode);
+      this.sendErr400(this.requiredNameErr(nameTwo), resData);
       return;
     }
     if ((/^[A-Za-z\s]+$/).test(dataTwo) === false && (/^[0-9]+$/).test(dataTwo) === true) {
-      this.sendErr(this.stringToArrayErr(nameTwo), resData, errCode);
+      this.sendErr400(this.stringToArrayErr(nameTwo), resData);
       return;
     }
-    this.sendErr(this.mustBeNumbersErr(nameTwo), resData, errCode);
+    this.sendErr400(this.mustBeNumbersErr(nameTwo), resData);
   }
 }
 
