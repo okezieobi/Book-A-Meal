@@ -209,7 +209,7 @@ function () {
     }
   }, {
     key: "processErr",
-    value: function processErr(dataOne, dataTwo, nameOne, nameTwo, resData) {
+    value: function processErr(dataOne, dataTwo, nameOne, nameTwo, dataTwoTestRes, resData) {
       if (!dataOne || dataOne === '') {
         this.sendErr400(this.requiredNameErr(nameOne), resData);
         return;
@@ -225,12 +225,7 @@ function () {
         return;
       }
 
-      if (/^[A-Za-z\s]+$/.test(dataTwo) === false && /^[0-9]+$/.test(dataTwo) === true) {
-        this.sendErr400(this.stringToArrayErr(nameTwo), resData);
-        return;
-      }
-
-      this.sendErr400(this.mustBeNumbersErr(nameTwo), resData);
+      this.sendErr400(dataTwoTestRes, resData);
     }
   }]);
 
