@@ -3,8 +3,8 @@ import services from '../services';
 // @ts-ignore
 import bookAMeal from './index';
 
-bookAMeal.updateOneOrder = async (req, res) => {
-  const testOrder = ((req.body.customerName && req.body.menuList && (/^[A-Za-z]+$/).test(req.body.customerName) && (/^[A-Za-z\s]+$/).test(req.body.menuList)) === true && (req.body.customerName && req.body.menuList) !== '');
+bookAMeal.updateOrder = async (req, res) => {
+  const testOrder = (req.body.customerName && req.body.menuList && (/^[A-Za-z]+$/).test(req.body.customerName) && (/^[A-Za-z\s]+$/).test(req.body.menuList)) && (req.body.customerName && req.body.menuList) !== '';
   if (testOrder) {
     const findOrder = services.findOne(req.params, data.orders.orderList);
     if (findOrder) {
@@ -19,4 +19,4 @@ bookAMeal.updateOneOrder = async (req, res) => {
   }
 };
 
-export default bookAMeal.updateOneOrder;
+export default bookAMeal.updateOrder;

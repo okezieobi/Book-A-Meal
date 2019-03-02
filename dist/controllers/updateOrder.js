@@ -17,7 +17,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-_index.default.updateOneOrder =
+_index.default.updateOrder =
 /*#__PURE__*/
 function () {
   var _ref = _asyncToGenerator(
@@ -28,7 +28,7 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            testOrder = (req.body.customerName && req.body.menuList && /^[A-Za-z]+$/.test(req.body.customerName) && /^[A-Za-z\s]+$/.test(req.body.menuList)) === true && (req.body.customerName && req.body.menuList) !== '';
+            testOrder = req.body.customerName && req.body.menuList && /^[A-Za-z]+$/.test(req.body.customerName) && /^[A-Za-z\s]+$/.test(req.body.menuList) && (req.body.customerName && req.body.menuList) !== '';
 
             if (testOrder) {
               findOrder = _services.default.findOne(req.params, _models.default.orders.orderList);
@@ -59,6 +59,6 @@ function () {
   };
 }();
 
-var _default = _index.default.updateOneOrder;
+var _default = _index.default.updateOrder;
 exports.default = _default;
 //# sourceMappingURL=updateOrder.js.map
