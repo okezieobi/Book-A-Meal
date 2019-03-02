@@ -71,7 +71,7 @@ class Services {
     return this.error;
   }
 
-  processErr(dataOne, dataTwo, nameOne, nameTwo, resData) {
+  processErr(dataOne, dataTwo, nameOne, nameTwo, dataTwoTestRes, resData) {
     if (!dataOne || dataOne === '') {
       this.sendErr400(this.requiredNameErr(nameOne), resData);
       return;
@@ -84,11 +84,7 @@ class Services {
       this.sendErr400(this.requiredNameErr(nameTwo), resData);
       return;
     }
-    if ((/^[A-Za-z\s]+$/).test(dataTwo) === false && (/^[0-9]+$/).test(dataTwo) === true) {
-      this.sendErr400(this.stringToArrayErr(nameTwo), resData);
-      return;
-    }
-    this.sendErr400(this.mustBeNumbersErr(nameTwo), resData);
+    this.sendErr400(dataTwoTestRes, resData);
   }
 }
 
