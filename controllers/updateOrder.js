@@ -10,13 +10,13 @@ bookAMeal.updateOrder = async (req, res) => {
     if (findOrder) {
       req.body.orderId = findOrder.id;
       services.updateOne(res, data.orders.orderList, data.orders.orderFormat(req.body), 'Menu order found, menu order successfully updated', findOrder.id);
-    } else {
-      req.body.orderId = data.orders.orderList.length;
-      services.createOne(res, data.orders.orderList, data.orders.orderFormat(req.body), 'Menu order not found, menu order successfully created');
+      return;
     }
-  } else {
-    services.processErr(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', services.stringToArrayErr('Menu list'), res);
+    req.body.orderId = data.orders.orderList.length;
+    services.createOne(res, data.orders.orderList, data.orders.orderFormat(req.body), 'Menu order not found, menu order successfully created');
+    return;
   }
+  services.processErr(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', services.stringToArrayErr('Menu list'), res);
 };
 
 export default bookAMeal.updateOrder;
