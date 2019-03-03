@@ -5,6 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _models = _interopRequireDefault(require("../models"));
+
+var _services = _interopRequireDefault(require("../services"));
+
 var _index = _interopRequireDefault(require("./index"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -15,19 +19,44 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 _index.default.setMenu =
 /*#__PURE__*/
-_asyncToGenerator(
-/*#__PURE__*/
-regeneratorRuntime.mark(function _callee() {
-  return regeneratorRuntime.wrap(function _callee$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-        case "end":
-          return _context.stop();
+function () {
+  var _ref = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee(req, res) {
+    var testMenu;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            testMenu = req.body.menuName && req.body.menuOptions && /^[A-Za-z]+$/.test(req.body.menuName) && /^[A-Za-z\s]+$/.test(req.body.menuOptions) && (req.body.menuName && req.body.menuOptions) !== '';
+
+            if (testMenu) {
+              _context.next = 4;
+              break;
+            }
+
+            _services.default.processErr(req.body.menuName, req.body.menuOptions, 'Menu name', 'Menu options', _services.default.stringToArrayErr('Menu options'), res);
+
+            return _context.abrupt("return");
+
+          case 4:
+            req.body.menuId = _models.default.menus.menuList.length;
+
+            _services.default.createOne(res, _models.default.menus.menuList, _models.default.menus.menuFormat(req.body), 'Success! Menu created');
+
+          case 6:
+          case "end":
+            return _context.stop();
+        }
       }
-    }
-  }, _callee);
-}));
+    }, _callee);
+  }));
+
+  return function (_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
 var _default = _index.default.setMenu;
 exports.default = _default;
 //# sourceMappingURL=setMenus.js.map
