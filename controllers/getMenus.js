@@ -1,6 +1,10 @@
+import data from '../models';
+import services from '../services';
 // @ts-ignore
 import bookAMeal from './index';
 
-bookAMeal.getMenu = async () => {};
+bookAMeal.getMenu = async (req, res) => {
+  services.getAll(res, 'Success! Menu list retrieved', data.menus.menuList);
+};
 
 export default bookAMeal.getMenu;
