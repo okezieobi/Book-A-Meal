@@ -65,28 +65,26 @@ function () {
     value: function () {
       var _createOne = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(dataRes, arrayData, dataFormat, dataMessage, createId) {
+      regeneratorRuntime.mark(function _callee2(dataRes, arrayData, dataFormat, dataMessage) {
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                this.newId = createId;
-                this.newId = arrayData.length;
-                _context2.next = 4;
+                _context2.next = 2;
                 return dataFormat;
 
-              case 4:
+              case 2:
                 this.createdItem = _context2.sent;
-                _context2.next = 7;
+                _context2.next = 5;
                 return arrayData.push(this.createdItem);
 
-              case 7:
+              case 5:
                 dataRes.status(201).send({
                   message: dataMessage,
                   data: this.createdItem
                 });
 
-              case 8:
+              case 6:
               case "end":
                 return _context2.stop();
             }
@@ -94,7 +92,7 @@ function () {
         }, _callee2, this);
       }));
 
-      function createOne(_x4, _x5, _x6, _x7, _x8) {
+      function createOne(_x4, _x5, _x6, _x7) {
         return _createOne.apply(this, arguments);
       }
 
@@ -132,7 +130,7 @@ function () {
         }, _callee3, this);
       }));
 
-      function updateOne(_x9, _x10, _x11, _x12, _x13) {
+      function updateOne(_x8, _x9, _x10, _x11, _x12) {
         return _updateOne.apply(this, arguments);
       }
 
@@ -163,7 +161,7 @@ function () {
         }, _callee4, this);
       }));
 
-      function deleteOne(_x14, _x15, _x16) {
+      function deleteOne(_x13, _x14, _x15) {
         return _deleteOne.apply(this, arguments);
       }
 
