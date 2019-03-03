@@ -5,6 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _models = _interopRequireDefault(require("../models"));
+
+var _services = _interopRequireDefault(require("../services"));
+
 var _index = _interopRequireDefault(require("./index"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -15,19 +19,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 _index.default.getAllMealOptions =
 /*#__PURE__*/
-_asyncToGenerator(
-/*#__PURE__*/
-regeneratorRuntime.mark(function _callee() {
-  return regeneratorRuntime.wrap(function _callee$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-        case "end":
-          return _context.stop();
+function () {
+  var _ref = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee(req, res) {
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _services.default.getAll(res, 'Success! Meal options retrieved', _models.default.meals.mealOptionList);
+
+          case 1:
+          case "end":
+            return _context.stop();
+        }
       }
-    }
-  }, _callee);
-}));
+    }, _callee);
+  }));
+
+  return function (_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
 var _default = _index.default.getAllMealOptions;
 exports.default = _default;
 //# sourceMappingURL=getMeals.js.map
