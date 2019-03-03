@@ -12,9 +12,7 @@ class Services {
     return this.findItem;
   }
 
-  async createOne(dataRes, arrayData, dataFormat, dataMessage, createId) {
-    this.newId = createId;
-    this.newId = arrayData.length;
+  async createOne(dataRes, arrayData, dataFormat, dataMessage) {
     this.createdItem = await dataFormat;
     await arrayData.push(this.createdItem);
     dataRes.status(201).send({
