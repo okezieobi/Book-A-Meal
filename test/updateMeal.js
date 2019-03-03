@@ -23,8 +23,12 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       mealOptionPrice: 100,
     };
     const response = await chai.request(app).put(`/v1/meals/${testId}`).send(testDataTwo);
+    const resData = response.body.data;
     expect(response).to.have.status(200);
     expect(response.body).to.be.an('object');
+    expect(resData).to.have.property('id').equal(testId);
+    expect(resData).to.has.property('name').equal(testDataTwo.mealOptionName);
+    expect(resData).to.has.property('price').equal(testDataTwo.mealOptionPrice);
     expect(response.body).to.have.property('message').equal('Meal option found! Meal option successfully updated');
   });
 
@@ -35,8 +39,12 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       mealOptionPrice: 100,
     };
     const response = await chai.request(app).put(`/v1/meals/${wrongId}`).send(testDataTwo);
+    const resData = response.body.data;
     expect(response).to.have.status(201);
     expect(response.body).to.be.an('object');
+    expect(resData).to.have.property('id').equal(resData.id);
+    expect(resData).to.has.property('name').equal(testDataTwo.mealOptionName);
+    expect(resData).to.has.property('price').equal(testDataTwo.mealOptionPrice);
     expect(response.body).to.have.property('message').equal('Meal option not found! Meal option successfully created');
   });
 

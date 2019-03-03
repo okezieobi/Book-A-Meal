@@ -24,7 +24,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
   _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee() {
-    var testDataTwo, response;
+    var testDataTwo, response, resData;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -38,11 +38,15 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
 
           case 3:
             response = _context.sent;
+            resData = response.body.data;
             (0, _index.expect)(response).to.have.status(200);
             (0, _index.expect)(response.body).to.be.an('object');
+            (0, _index.expect)(resData).to.have.property('id').equal(testId);
+            (0, _index.expect)(resData).to.has.property('name').equal(testDataTwo.mealOptionName);
+            (0, _index.expect)(resData).to.has.property('price').equal(testDataTwo.mealOptionPrice);
             (0, _index.expect)(response.body).to.have.property('message').equal('Meal option found! Meal option successfully updated');
 
-          case 7:
+          case 11:
           case "end":
             return _context.stop();
         }
@@ -54,7 +58,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
   _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee2() {
-    var wrongId, testDataTwo, response;
+    var wrongId, testDataTwo, response, resData;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
@@ -69,11 +73,15 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
 
           case 4:
             response = _context2.sent;
+            resData = response.body.data;
             (0, _index.expect)(response).to.have.status(201);
             (0, _index.expect)(response.body).to.be.an('object');
+            (0, _index.expect)(resData).to.have.property('id').equal(resData.id);
+            (0, _index.expect)(resData).to.has.property('name').equal(testDataTwo.mealOptionName);
+            (0, _index.expect)(resData).to.has.property('price').equal(testDataTwo.mealOptionPrice);
             (0, _index.expect)(response.body).to.have.property('message').equal('Meal option not found! Meal option successfully created');
 
-          case 8:
+          case 12:
           case "end":
             return _context2.stop();
         }
