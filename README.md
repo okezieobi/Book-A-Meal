@@ -25,6 +25,7 @@ the day has been set.
 3. Admin (Caterer) should be able to see order history
 4. The application should be able to host more than one caterer.
 
+
 Develop [![Build Status](https://travis-ci.com/okezieobi/Book-A-Meal.svg?branch=develop-%23163671470)](https://travis-ci.com/okezieobi/Book-A-Meal) [![Coverage Status](https://coveralls.io/repos/github/okezieobi/Book-A-Meal/badge.svg?branch=develop-%23163671470)](https://coveralls.io/github/okezieobi/Book-A-Meal?branch=develop-%23163671470) [![Maintainability](https://api.codeclimate.com/v1/badges/df7afc860af1097195b8/maintainability)](https://codeclimate.com/github/okezieobi/Book-A-Meal/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/df7afc860af1097195b8/test_coverage)](https://codeclimate.com/github/okezieobi/Book-A-Meal/test_coverage)
 
 ft-getMenus-#163682836 [![Coverage Status](https://coveralls.io/repos/github/okezieobi/Book-A-Meal/badge.svg?branch=ft-getMenus-%23163682836)](https://coveralls.io/github/okezieobi/Book-A-Meal?branch=ft-getMenus-%23163682836) [![Build Status](https://travis-ci.com/okezieobi/Book-A-Meal.svg?branch=ft-getMenus-%23163682836)](https://travis-ci.com/okezieobi/Book-A-Meal)
