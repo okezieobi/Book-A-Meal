@@ -5,6 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _models = _interopRequireDefault(require("../models"));
+
+var _services = _interopRequireDefault(require("../services"));
+
 var _index = _interopRequireDefault(require("./index"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -13,21 +17,60 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-_index.default.updateOneOrder =
+_index.default.updateOrder =
 /*#__PURE__*/
-_asyncToGenerator(
-/*#__PURE__*/
-regeneratorRuntime.mark(function _callee() {
-  return regeneratorRuntime.wrap(function _callee$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-        case "end":
-          return _context.stop();
+function () {
+  var _ref = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee(req, res) {
+    var testOrder, findOrder;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            testOrder = req.body.customerName && req.body.menuList && /^[A-Za-z]+$/.test(req.body.customerName) && /^[A-Za-z\s]+$/.test(req.body.menuList) && (req.body.customerName && req.body.menuList) !== '';
+
+            if (!testOrder) {
+              _context.next = 10;
+              break;
+            }
+
+            findOrder = _services.default.findOne(req.params, _models.default.orders.orderList);
+
+            if (!findOrder) {
+              _context.next = 7;
+              break;
+            }
+
+            req.body.orderId = findOrder.id;
+
+            _services.default.updateOne(res, _models.default.orders.orderList, _models.default.orders.orderFormat(req.body), 'Menu order found, menu order successfully updated', findOrder.id);
+
+            return _context.abrupt("return");
+
+          case 7:
+            req.body.orderId = _models.default.orders.orderList.length;
+
+            _services.default.createOne(res, _models.default.orders.orderList, _models.default.orders.orderFormat(req.body), 'Menu order not found, menu order successfully created');
+
+            return _context.abrupt("return");
+
+          case 10:
+            _services.default.processErr(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', _services.default.stringToArrayErr('Menu list'), res);
+
+          case 11:
+          case "end":
+            return _context.stop();
+        }
       }
-    }
-  }, _callee);
-}));
-var _default = _index.default.updateOneOrder;
+    }, _callee);
+  }));
+
+  return function (_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+var _default = _index.default.updateOrder;
 exports.default = _default;
 //# sourceMappingURL=updateOrder.js.map
