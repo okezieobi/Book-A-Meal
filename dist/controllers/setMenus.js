@@ -28,7 +28,7 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            testMenu = req.body.menuName && req.body.menuOptions && /^[A-Za-z]+$/.test(req.body.menuName) && /^[A-Za-z\s]+$/.test(req.body.menuOptions) && (req.body.menuName && req.body.menuOptions) !== '';
+            testMenu = _services.default.testItem(req.body.menuName, req.body.menuOptions, /^[A-Za-z]+$/.test(req.body.menuName), /^[A-Za-z\s]+$/.test(req.body.menuOptions));
 
             if (testMenu) {
               _context.next = 4;

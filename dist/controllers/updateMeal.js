@@ -28,7 +28,7 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            testMeal = req.body.mealOptionName && req.body.mealOptionPrice && /^[A-Za-z]+$/.test(req.body.mealOptionName) && /^[0-9]+$/.test(req.body.mealOptionPrice) && (req.body.mealOptionName && req.body.mealOptionPrice) !== '';
+            testMeal = _services.default.testItem(req.body.mealOptionName, req.body.mealOptionPrice, /^[A-Za-z]+$/.test(req.body.mealOptionName), /^[0-9]+$/.test(req.body.mealOptionPrice));
 
             if (!testMeal) {
               _context.next = 10;

@@ -12,6 +12,11 @@ class Services {
     return this.findItem;
   }
 
+  testItem(dataOne, dataTwo, dataOneTest, dataTwoTest) {
+    this.testResult = (dataOne && dataTwo && dataOneTest && dataTwoTest) && (dataOne && dataTwo) !== '';
+    return this.testResult;
+  }
+
   async createOne(dataRes, arrayData, dataFormat, dataMessage) {
     this.createdItem = await dataFormat;
     await arrayData.push(this.createdItem);

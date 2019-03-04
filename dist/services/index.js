@@ -61,6 +61,12 @@ function () {
       return this.findItem;
     }
   }, {
+    key: "testItem",
+    value: function testItem(dataOne, dataTwo, dataOneTest, dataTwoTest) {
+      this.testResult = dataOne && dataTwo && dataOneTest && dataTwoTest && (dataOne && dataTwo) !== '';
+      return this.testResult;
+    }
+  }, {
     key: "createOne",
     value: function () {
       var _createOne = _asyncToGenerator(

@@ -28,7 +28,7 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            testOrder = req.body.customerName && req.body.menuList && /^[A-Za-z]+$/.test(req.body.customerName) && /^[A-Za-z\s]+$/.test(req.body.menuList) && (req.body.customerName && req.body.menuList) !== '';
+            testOrder = _services.default.testItem(req.body.customerName, req.body.menuList, /^[A-Za-z]+$/.test(req.body.customerName), /^[A-Za-z\s]+$/.test(req.body.menuList));
 
             if (!testOrder) {
               _context.next = 10;

@@ -4,7 +4,7 @@ import services from '../services';
 import bookAMeal from './index';
 
 bookAMeal.updateOrder = async (req, res) => {
-  const testOrder = (req.body.customerName && req.body.menuList && (/^[A-Za-z]+$/).test(req.body.customerName) && (/^[A-Za-z\s]+$/).test(req.body.menuList)) && (req.body.customerName && req.body.menuList) !== '';
+  const testOrder = services.testItem(req.body.customerName, req.body.menuList, (/^[A-Za-z]+$/).test(req.body.customerName), (/^[A-Za-z\s]+$/).test(req.body.menuList));
   if (testOrder) {
     const findOrder = services.findOne(req.params, data.orders.orderList);
     if (findOrder) {

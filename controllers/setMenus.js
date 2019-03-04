@@ -4,7 +4,7 @@ import services from '../services';
 import bookAMeal from './index';
 
 bookAMeal.setMenu = async (req, res) => {
-  const testMenu = (req.body.menuName && req.body.menuOptions && (/^[A-Za-z]+$/).test(req.body.menuName) && (/^[A-Za-z\s]+$/).test(req.body.menuOptions)) && (req.body.menuName && req.body.menuOptions) !== '';
+  const testMenu = services.testItem(req.body.menuName, req.body.menuOptions, (/^[A-Za-z]+$/).test(req.body.menuName), (/^[A-Za-z\s]+$/).test(req.body.menuOptions));
   if (!testMenu) {
     services.processErr(req.body.menuName, req.body.menuOptions, 'Menu name', 'Menu options', services.stringToArrayErr('Menu options'), res);
     return;
