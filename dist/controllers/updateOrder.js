@@ -23,14 +23,14 @@ function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(req, res) {
-    var testOrder, findOrder;
+    var testUpdateOrder, findOrder;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            testOrder = _services.default.testItem(req.body.customerName, req.body.menuList, /^[A-Za-z]+$/.test(req.body.customerName), /^[A-Za-z\s]+$/.test(req.body.menuList));
+            testUpdateOrder = _services.default.testItem(req.body.customerName, req.body.menuList, /^[A-Za-z]+$/.test(req.body.customerName), /^[A-Za-z\s]+$/.test(req.body.menuList));
 
-            if (!testOrder) {
+            if (!testUpdateOrder) {
               _context.next = 10;
               break;
             }

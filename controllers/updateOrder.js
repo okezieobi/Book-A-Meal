@@ -4,8 +4,8 @@ import services from '../services';
 import bookAMeal from './index';
 
 bookAMeal.updateOrder = async (req, res) => {
-  const testOrder = services.testItem(req.body.customerName, req.body.menuList, (/^[A-Za-z]+$/).test(req.body.customerName), (/^[A-Za-z\s]+$/).test(req.body.menuList));
-  if (testOrder) {
+  const testUpdateOrder = services.testItem(req.body.customerName, req.body.menuList, (/^[A-Za-z]+$/).test(req.body.customerName), (/^[A-Za-z\s]+$/).test(req.body.menuList));
+  if (testUpdateOrder) {
     const findOrder = services.findOne(req.params, data.orders.orderList);
     if (findOrder) {
       req.body.orderId = findOrder.id;

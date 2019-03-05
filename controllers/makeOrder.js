@@ -4,8 +4,8 @@ import services from '../services';
 import bookAMeal from './index';
 
 bookAMeal.selectOneMeal = async (req, res) => {
-  const testOrder = services.testItem(req.body.customerName, req.body.menuList, (/^[A-Za-z]+$/).test(req.body.customerName), (/^[A-Za-z\s]+$/).test(req.body.menuList));
-  if (!testOrder) {
+  const testMakeOrder = services.testItem(req.body.customerName, req.body.menuList, (/^[A-Za-z]+$/).test(req.body.customerName), (/^[A-Za-z\s]+$/).test(req.body.menuList));
+  if (!testMakeOrder) {
     services.processErr(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', services.stringToArrayErr('Menu list'), res);
     return;
   }
