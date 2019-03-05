@@ -30,19 +30,19 @@ function () {
           case 0:
             testOrder = _services.default.testItem(req.body.customerName, req.body.menuList, /^[A-Za-z]+$/.test(req.body.customerName), /^[A-Za-z\s]+$/.test(req.body.menuList));
 
-            if (!testOrder) {
-              _context.next = 5;
+            if (testOrder) {
+              _context.next = 4;
               break;
             }
 
-            req.body.orderId = _models.default.orders.orderList.length;
-
-            _services.default.createOne(res, _models.default.orders.orderList, _models.default.orders.orderFormat(req.body), 'Success! Menu selected and order made');
+            _services.default.processErr(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', _services.default.stringToArrayErr('Menu list'), res);
 
             return _context.abrupt("return");
 
-          case 5:
-            _services.default.processErr(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', _services.default.stringToArrayErr('Menu list'), res);
+          case 4:
+            req.body.orderId = _models.default.orders.orderList.length;
+
+            _services.default.createOne(res, _models.default.orders.orderList, _models.default.orders.orderFormat(req.body), 'Success! Menu selected and order made');
 
           case 6:
           case "end":

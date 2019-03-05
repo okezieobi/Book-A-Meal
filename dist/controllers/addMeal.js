@@ -30,19 +30,19 @@ function () {
           case 0:
             testMeal = _services.default.testItem(req.body.mealOptionName, req.body.mealOptionPrice, /^[A-Za-z]+$/.test(req.body.mealOptionName), /^[0-9]+$/.test(req.body.mealOptionPrice));
 
-            if (!testMeal) {
-              _context.next = 5;
+            if (testMeal) {
+              _context.next = 4;
               break;
             }
 
-            req.body.mealId = _models.default.meals.mealOptionList.length;
-
-            _services.default.createOne(res, _models.default.meals.mealOptionList, _models.default.meals.mealFormat(req.body), 'Success! Meal option created');
+            _services.default.processErr(req.body.mealOptionName, req.body.mealOptionPrice, 'Meal option name', 'Meal option price', _services.default.mustBeNumbersErr('Meal option price'), res);
 
             return _context.abrupt("return");
 
-          case 5:
-            _services.default.processErr(req.body.mealOptionName, req.body.mealOptionPrice, 'Meal option name', 'Meal option price', _services.default.mustBeNumbersErr('Meal option price'), res);
+          case 4:
+            req.body.mealId = _models.default.meals.mealOptionList.length;
+
+            _services.default.createOne(res, _models.default.meals.mealOptionList, _models.default.meals.mealFormat(req.body), 'Success! Meal option created');
 
           case 6:
           case "end":
