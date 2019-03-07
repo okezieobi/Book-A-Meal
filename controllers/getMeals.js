@@ -4,7 +4,7 @@ import services from '../services';
 import bookAMeal from './index';
 
 bookAMeal.getAllMealOptions = async (req, res) => {
-  services.getAll(res, 'Success! Meal options retrieved', data.meals.mealOptionList);
+  services.getAll(res, 'Success! Meal options retrieved', data.mealOptionList);
 };
 
 export default bookAMeal.getAllMealOptions;

@@ -8,7 +8,7 @@ import getAllOrdersRouter from './getOrders';
 import makeOrder from './makeOrder';
 import updateOneOrderRouter from './updateOrder';
 
-const versionNumber = '/v1';
+const versionNumber = '/api/v1';
 
 export default (app) => {
   app.use(versionNumber, addOneMealRouter);

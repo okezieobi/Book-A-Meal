@@ -35,7 +35,7 @@ function () {
               break;
             }
 
-            findOrder = _services.default.findOne(req.params, _models.default.orders.orderList);
+            findOrder = _services.default.findOne(req.params, _models.default.orderList);
 
             if (!findOrder) {
               _context.next = 7;
@@ -44,14 +44,14 @@ function () {
 
             req.body.orderId = findOrder.id;
 
-            _services.default.updateOne(res, _models.default.orders.orderList, _models.default.orders.orderFormat(req.body), 'Menu order found, menu order successfully updated', findOrder.id);
+            _services.default.updateOne(res, _models.default.orderList, _models.default.orderFormat(req.body), 'Menu order found, menu order successfully updated', findOrder.id);
 
             return _context.abrupt("return");
 
           case 7:
-            req.body.orderId = _models.default.orders.orderList.length;
+            req.body.orderId = _models.default.orderList.length;
 
-            _services.default.createOne(res, _models.default.orders.orderList, _models.default.orders.orderFormat(req.body), 'Menu order not found, menu order successfully created');
+            _services.default.createOne(res, _models.default.orderList, _models.default.orderFormat(req.body), 'Menu order not found, menu order successfully created');
 
             return _context.abrupt("return");
 

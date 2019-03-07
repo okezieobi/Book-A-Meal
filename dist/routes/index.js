@@ -25,7 +25,7 @@ var _updateOrder = _interopRequireDefault(require("./updateOrder"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var versionNumber = '/v1';
+var versionNumber = '/api/v1';
 
 var _default = function _default(app) {
   app.use(versionNumber, _addMeal.default);

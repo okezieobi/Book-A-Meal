@@ -8,7 +8,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 _index.chai.use(_index.chaiHttp);
 
-describe('Test endpoint at "/v1/meals/:id" to delete a meals option with DELETE', function () {
+describe('Test endpoint at "/api/v1/meals/:id" to delete a meals option with DELETE', function () {
   var testId = 0;
   before(function () {
     _index.dataSetup.meals();
@@ -19,7 +19,7 @@ describe('Test endpoint at "/v1/meals/:id" to delete a meals option with DELETE'
 
     testId += _index.dataSetup.testId;
   });
-  it('should delete a meal option at "/v1/meals/:id" with DELETE if meals option exists',
+  it('should delete a meal option at "/api/v1/meals/:id" with DELETE if meals option exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -30,7 +30,7 @@ describe('Test endpoint at "/v1/meals/:id" to delete a meals option with DELETE'
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _index.chai.request(_index.app).delete("/v1/meals/".concat(testId));
+            return _index.chai.request(_index.app).delete("/api/v1/meals/".concat(testId));
 
           case 2:
             response = _context.sent;
@@ -44,7 +44,7 @@ describe('Test endpoint at "/v1/meals/:id" to delete a meals option with DELETE'
       }
     }, _callee);
   })));
-  it('should NOT delete a meal option at "/v1/meals/:id" with DELETE if meals option does NOT exist',
+  it('should NOT delete a meal option at "/api/v1/meals/:id" with DELETE if meals option does NOT exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -56,7 +56,7 @@ describe('Test endpoint at "/v1/meals/:id" to delete a meals option with DELETE'
           case 0:
             wrongId = testId + 10;
             _context2.next = 3;
-            return _index.chai.request(_index.app).delete("/v1/meals/".concat(wrongId));
+            return _index.chai.request(_index.app).delete("/api/v1/meals/".concat(wrongId));
 
           case 3:
             response = _context2.sent;

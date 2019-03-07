@@ -35,7 +35,7 @@ function () {
               break;
             }
 
-            findMeal = _services.default.findOne(req.params, _models.default.meals.mealOptionList);
+            findMeal = _services.default.findOne(req.params, _models.default.mealOptionList);
 
             if (!findMeal) {
               _context.next = 7;
@@ -44,14 +44,14 @@ function () {
 
             req.body.mealId = findMeal.id;
 
-            _services.default.updateOne(res, _models.default.meals.mealOptionList, _models.default.meals.mealFormat(req.body), 'Meal option found! Meal option successfully updated', findMeal.id);
+            _services.default.updateOne(res, _models.default.mealOptionList, _models.default.mealFormat(req.body), 'Meal option found! Meal option successfully updated', findMeal.id);
 
             return _context.abrupt("return");
 
           case 7:
-            req.body.mealId = _models.default.meals.mealOptionList.length;
+            req.body.mealId = _models.default.mealOptionList.length;
 
-            _services.default.createOne(res, _models.default.meals.mealOptionList, _models.default.meals.mealFormat(req.body), 'Meal option not found! Meal option successfully created');
+            _services.default.createOne(res, _models.default.mealOptionList, _models.default.mealFormat(req.body), 'Meal option not found! Meal option successfully created');
 
             return _context.abrupt("return");
 

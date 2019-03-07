@@ -8,7 +8,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 _index.chai.use(_index.chaiHttp);
 
-describe('Test endpoint at "/v1/orders" to get all orders with GET', function () {
+describe('Test endpoint at "/api/v1/orders" to get all orders with GET', function () {
   before(
   /*#__PURE__*/
   _asyncToGenerator(
@@ -31,7 +31,7 @@ describe('Test endpoint at "/v1/orders" to get all orders with GET', function ()
       }
     }, _callee);
   })));
-  it('should get all orders at "/v1/orders" with GET',
+  it('should get all orders at "/api/v1/orders" with GET',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -42,7 +42,7 @@ describe('Test endpoint at "/v1/orders" to get all orders with GET', function ()
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return _index.chai.request(_index.app).get('/v1/orders');
+            return _index.chai.request(_index.app).get('/api/v1/orders');
 
           case 2:
             response = _context2.sent;

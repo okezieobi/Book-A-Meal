@@ -8,7 +8,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 _index.chai.use(_index.chaiHttp);
 
-describe('Test endpoint at "/v1/menus" to get all menus with GET', function () {
+describe('Test endpoint at "/api/v1/menus" to get all menus with GET', function () {
   before(
   /*#__PURE__*/
   _asyncToGenerator(
@@ -31,7 +31,7 @@ describe('Test endpoint at "/v1/menus" to get all menus with GET', function () {
       }
     }, _callee);
   })));
-  it('should get all menus at "/v1/menus" with GET',
+  it('should get all menus at "/api/v1/menus" with GET',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -42,7 +42,7 @@ describe('Test endpoint at "/v1/menus" to get all menus with GET', function () {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return _index.chai.request(_index.app).get('/v1/menus');
+            return _index.chai.request(_index.app).get('/api/v1/menus');
 
           case 2:
             response = _context2.sent;
@@ -52,7 +52,7 @@ describe('Test endpoint at "/v1/menus" to get all menus with GET', function () {
             (0, _index.expect)(response.body).to.have.property('data');
             (0, _index.expect)(response.body).to.have.property('message').equal('Success! Menu list retrieved');
             (0, _index.expect)(randomElement).to.have.property('id');
-            (0, _index.expect)(randomElement).to.have.property('name');
+            (0, _index.expect)(randomElement).to.have.property('menuName');
             (0, _index.expect)(randomElement).to.have.property('total');
             (0, _index.expect)(randomElement).to.have.property('mealOptions');
             (0, _index.expect)(randomElement).to.have.property('date');

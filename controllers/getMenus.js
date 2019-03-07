@@ -4,7 +4,7 @@ import services from '../services';
 import bookAMeal from './index';
 
 bookAMeal.getMenu = async (req, res) => {
-  services.getAll(res, 'Success! Menu list retrieved', data.menus.menuList);
+  services.getAll(res, 'Success! Menu list retrieved', data.menuList);
 };
 
 export default bookAMeal.getMenu;

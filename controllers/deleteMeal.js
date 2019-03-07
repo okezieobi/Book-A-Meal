@@ -4,9 +4,9 @@ import services from '../services';
 import bookAmeal from './index';
 
 bookAmeal.deleteOneMealOption = async (req, res) => {
-  const findMeal = services.findOne(req.params, data.meals.mealOptionList);
+  const findMeal = services.findOne(req.params, data.mealOptionList);
   if (findMeal) {
-    services.deleteOne(res, data.meals.mealOptionList, findMeal.id);
+    services.deleteOne(res, data.mealOptionList, findMeal.id);
     return;
   }
   res.status(404).send({

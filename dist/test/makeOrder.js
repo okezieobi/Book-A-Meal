@@ -8,7 +8,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 _index.chai.use(_index.chaiHttp);
 
-describe('Test endpoint at "/v1/orders" to select meal option with POST', function () {
+describe('Test endpoint at "/api/v1/orders" to select meal option with POST', function () {
   before(function () {
     _index.dataSetup.meals();
 
@@ -16,7 +16,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
 
     _index.dataSetup.orders();
   });
-  it('should select at least one menu option at "/v1/orders" with POST',
+  it('should select at least one menu option at "/api/v1/orders" with POST',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -31,7 +31,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
               menuList: 'BreakFast Dinner'
             };
             _context.next = 3;
-            return _index.chai.request(_index.app).post('/v1/orders').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/orders').send(testData);
 
           case 3:
             response = _context.sent;
@@ -51,7 +51,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
       }
     }, _callee);
   })));
-  it('should not select a menu option at "/v1/orders" with POST if customer name in request does not exist',
+  it('should not select a menu option at "/api/v1/orders" with POST if customer name in request does not exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -65,7 +65,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
               menuList: 'BreakFast Dinner'
             };
             _context2.next = 3;
-            return _index.chai.request(_index.app).post('/v1/orders').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/orders').send(testData);
 
           case 3:
             response = _context2.sent;
@@ -80,7 +80,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
       }
     }, _callee2);
   })));
-  it('should not select a menu option at "/v1/orders" with POST if customer name in request is an empty string',
+  it('should not select a menu option at "/api/v1/orders" with POST if customer name in request is an empty string',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -95,7 +95,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
               menuList: 'BreakFast Dinner'
             };
             _context3.next = 3;
-            return _index.chai.request(_index.app).post('/v1/orders').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/orders').send(testData);
 
           case 3:
             response = _context3.sent;
@@ -110,7 +110,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
       }
     }, _callee3);
   })));
-  it('should not select a menu option at "/v1/orders" with POST if customer name in request are not letters',
+  it('should not select a menu option at "/api/v1/orders" with POST if customer name in request are not letters',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -125,7 +125,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
               menuList: 'BreakFast Dinner'
             };
             _context4.next = 3;
-            return _index.chai.request(_index.app).post('/v1/orders').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/orders').send(testData);
 
           case 3:
             response = _context4.sent;
@@ -140,7 +140,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
       }
     }, _callee4);
   })));
-  it('should not create a menu at "/v1/menus" with POST if menu options in request does not exist',
+  it('should not create a menu at "/api/v1/menus" with POST if menu options in request does not exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -154,7 +154,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
               customerName: 'Frank'
             };
             _context5.next = 3;
-            return _index.chai.request(_index.app).post('/v1/orders').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/orders').send(testData);
 
           case 3:
             response = _context5.sent;
@@ -169,7 +169,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
       }
     }, _callee5);
   })));
-  it('should not create a menu at "/v1/menus" with POST if menu options in request is an empty string',
+  it('should not create a menu at "/api/v1/menus" with POST if menu options in request is an empty string',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -184,7 +184,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
               menuList: ''
             };
             _context6.next = 3;
-            return _index.chai.request(_index.app).post('/v1/orders').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/orders').send(testData);
 
           case 3:
             response = _context6.sent;
@@ -199,7 +199,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
       }
     }, _callee6);
   })));
-  it('should not create a menu at "/v1/menus" with POST if menu options in request ae not letters',
+  it('should not create a menu at "/api/v1/menus" with POST if menu options in request ae not letters',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -214,7 +214,7 @@ describe('Test endpoint at "/v1/orders" to select meal option with POST', functi
               menuList: '0{0rir}t[('
             };
             _context7.next = 3;
-            return _index.chai.request(_index.app).post('/v1/orders').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/orders').send(testData);
 
           case 3:
             response = _context7.sent;

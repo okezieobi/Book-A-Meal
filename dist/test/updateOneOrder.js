@@ -8,7 +8,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 _index.chai.use(_index.chaiHttp);
 
-describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', function () {
+describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order', function () {
   var testOrderId = 0;
   before(function () {
     _index.dataSetup.meals();
@@ -19,7 +19,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
 
     testOrderId += _index.dataSetup.secondTestId;
   });
-  it('should update a menu order at "/v1/orders/:id" with PUT if all data in request are valid',
+  it('should update a menu order at "/api/v1/orders/:id" with PUT if all data in request are valid',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -34,7 +34,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
               menuList: 'Lunch Dinner'
             };
             _context.next = 3;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(testOrderId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
 
           case 3:
             response = _context.sent;
@@ -54,7 +54,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
       }
     }, _callee);
   })));
-  it('should also create a menu order at "/v1/orders/:id" with PUT if all data in request are valid but menu order does not exist',
+  it('should also create a menu order at "/api/v1/orders/:id" with PUT if all data in request are valid but menu order does not exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -70,7 +70,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
             };
             wrongId = testOrderId + 10;
             _context2.next = 4;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(wrongId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(wrongId)).send(testData);
 
           case 4:
             response = _context2.sent;
@@ -90,7 +90,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
       }
     }, _callee2);
   })));
-  it('should not update a menu order at "/v1/orders" with PUT if customer name does not exist and menu order exists',
+  it('should not update a menu order at "/api/v1/orders" with PUT if customer name does not exist and menu order exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -104,7 +104,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
               menuList: 'Lunch Dinner'
             };
             _context3.next = 3;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(testOrderId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
 
           case 3:
             response = _context3.sent;
@@ -119,7 +119,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
       }
     }, _callee3);
   })));
-  it('should not update a menu order at "/v1/orders" with PUT if customer name and menu order do NOT exist',
+  it('should not update a menu order at "/api/v1/orders" with PUT if customer name and menu order do NOT exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -134,7 +134,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
             };
             wrongId = testOrderId + 10;
             _context4.next = 4;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(wrongId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(wrongId)).send(testData);
 
           case 4:
             response = _context4.sent;
@@ -149,7 +149,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
       }
     }, _callee4);
   })));
-  it('should not update a menu order at "/v1/orders" with PUT if customer name is an empty string and menu order exists',
+  it('should not update a menu order at "/api/v1/orders" with PUT if customer name is an empty string and menu order exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -164,7 +164,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
               menuList: 'Lunch Dinner'
             };
             _context5.next = 3;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(testOrderId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
 
           case 3:
             response = _context5.sent;
@@ -179,7 +179,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
       }
     }, _callee5);
   })));
-  it('should not update a menu order at "/v1/orders" with PUT if customer name is an empty string and menu order does not exist',
+  it('should not update a menu order at "/api/v1/orders" with PUT if customer name is an empty string and menu order does not exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -195,7 +195,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
             };
             wrongId = testOrderId + 10;
             _context6.next = 4;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(wrongId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(wrongId)).send(testData);
 
           case 4:
             response = _context6.sent;
@@ -210,7 +210,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
       }
     }, _callee6);
   })));
-  it('should not update a menu order at "/v1/orders" with PUT if customer name are not letters and menu order exists',
+  it('should not update a menu order at "/api/v1/orders" with PUT if customer name are not letters and menu order exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -225,7 +225,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
               menuList: 'Lunch Dinner'
             };
             _context7.next = 3;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(testOrderId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
 
           case 3:
             response = _context7.sent;
@@ -240,7 +240,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
       }
     }, _callee7);
   })));
-  it('should not update a menu order at "/v1/orders" with PUT if customer name are not letters and menu order does NOT exist',
+  it('should not update a menu order at "/api/v1/orders" with PUT if customer name are not letters and menu order does NOT exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -256,7 +256,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
             };
             wrongId = testOrderId + 10;
             _context8.next = 4;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(wrongId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(wrongId)).send(testData);
 
           case 4:
             response = _context8.sent;
@@ -271,7 +271,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
       }
     }, _callee8);
   })));
-  it('should not update a menu order at "/v1/orders" with PUT if menu list does not exist and menu order exists',
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list does not exist and menu order exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -285,7 +285,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
               customerName: 'Okezie'
             };
             _context9.next = 3;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(testOrderId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
 
           case 3:
             response = _context9.sent;
@@ -300,7 +300,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
       }
     }, _callee9);
   })));
-  it('should not update a menu order at "/v1/orders" with PUT if menu list and menu order do not exist',
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list and menu order do not exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -315,7 +315,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
             };
             wrongId = testOrderId + 10;
             _context10.next = 4;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(wrongId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(wrongId)).send(testData);
 
           case 4:
             response = _context10.sent;
@@ -330,7 +330,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
       }
     }, _callee10);
   })));
-  it('should not update a menu order at "/v1/orders" with PUT if menu list is an empty string and menu order exists',
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list is an empty string and menu order exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -345,7 +345,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
               menuList: ''
             };
             _context11.next = 3;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(testOrderId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
 
           case 3:
             response = _context11.sent;
@@ -360,7 +360,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
       }
     }, _callee11);
   })));
-  it('should not update a menu order at "/v1/orders" with PUT if menu list is an empty string and menu order does not exist',
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list is an empty string and menu order does not exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -376,7 +376,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
             };
             wrongId = testOrderId + 10;
             _context12.next = 4;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(wrongId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(wrongId)).send(testData);
 
           case 4:
             response = _context12.sent;
@@ -391,7 +391,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
       }
     }, _callee12);
   })));
-  it('should not update a menu order at "/v1/orders" with PUT if menu list are not letters and menu order exists',
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list are not letters and menu order exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -406,7 +406,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
               menuList: '0r94d0[}(uui'
             };
             _context13.next = 3;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(testOrderId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
 
           case 3:
             response = _context13.sent;
@@ -421,7 +421,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
       }
     }, _callee13);
   })));
-  it('should not update a menu order at "/v1/orders" with PUT if menu list are not letters and menu order exists',
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list are not letters and menu order exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -437,7 +437,7 @@ describe('Test endpoint at "/v1/orders/:id" to update or create a menu order', f
             };
             wrongId = testOrderId + 10;
             _context14.next = 4;
-            return _index.chai.request(_index.app).put("/v1/orders/".concat(wrongId)).send(testData);
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(wrongId)).send(testData);
 
           case 4:
             response = _context14.sent;

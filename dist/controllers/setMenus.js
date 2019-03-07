@@ -40,9 +40,9 @@ function () {
             return _context.abrupt("return");
 
           case 4:
-            req.body.menuId = _models.default.menus.menuList.length;
+            req.body.menuId = _models.default.menuList.length;
 
-            _services.default.createOne(res, _models.default.menus.menuList, _models.default.menus.menuFormat(req.body), 'Success! Menu created');
+            _services.default.createOne(res, _models.default.menuList, _models.default.menuFormat(req.body), 'Success! Menu created');
 
           case 6:
           case "end":

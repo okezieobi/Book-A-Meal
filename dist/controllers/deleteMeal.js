@@ -28,14 +28,14 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            findMeal = _services.default.findOne(req.params, _models.default.meals.mealOptionList);
+            findMeal = _services.default.findOne(req.params, _models.default.mealOptionList);
 
             if (!findMeal) {
               _context.next = 4;
               break;
             }
 
-            _services.default.deleteOne(res, _models.default.meals.mealOptionList, findMeal.id);
+            _services.default.deleteOne(res, _models.default.mealOptionList, findMeal.id);
 
             return _context.abrupt("return");
 

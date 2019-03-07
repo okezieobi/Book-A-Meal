@@ -27,7 +27,7 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _services.default.getAll(res, 'Success! Menu list retrieved', _models.default.menus.menuList);
+            _services.default.getAll(res, 'Success! Menu list retrieved', _models.default.menuList);
 
           case 1:
           case "end":

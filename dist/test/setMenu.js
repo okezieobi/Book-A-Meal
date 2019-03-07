@@ -8,7 +8,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 _index.chai.use(_index.chaiHttp);
 
-describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
+describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () {
   before(function () {
     _index.dataSetup.meals();
 
@@ -16,7 +16,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
 
     _index.dataSetup.orders();
   });
-  it('should set a menu at "/v1/menus" with post if all request data are valid',
+  it('should set a menu at "/api/v1/menus" with post if all request data are valid',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -31,7 +31,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
               menuOptions: 'Dodo Rice'
             };
             _context.next = 3;
-            return _index.chai.request(_index.app).post('/v1/menus').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
 
           case 3:
             response = _context.sent;
@@ -40,7 +40,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
             (0, _index.expect)(response.body).to.have.property('data');
             (0, _index.expect)(response.body).to.have.property('message').equal('Success! Menu created');
             (0, _index.expect)(response.body.data).to.have.property('id');
-            (0, _index.expect)(response.body.data).to.have.property('name').equal(testData.menuName);
+            (0, _index.expect)(response.body.data).to.have.property('menuName').equal(testData.menuName);
             (0, _index.expect)(response.body.data).to.have.property('total');
 
           case 11:
@@ -50,7 +50,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
       }
     }, _callee);
   })));
-  it('should not create a menu at "/v1/menus" with POST if menu name in request does not exist',
+  it('should not create a menu at "/api/v1/menus" with POST if menu name in request does not exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -64,7 +64,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
               menuOptions: 'Dodo Beans'
             };
             _context2.next = 3;
-            return _index.chai.request(_index.app).post('/v1/menus').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
 
           case 3:
             response = _context2.sent;
@@ -79,7 +79,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
       }
     }, _callee2);
   })));
-  it('should not create a menu at "/v1/menus" with POST if menu name in request is an empty string',
+  it('should not create a menu at "/api/v1/menus" with POST if menu name in request is an empty string',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -94,7 +94,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
               menuOptions: 'Dodo Beans'
             };
             _context3.next = 3;
-            return _index.chai.request(_index.app).post('/v1/menus').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
 
           case 3:
             response = _context3.sent;
@@ -109,7 +109,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
       }
     }, _callee3);
   })));
-  it('should not create a menu at "/v1/menus" with POST if menu name in request are not letters',
+  it('should not create a menu at "/api/v1/menus" with POST if menu name in request are not letters',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -124,7 +124,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
               menuOptions: 'Dodo Beans'
             };
             _context4.next = 3;
-            return _index.chai.request(_index.app).post('/v1/menus').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
 
           case 3:
             response = _context4.sent;
@@ -139,7 +139,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
       }
     }, _callee4);
   })));
-  it('should not create a menu at "/v1/menus" with POST if menu options in request does not exist',
+  it('should not create a menu at "/api/v1/menus" with POST if menu options in request does not exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -153,7 +153,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
               menuName: 'Launch'
             };
             _context5.next = 3;
-            return _index.chai.request(_index.app).post('/v1/menus').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
 
           case 3:
             response = _context5.sent;
@@ -168,7 +168,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
       }
     }, _callee5);
   })));
-  it('should not create a menu at "/v1/menus" with POST if menu options in request is an empty string',
+  it('should not create a menu at "/api/v1/menus" with POST if menu options in request is an empty string',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -183,7 +183,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
               menuOptions: ''
             };
             _context6.next = 3;
-            return _index.chai.request(_index.app).post('/v1/menus').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
 
           case 3:
             response = _context6.sent;
@@ -198,7 +198,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
       }
     }, _callee6);
   })));
-  it('should not create a menu at "/v1/menus" with POST if menu options in request are not letters',
+  it('should not create a menu at "/api/v1/menus" with POST if menu options in request are not letters',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -213,7 +213,7 @@ describe('Test endpoint at "/v1/menus" to set menus with POST', function () {
               menuOptions: '90{f]f9d()'
             };
             _context7.next = 3;
-            return _index.chai.request(_index.app).post('/v1/menus').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
 
           case 3:
             response = _context7.sent;

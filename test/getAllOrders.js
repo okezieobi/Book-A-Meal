@@ -8,15 +8,15 @@ import {
 
 chai.use(chaiHttp);
 
-describe('Test endpoint at "/v1/orders" to get all orders with GET', () => {
+describe('Test endpoint at "/api/v1/orders" to get all orders with GET', () => {
   before(async () => {
     dataSetup.meals();
     dataSetup.menus();
     dataSetup.orders();
   });
 
-  it('should get all orders at "/v1/orders" with GET', async () => {
-    const response = await chai.request(app).get('/v1/orders');
+  it('should get all orders at "/api/v1/orders" with GET', async () => {
+    const response = await chai.request(app).get('/api/v1/orders');
     const randomRes = response.body.data[Math.floor(Math.random() * response.body.data.length)];
     expect(response).to.have.status(200);
     expect(response).to.be.an('object');

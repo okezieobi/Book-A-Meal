@@ -40,9 +40,9 @@ function () {
             return _context.abrupt("return");
 
           case 4:
-            req.body.orderId = _models.default.orders.orderList.length;
+            req.body.orderId = _models.default.orderList.length;
 
-            _services.default.createOne(res, _models.default.orders.orderList, _models.default.orders.orderFormat(req.body), 'Success! Menu selected and order made');
+            _services.default.createOne(res, _models.default.orderList, _models.default.orderFormat(req.body), 'Success! Menu selected and order made');
 
           case 6:
           case "end":

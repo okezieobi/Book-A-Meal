@@ -1,25 +1,17 @@
-class BookAMeal {}
-
-class Meal extends BookAMeal {
+class BookAMeal {
   constructor() {
-    super();
     this.mealOptionList = [];
+    this.menuList = [];
+    this.orderList = [];
   }
 
   mealFormat(data) {
     this.mealOptionData = {
       id: data.mealId,
       name: data.mealOptionName,
-      price: data.mealOptionPrice,
+      price: parseInt(data.mealOptionPrice, 10),
     };
     return this.mealOptionData;
-  }
-}
-
-class Menu extends Meal {
-  constructor() {
-    super();
-    this.menuList = [];
   }
 
   totalPrice(optionOneArray, optionTwoArray) {
@@ -27,6 +19,10 @@ class Menu extends Meal {
     optionOneArray.forEach((optionOne) => {
       optionTwoArray.forEach((optionTwo) => {
         if (optionOne === optionTwo.name) {
+          this.total += optionTwo.price;
+          return;
+        }
+        if (optionOne === optionTwo.menuName) {
           this.total += optionTwo.total;
         }
       });
@@ -38,19 +34,11 @@ class Menu extends Meal {
     this.menuData = {
       date: new Date(),
       id: data.menuId,
-      name: data.menuName,
+      menuName: data.menuName,
       mealOptions: data.menuOptions.split(' '),
       total: this.totalPrice(data.menuOptions.split(' '), this.mealOptionList),
     };
     return this.menuData;
-  }
-}
-
-
-class Order extends Menu {
-  constructor() {
-    super();
-    this.orderList = [];
   }
 
   orderFormat(data) {
@@ -64,12 +52,6 @@ class Order extends Menu {
   }
 }
 
-const meals = new Meal();
-const menus = new Menu();
-const orders = new Order();
+const data = new BookAMeal();
 
-export default {
-  meals,
-  menus,
-  orders,
-};
+export default data;

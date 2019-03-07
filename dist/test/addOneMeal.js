@@ -8,7 +8,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 _index.chai.use(_index.chaiHttp);
 
-describe('Test endpoint at "/v1/meals" to create a meal option with POST', function () {
+describe('Test endpoint at "/api/v1/meals" to create a meal option with POST', function () {
   before(function () {
     _index.dataSetup.meals();
 
@@ -16,7 +16,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
 
     _index.dataSetup.orders();
   });
-  it('should create a meal option at "/v1/meal" with post if all request data are valid',
+  it('should create a meal option at "/api/v1/meals" with post if all request data are valid',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -31,7 +31,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
               mealOptionPrice: 10
             };
             _context.next = 3;
-            return _index.chai.request(_index.app).post('/v1/meals').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/meals').send(testData);
 
           case 3:
             response = _context.sent;
@@ -50,7 +50,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
       }
     }, _callee);
   })));
-  it('should not create a meal option at "/v1/meals" with POST if meal option name in request does not exist',
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option name in request does not exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -64,7 +64,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
               mealOptionPrice: 10
             };
             _context2.next = 3;
-            return _index.chai.request(_index.app).post('/v1/meals').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/meals').send(testData);
 
           case 3:
             response = _context2.sent;
@@ -79,7 +79,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
       }
     }, _callee2);
   })));
-  it('should not create a meal option at "/v1/meals" with POST if meal option name in request is an empty string',
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option name in request is an empty string',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -94,7 +94,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
               mealOptionPrice: 10
             };
             _context3.next = 3;
-            return _index.chai.request(_index.app).post('/v1/meals').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/meals').send(testData);
 
           case 3:
             response = _context3.sent;
@@ -109,7 +109,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
       }
     }, _callee3);
   })));
-  it('should not create a meal option at "/v1/meals" with POST if meal option name in request are not letters',
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option name in request are not letters',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -124,7 +124,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
               mealOptionPrice: 10
             };
             _context4.next = 3;
-            return _index.chai.request(_index.app).post('/v1/meals').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/meals').send(testData);
 
           case 3:
             response = _context4.sent;
@@ -139,7 +139,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
       }
     }, _callee4);
   })));
-  it('should not create a meal option at "/v1/meals" with POST if meal option price in request does not exist',
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option price in request does not exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -153,7 +153,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
               mealOptionName: 'Dodo'
             };
             _context5.next = 3;
-            return _index.chai.request(_index.app).post('/v1/meals').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/meals').send(testData);
 
           case 3:
             response = _context5.sent;
@@ -168,7 +168,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
       }
     }, _callee5);
   })));
-  it('should not create a meal option at "/v1/meals" with POST if meal option price in request is an empty string',
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option price in request is an empty string',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -183,7 +183,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
               mealOptionPrice: ''
             };
             _context6.next = 3;
-            return _index.chai.request(_index.app).post('/v1/meals').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/meals').send(testData);
 
           case 3:
             response = _context6.sent;
@@ -198,7 +198,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
       }
     }, _callee6);
   })));
-  it('should not create a meal option at "/v1/meals" with POST if meal option price in request is NOT a number',
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option price in request is NOT a number',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -213,7 +213,7 @@ describe('Test endpoint at "/v1/meals" to create a meal option with POST', funct
               mealOptionPrice: 'p0{f(jf]'
             };
             _context7.next = 3;
-            return _index.chai.request(_index.app).post('/v1/meals').send(testData);
+            return _index.chai.request(_index.app).post('/api/v1/meals').send(testData);
 
           case 3:
             response = _context7.sent;

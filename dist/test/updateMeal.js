@@ -8,7 +8,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 _index.chai.use(_index.chaiHttp);
 
-describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option with PUT', function () {
+describe('Test endpoint at "/api/v1/meals/:id" to update OR create a meal option with PUT', function () {
   var testId = 0;
   before(function () {
     _index.dataSetup.meals();
@@ -19,7 +19,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
 
     testId += _index.dataSetup.testId;
   });
-  it('should update a meal option at "/v1/meals/:id" with PUT if all request parameters are valid and meal option exists',
+  it('should update a meal option at "/api/v1/meals/:id" with PUT if all request parameters are valid and meal option exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -34,7 +34,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
               mealOptionPrice: 100
             };
             _context.next = 3;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(testId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(testId)).send(testDataTwo);
 
           case 3:
             response = _context.sent;
@@ -53,7 +53,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       }
     }, _callee);
   })));
-  it('should ALSO update a meal option at "/v1/meals/:id" with PUT if all request parameters are valid and meal option does NOT exist',
+  it('should ALSO update a meal option at "/api/v1/meals/:id" with PUT if all request parameters are valid and meal option does NOT exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -69,7 +69,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
               mealOptionPrice: 100
             };
             _context2.next = 4;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(wrongId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(wrongId)).send(testDataTwo);
 
           case 4:
             response = _context2.sent;
@@ -88,7 +88,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       }
     }, _callee2);
   })));
-  it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option name in request does not exist and meal option exists',
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option name in request does not exist and meal option exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -102,7 +102,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
               mealOptionPrice: 100
             };
             _context3.next = 3;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(testId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(testId)).send(testDataTwo);
 
           case 3:
             response = _context3.sent;
@@ -117,7 +117,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       }
     }, _callee3);
   })));
-  it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option name in request does not exist and meal option does NOT exist',
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option name in request does not exist and meal option does NOT exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -132,7 +132,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
             };
             wrongId = testId + 10;
             _context4.next = 4;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(wrongId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(wrongId)).send(testDataTwo);
 
           case 4:
             response = _context4.sent;
@@ -147,7 +147,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       }
     }, _callee4);
   })));
-  it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option name in request is an empty string and meal option exists',
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option name in request is an empty string and meal option exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -162,7 +162,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
               mealOptionPrice: 100
             };
             _context5.next = 3;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(testId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(testId)).send(testDataTwo);
 
           case 3:
             response = _context5.sent;
@@ -177,7 +177,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       }
     }, _callee5);
   })));
-  it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option name in request is an empty string and meal option does NOT exist',
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option name in request is an empty string and meal option does NOT exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -193,7 +193,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
             };
             wrongId = testId + 10;
             _context6.next = 4;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(wrongId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(wrongId)).send(testDataTwo);
 
           case 4:
             response = _context6.sent;
@@ -208,7 +208,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       }
     }, _callee6);
   })));
-  it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option name in request are NOT letters and meal option exists',
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option name in request are NOT letters and meal option exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -223,7 +223,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
               mealOptionPrice: 100
             };
             _context7.next = 3;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(testId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(testId)).send(testDataTwo);
 
           case 3:
             response = _context7.sent;
@@ -238,7 +238,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       }
     }, _callee7);
   })));
-  it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option name in request are NOT letters and meal option does NOT exist',
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option name in request are NOT letters and meal option does NOT exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -254,7 +254,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
             };
             wrongId = testId + 10;
             _context8.next = 4;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(wrongId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(wrongId)).send(testDataTwo);
 
           case 4:
             response = _context8.sent;
@@ -269,7 +269,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       }
     }, _callee8);
   })));
-  it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option price in request does not exist and meal option exists',
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option price in request does not exist and meal option exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -283,7 +283,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
               mealOptionName: 'Rice'
             };
             _context9.next = 3;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(testId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(testId)).send(testDataTwo);
 
           case 3:
             response = _context9.sent;
@@ -298,7 +298,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       }
     }, _callee9);
   })));
-  it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option price in request does not exist and meal option does NOT exist',
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option price in request does not exist and meal option does NOT exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -313,7 +313,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
             };
             wrongId = testId + 10;
             _context10.next = 4;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(wrongId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(wrongId)).send(testDataTwo);
 
           case 4:
             response = _context10.sent;
@@ -328,7 +328,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       }
     }, _callee10);
   })));
-  it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option price in request is an empty string and meal option exists',
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option price in request is an empty string and meal option exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -343,7 +343,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
               mealOptionPrice: ''
             };
             _context11.next = 3;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(testId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(testId)).send(testDataTwo);
 
           case 3:
             response = _context11.sent;
@@ -358,7 +358,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       }
     }, _callee11);
   })));
-  it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option price in request is an empty string and meal option does NOT exist',
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option price in request is an empty string and meal option does NOT exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -374,7 +374,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
             };
             wrongId = testId + 10;
             _context12.next = 4;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(wrongId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(wrongId)).send(testDataTwo);
 
           case 4:
             response = _context12.sent;
@@ -389,7 +389,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       }
     }, _callee12);
   })));
-  it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option price in request are NOT numbers and meal option exists',
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option price in request are NOT numbers and meal option exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -404,7 +404,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
               mealOptionPrice: '0[d]e8f9fj](fg}'
             };
             _context13.next = 3;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(testId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(testId)).send(testDataTwo);
 
           case 3:
             response = _context13.sent;
@@ -419,7 +419,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
       }
     }, _callee13);
   })));
-  it('should NOT update a meal option at "/v1/meals/:id" with PUT if meal option price in request are NOT numbers and meal option does NOT exist',
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option price in request are NOT numbers and meal option does NOT exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -435,7 +435,7 @@ describe('Test endpoint at "/v1/meals/:id" to update OR create a meal option wit
             };
             wrongId = testId + 10;
             _context14.next = 4;
-            return _index.chai.request(_index.app).put("/v1/meals/".concat(wrongId)).send(testDataTwo);
+            return _index.chai.request(_index.app).put("/api/v1/meals/".concat(wrongId)).send(testDataTwo);
 
           case 4:
             response = _context14.sent;

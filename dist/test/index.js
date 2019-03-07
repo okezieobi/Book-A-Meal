@@ -72,7 +72,7 @@ function () {
       var _meals = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee() {
-        var _data$meals$mealOptio;
+        var _data$mealOptionList;
 
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
@@ -82,38 +82,38 @@ function () {
                 this.secondTestId = 0;
                 this.thirdTestId = 0;
                 this.testDataOne = {
-                  mealId: _models.default.meals.mealOptionList.length,
+                  mealId: _models.default.mealOptionList.length,
                   mealOptionName: 'Dodo',
                   mealOptionPrice: 100
                 };
                 this.testDataTwo = {
-                  mealId: _models.default.meals.mealOptionList.length,
+                  mealId: _models.default.mealOptionList.length,
                   mealOptionName: 'Rice',
                   mealOptionPrice: 1000
                 };
                 this.testDataThree = {
-                  mealId: _models.default.meals.mealOptionList.length,
+                  mealId: _models.default.mealOptionList.length,
                   mealOptionName: 'Beans',
                   mealOptionPrice: 10000
                 };
                 _context.next = 8;
-                return _models.default.meals.mealFormat(this.testDataOne);
+                return _models.default.mealFormat(this.testDataOne);
 
               case 8:
                 this.addMealOne = _context.sent;
                 _context.next = 11;
-                return _models.default.meals.mealFormat(this.testDataTwo);
+                return _models.default.mealFormat(this.testDataTwo);
 
               case 11:
                 this.addMealTwo = _context.sent;
                 _context.next = 14;
-                return _models.default.meals.mealFormat(this.testDataThree);
+                return _models.default.mealFormat(this.testDataThree);
 
               case 14:
                 this.addMealThree = _context.sent;
                 this.testDataList = [this.addMealOne, this.addMealTwo, this.addMealThree];
                 _context.next = 18;
-                return (_data$meals$mealOptio = _models.default.meals.mealOptionList).push.apply(_data$meals$mealOptio, _toConsumableArray(this.testDataList));
+                return (_data$mealOptionList = _models.default.mealOptionList).push.apply(_data$mealOptionList, _toConsumableArray(this.testDataList));
 
               case 18:
                 this.testId += this.addMealOne.id;
@@ -140,7 +140,7 @@ function () {
       var _menus = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee2() {
-        var _data$menus$menuList;
+        var _data$menuList;
 
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
@@ -150,38 +150,38 @@ function () {
                 this.secondTestId = 0;
                 this.thirdTestId = 0;
                 this.testDataFour = {
-                  menuId: _models.default.menus.menuList.length,
+                  menuId: _models.default.menuList.length,
                   menuName: 'Launch',
                   menuOptions: 'Rice Dodo'
                 };
                 this.testDataFive = {
-                  menuId: _models.default.menus.menuList.length,
+                  menuId: _models.default.menuList.length,
                   menuName: 'Dinner',
                   menuOptions: 'Rice Beans'
                 };
                 this.testDataSix = {
-                  menuId: _models.default.menus.menuList.length,
+                  menuId: _models.default.menuList.length,
                   menuName: 'Breakfast',
                   menuOptions: 'Beans Dodo'
                 };
                 _context2.next = 8;
-                return _models.default.menus.menuFormat(this.testDataFour);
+                return _models.default.menuFormat(this.testDataFour);
 
               case 8:
                 this.addOne = _context2.sent;
                 _context2.next = 11;
-                return _models.default.menus.menuFormat(this.testDataFive);
+                return _models.default.menuFormat(this.testDataFive);
 
               case 11:
                 this.addTwo = _context2.sent;
                 _context2.next = 14;
-                return _models.default.menus.menuFormat(this.testDataSix);
+                return _models.default.menuFormat(this.testDataSix);
 
               case 14:
                 this.addThree = _context2.sent;
                 this.testDataListTwo = [this.addOne, this.addTwo, this.addThree];
                 _context2.next = 18;
-                return (_data$menus$menuList = _models.default.menus.menuList).push.apply(_data$menus$menuList, _toConsumableArray(this.testDataListTwo));
+                return (_data$menuList = _models.default.menuList).push.apply(_data$menuList, _toConsumableArray(this.testDataListTwo));
 
               case 18:
                 this.testId += this.addOne.id;
@@ -208,7 +208,7 @@ function () {
       var _orders = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee3() {
-        var _data$orders$orderLis;
+        var _data$orderList;
 
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) {
@@ -218,38 +218,38 @@ function () {
                 this.secondTestId = 0;
                 this.thirdTestId = 0;
                 this.testDataSeven = {
-                  orderId: _models.default.orders.orderList.length,
+                  orderId: _models.default.orderList.length,
                   customerName: 'Okezie',
                   menuList: 'Breakfast Lunch'
                 };
                 this.testDataEight = {
-                  orderId: _models.default.orders.orderList.length,
+                  orderId: _models.default.orderList.length,
                   customerName: 'Frank',
                   menuList: 'Breakfast Dinner'
                 };
                 this.testDataNine = {
-                  orderId: _models.default.orders.orderList.length,
+                  orderId: _models.default.orderList.length,
                   customerName: 'Obiedere',
                   menuList: 'Lunch Dinner'
                 };
                 _context3.next = 8;
-                return _models.default.orders.orderFormat(this.testDataSeven);
+                return _models.default.orderFormat(this.testDataSeven);
 
               case 8:
                 this.addFour = _context3.sent;
                 _context3.next = 11;
-                return _models.default.orders.orderFormat(this.testDataEight);
+                return _models.default.orderFormat(this.testDataEight);
 
               case 11:
                 this.addFive = _context3.sent;
                 _context3.next = 14;
-                return _models.default.orders.orderFormat(this.testDataNine);
+                return _models.default.orderFormat(this.testDataNine);
 
               case 14:
                 this.addSix = _context3.sent;
                 this.testDataListThree = [this.addFour, this.addFive, this.addSix];
                 _context3.next = 18;
-                return (_data$orders$orderLis = _models.default.orders.orderList).push.apply(_data$orders$orderLis, _toConsumableArray(this.testDataListThree));
+                return (_data$orderList = _models.default.orderList).push.apply(_data$orderList, _toConsumableArray(this.testDataListThree));
 
               case 18:
                 this.testId += this.addFour.id;

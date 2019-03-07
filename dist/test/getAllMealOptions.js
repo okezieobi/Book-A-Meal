@@ -8,7 +8,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 _index.chai.use(_index.chaiHttp);
 
-describe('Test endpoint at "/v1/meals" wih GET to retrieve all meal options', function () {
+describe('Test endpoint at "/api/v1/meals" wih GET to retrieve all meal options', function () {
   before(function () {
     _index.dataSetup.meals();
 
@@ -16,7 +16,7 @@ describe('Test endpoint at "/v1/meals" wih GET to retrieve all meal options', fu
 
     _index.dataSetup.orders();
   });
-  it('should get all meal options at "/v1/meals" with GET',
+  it('should get all meal options at "/api/v1/meals" with GET',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -27,7 +27,7 @@ describe('Test endpoint at "/v1/meals" wih GET to retrieve all meal options', fu
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _index.chai.request(_index.app).get('/v1/meals');
+            return _index.chai.request(_index.app).get('/api/v1/meals');
 
           case 2:
             response = _context.sent;
