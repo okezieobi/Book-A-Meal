@@ -8,12 +8,10 @@ bookAMeal.updateOneMealOption = async (req, res) => {
   if (testUpadateMeal) {
     const findMeal = services.findOne(req.params, data.mealOptionList);
     if (findMeal) {
-      req.body.mealId = findMeal.id;
-      services.updateOne(res, data.mealOptionList, data.mealFormat(req.body), 'Meal option found! Meal option successfully updated', findMeal.id);
+      services.updateOneRes(res, data.mealOptionList, data.mealFormat(req.body), 'Meal option found! Meal option successfully updated', findMeal.id);
       return;
     }
-    req.body.mealId = data.mealOptionList.length;
-    services.createOne(res, data.mealOptionList, data.mealFormat(req.body), 'Meal option not found! Meal option successfully created');
+    services.createOneRes(res, data.mealOptionList, data.mealFormat(req.body), 'Meal option not found! Meal option successfully created');
     return;
   }
   services.processErr(req.body.mealOptionName, req.body.mealOptionPrice, 'Meal option name', 'Meal option price', services.mustBeNumbersErr('Meal option price'), res);

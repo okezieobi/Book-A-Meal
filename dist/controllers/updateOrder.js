@@ -31,34 +31,30 @@ function () {
             testUpdateOrder = _services.default.testItem(req.body.customerName, req.body.menuList, /^[A-Za-z]+$/.test(req.body.customerName), /^[A-Za-z\s]+$/.test(req.body.menuList));
 
             if (!testUpdateOrder) {
-              _context.next = 10;
+              _context.next = 8;
               break;
             }
 
             findOrder = _services.default.findOne(req.params, _models.default.orderList);
 
             if (!findOrder) {
-              _context.next = 7;
+              _context.next = 6;
               break;
             }
 
-            req.body.orderId = findOrder.id;
-
-            _services.default.updateOne(res, _models.default.orderList, _models.default.orderFormat(req.body), 'Menu order found, menu order successfully updated', findOrder.id);
+            _services.default.updateOneRes(res, _models.default.orderList, _models.default.orderFormat(req.body), 'Menu order found, menu order successfully updated', findOrder.id);
 
             return _context.abrupt("return");
 
-          case 7:
-            req.body.orderId = _models.default.orderList.length;
-
-            _services.default.createOne(res, _models.default.orderList, _models.default.orderFormat(req.body), 'Menu order not found, menu order successfully created');
+          case 6:
+            _services.default.createOneRes(res, _models.default.orderList, _models.default.orderFormat(req.body), 'Menu order not found, menu order successfully created');
 
             return _context.abrupt("return");
 
-          case 10:
+          case 8:
             _services.default.processErr(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', _services.default.stringToArrayErr('Menu list'), res);
 
-          case 11:
+          case 9:
           case "end":
             return _context.stop();
         }

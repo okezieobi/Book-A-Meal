@@ -67,9 +67,9 @@ function () {
       return this.testResult;
     }
   }, {
-    key: "createOne",
+    key: "createOneRes",
     value: function () {
-      var _createOne = _asyncToGenerator(
+      var _createOneRes = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee2(dataRes, arrayData, dataFormat, dataMessage) {
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
@@ -81,16 +81,17 @@ function () {
 
               case 2:
                 this.createdItem = _context2.sent;
-                _context2.next = 5;
+                this.createdItem.id = arrayData.length;
+                _context2.next = 6;
                 return arrayData.push(this.createdItem);
 
-              case 5:
+              case 6:
                 dataRes.status(201).send({
                   message: dataMessage,
                   data: this.createdItem
                 });
 
-              case 6:
+              case 7:
               case "end":
                 return _context2.stop();
             }
@@ -98,16 +99,16 @@ function () {
         }, _callee2, this);
       }));
 
-      function createOne(_x4, _x5, _x6, _x7) {
-        return _createOne.apply(this, arguments);
+      function createOneRes(_x4, _x5, _x6, _x7) {
+        return _createOneRes.apply(this, arguments);
       }
 
-      return createOne;
+      return createOneRes;
     }()
   }, {
-    key: "updateOne",
+    key: "updateOneRes",
     value: function () {
-      var _updateOne = _asyncToGenerator(
+      var _updateOneRes = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee3(dataRes, arrayData, dataFormat, dataMessage, updateId) {
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
@@ -119,16 +120,17 @@ function () {
 
               case 2:
                 this.updatedItem = _context3.sent;
-                _context3.next = 5;
+                this.updatedItem.id = updateId;
+                _context3.next = 6;
                 return arrayData.splice(updateId, 1, this.updatedItem);
 
-              case 5:
+              case 6:
                 dataRes.status(200).send({
                   message: dataMessage,
                   data: this.updatedItem
                 });
 
-              case 6:
+              case 7:
               case "end":
                 return _context3.stop();
             }
@@ -136,11 +138,11 @@ function () {
         }, _callee3, this);
       }));
 
-      function updateOne(_x8, _x9, _x10, _x11, _x12) {
-        return _updateOne.apply(this, arguments);
+      function updateOneRes(_x8, _x9, _x10, _x11, _x12) {
+        return _updateOneRes.apply(this, arguments);
       }
 
-      return updateOne;
+      return updateOneRes;
     }()
   }, {
     key: "deleteOne",

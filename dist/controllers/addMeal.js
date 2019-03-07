@@ -40,11 +40,9 @@ function () {
             return _context.abrupt("return");
 
           case 4:
-            req.body.mealId = _models.default.mealOptionList.length;
+            _services.default.createOneRes(res, _models.default.mealOptionList, _models.default.mealFormat(req.body), 'Success! Meal option created');
 
-            _services.default.createOne(res, _models.default.mealOptionList, _models.default.mealFormat(req.body), 'Success! Meal option created');
-
-          case 6:
+          case 5:
           case "end":
             return _context.stop();
         }

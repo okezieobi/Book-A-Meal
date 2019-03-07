@@ -8,12 +8,10 @@ bookAMeal.updateOrder = async (req, res) => {
   if (testUpdateOrder) {
     const findOrder = services.findOne(req.params, data.orderList);
     if (findOrder) {
-      req.body.orderId = findOrder.id;
-      services.updateOne(res, data.orderList, data.orderFormat(req.body), 'Menu order found, menu order successfully updated', findOrder.id);
+      services.updateOneRes(res, data.orderList, data.orderFormat(req.body), 'Menu order found, menu order successfully updated', findOrder.id);
       return;
     }
-    req.body.orderId = data.orderList.length;
-    services.createOne(res, data.orderList, data.orderFormat(req.body), 'Menu order not found, menu order successfully created');
+    services.createOneRes(res, data.orderList, data.orderFormat(req.body), 'Menu order not found, menu order successfully created');
     return;
   }
   services.processErr(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', services.stringToArrayErr('Menu list'), res);

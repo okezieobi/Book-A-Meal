@@ -9,8 +9,7 @@ bookAMeal.addOneMealOption = async (req, res) => {
     services.processErr(req.body.mealOptionName, req.body.mealOptionPrice, 'Meal option name', 'Meal option price', services.mustBeNumbersErr('Meal option price'), res);
     return;
   }
-  req.body.mealId = data.mealOptionList.length;
-  services.createOne(res, data.mealOptionList, data.mealFormat(req.body), 'Success! Meal option created');
+  services.createOneRes(res, data.mealOptionList, data.mealFormat(req.body), 'Success! Meal option created');
 };
 
 export default bookAMeal.addOneMealOption;

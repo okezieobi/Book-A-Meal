@@ -31,34 +31,30 @@ function () {
             testUpadateMeal = _services.default.testItem(req.body.mealOptionName, req.body.mealOptionPrice, /^[A-Za-z]+$/.test(req.body.mealOptionName), /^[0-9]+$/.test(req.body.mealOptionPrice));
 
             if (!testUpadateMeal) {
-              _context.next = 10;
+              _context.next = 8;
               break;
             }
 
             findMeal = _services.default.findOne(req.params, _models.default.mealOptionList);
 
             if (!findMeal) {
-              _context.next = 7;
+              _context.next = 6;
               break;
             }
 
-            req.body.mealId = findMeal.id;
-
-            _services.default.updateOne(res, _models.default.mealOptionList, _models.default.mealFormat(req.body), 'Meal option found! Meal option successfully updated', findMeal.id);
+            _services.default.updateOneRes(res, _models.default.mealOptionList, _models.default.mealFormat(req.body), 'Meal option found! Meal option successfully updated', findMeal.id);
 
             return _context.abrupt("return");
 
-          case 7:
-            req.body.mealId = _models.default.mealOptionList.length;
-
-            _services.default.createOne(res, _models.default.mealOptionList, _models.default.mealFormat(req.body), 'Meal option not found! Meal option successfully created');
+          case 6:
+            _services.default.createOneRes(res, _models.default.mealOptionList, _models.default.mealFormat(req.body), 'Meal option not found! Meal option successfully created');
 
             return _context.abrupt("return");
 
-          case 10:
+          case 8:
             _services.default.processErr(req.body.mealOptionName, req.body.mealOptionPrice, 'Meal option name', 'Meal option price', _services.default.mustBeNumbersErr('Meal option price'), res);
 
-          case 11:
+          case 9:
           case "end":
             return _context.stop();
         }

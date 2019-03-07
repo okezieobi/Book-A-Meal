@@ -17,8 +17,9 @@ class Services {
     return this.testResult;
   }
 
-  async createOne(dataRes, arrayData, dataFormat, dataMessage) {
+  async createOneRes(dataRes, arrayData, dataFormat, dataMessage) {
     this.createdItem = await dataFormat;
+    this.createdItem.id = arrayData.length;
     await arrayData.push(this.createdItem);
     dataRes.status(201).send({
       message: dataMessage,
@@ -26,8 +27,9 @@ class Services {
     });
   }
 
-  async updateOne(dataRes, arrayData, dataFormat, dataMessage, updateId) {
+  async updateOneRes(dataRes, arrayData, dataFormat, dataMessage, updateId) {
     this.updatedItem = await dataFormat;
+    this.updatedItem.id = updateId;
     await arrayData.splice(updateId, 1, this.updatedItem);
     dataRes.status(200).send({
       message: dataMessage,
