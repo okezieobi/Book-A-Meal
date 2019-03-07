@@ -109,7 +109,7 @@ describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () 
       }
     }, _callee3);
   })));
-  it('should not create a menu at "/api/v1/menus" with POST if menu name in request are not letters',
+  it('should not create a menu at "/api/v1/menus" with POST if menu name in request is undefined',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -120,7 +120,7 @@ describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () 
         switch (_context4.prev = _context4.next) {
           case 0:
             testData = {
-              menuName: '}04[}(odyr',
+              menuName: undefined,
               menuOptions: 'Dodo Beans'
             };
             _context4.next = 3;
@@ -130,7 +130,7 @@ describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () 
             response = _context4.sent;
             (0, _index.expect)(response).to.have.status(400);
             (0, _index.expect)(response.body).to.be.an('object');
-            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu name must be letters');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu name is required');
 
           case 7:
           case "end":
@@ -139,7 +139,7 @@ describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () 
       }
     }, _callee4);
   })));
-  it('should not create a menu at "/api/v1/menus" with POST if menu options in request does not exist',
+  it('should not create a menu at "/api/v1/menus" with POST if menu name in request is null',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -150,7 +150,8 @@ describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () 
         switch (_context5.prev = _context5.next) {
           case 0:
             testData = {
-              menuName: 'Launch'
+              menuName: null,
+              menuOptions: 'Dodo Beans'
             };
             _context5.next = 3;
             return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
@@ -159,7 +160,7 @@ describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () 
             response = _context5.sent;
             (0, _index.expect)(response).to.have.status(400);
             (0, _index.expect)(response.body).to.be.an('object');
-            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu options is required');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu name is required');
 
           case 7:
           case "end":
@@ -168,7 +169,7 @@ describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () 
       }
     }, _callee5);
   })));
-  it('should not create a menu at "/api/v1/menus" with POST if menu options in request is an empty string',
+  it('should not create a menu at "/api/v1/menus" with POST if menu name in request are not letters',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -179,8 +180,8 @@ describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () 
         switch (_context6.prev = _context6.next) {
           case 0:
             testData = {
-              menuName: 'Launch',
-              menuOptions: ''
+              menuName: '}04[}(odyr',
+              menuOptions: 'Dodo Beans'
             };
             _context6.next = 3;
             return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
@@ -189,7 +190,7 @@ describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () 
             response = _context6.sent;
             (0, _index.expect)(response).to.have.status(400);
             (0, _index.expect)(response.body).to.be.an('object');
-            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu options is required');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu name must be letters');
 
           case 7:
           case "end":
@@ -198,7 +199,7 @@ describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () 
       }
     }, _callee6);
   })));
-  it('should not create a menu at "/api/v1/menus" with POST if menu options in request are not letters',
+  it('should not create a menu at "/api/v1/menus" with POST if menu options in request does not exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -209,8 +210,7 @@ describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () 
         switch (_context7.prev = _context7.next) {
           case 0:
             testData = {
-              menuName: 'Launch',
-              menuOptions: '90{f]f9d()'
+              menuName: 'Launch'
             };
             _context7.next = 3;
             return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
@@ -219,7 +219,7 @@ describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () 
             response = _context7.sent;
             (0, _index.expect)(response).to.have.status(400);
             (0, _index.expect)(response.body).to.be.an('object');
-            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu options must be letters and seperated by spaces');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu options is required');
 
           case 7:
           case "end":
@@ -227,6 +227,126 @@ describe('Test endpoint at "/api/v1/menus" to set menus with POST', function () 
         }
       }
     }, _callee7);
+  })));
+  it('should not create a menu at "/api/v1/menus" with POST if menu options in request is an empty string',
+  /*#__PURE__*/
+  _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee8() {
+    var testData, response;
+    return regeneratorRuntime.wrap(function _callee8$(_context8) {
+      while (1) {
+        switch (_context8.prev = _context8.next) {
+          case 0:
+            testData = {
+              menuName: 'Launch',
+              menuOptions: ''
+            };
+            _context8.next = 3;
+            return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
+
+          case 3:
+            response = _context8.sent;
+            (0, _index.expect)(response).to.have.status(400);
+            (0, _index.expect)(response.body).to.be.an('object');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu options is required');
+
+          case 7:
+          case "end":
+            return _context8.stop();
+        }
+      }
+    }, _callee8);
+  })));
+  it('should not create a menu at "/api/v1/menus" with POST if menu options in request is null',
+  /*#__PURE__*/
+  _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee9() {
+    var testData, response;
+    return regeneratorRuntime.wrap(function _callee9$(_context9) {
+      while (1) {
+        switch (_context9.prev = _context9.next) {
+          case 0:
+            testData = {
+              menuName: 'Launch',
+              menuOptions: null
+            };
+            _context9.next = 3;
+            return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
+
+          case 3:
+            response = _context9.sent;
+            (0, _index.expect)(response).to.have.status(400);
+            (0, _index.expect)(response.body).to.be.an('object');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu options is required');
+
+          case 7:
+          case "end":
+            return _context9.stop();
+        }
+      }
+    }, _callee9);
+  })));
+  it('should not create a menu at "/api/v1/menus" with POST if menu options in request is undefined',
+  /*#__PURE__*/
+  _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee10() {
+    var testData, response;
+    return regeneratorRuntime.wrap(function _callee10$(_context10) {
+      while (1) {
+        switch (_context10.prev = _context10.next) {
+          case 0:
+            testData = {
+              menuName: 'Launch',
+              menuOptions: undefined
+            };
+            _context10.next = 3;
+            return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
+
+          case 3:
+            response = _context10.sent;
+            (0, _index.expect)(response).to.have.status(400);
+            (0, _index.expect)(response.body).to.be.an('object');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu options is required');
+
+          case 7:
+          case "end":
+            return _context10.stop();
+        }
+      }
+    }, _callee10);
+  })));
+  it('should not create a menu at "/api/v1/menus" with POST if menu options in request are not letters',
+  /*#__PURE__*/
+  _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee11() {
+    var testData, response;
+    return regeneratorRuntime.wrap(function _callee11$(_context11) {
+      while (1) {
+        switch (_context11.prev = _context11.next) {
+          case 0:
+            testData = {
+              menuName: 'Launch',
+              menuOptions: '90{f]f9d()'
+            };
+            _context11.next = 3;
+            return _index.chai.request(_index.app).post('/api/v1/menus').send(testData);
+
+          case 3:
+            response = _context11.sent;
+            (0, _index.expect)(response).to.have.status(400);
+            (0, _index.expect)(response.body).to.be.an('object');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu options must be letters and seperated by spaces');
+
+          case 7:
+          case "end":
+            return _context11.stop();
+        }
+      }
+    }, _callee11);
   })));
 });
 //# sourceMappingURL=setMenu.js.map

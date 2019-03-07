@@ -84,6 +84,28 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
     expect(response.body).to.have.property('message').equal('Fail! Customer name is required');
   });
 
+  it('should not update a menu order at "/api/v1/orders" with PUT if customer name is undefined and menu order exists', async () => {
+    const testData = {
+      customerName: undefined,
+      menuList: 'Lunch Dinner',
+    };
+    const response = await chai.request(app).put(`/api/v1/orders/${testOrderId}`).send(testData);
+    expect(response).to.have.status(400);
+    expect(response).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Customer name is required');
+  });
+
+  it('should not update a menu order at "/api/v1/orders" with PUT if customer name is null and menu order exists', async () => {
+    const testData = {
+      customerName: null,
+      menuList: 'Lunch Dinner',
+    };
+    const response = await chai.request(app).put(`/api/v1/orders/${testOrderId}`).send(testData);
+    expect(response).to.have.status(400);
+    expect(response).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Customer name is required');
+  });
+
   it('should not update a menu order at "/api/v1/orders" with PUT if customer name is an empty string and menu order does not exist', async () => {
     const testData = {
       customerName: '',
@@ -144,6 +166,28 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
     const testData = {
       customerName: 'Okezie',
       menuList: '',
+    };
+    const response = await chai.request(app).put(`/api/v1/orders/${testOrderId}`).send(testData);
+    expect(response).to.have.status(400);
+    expect(response).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Menu list is required');
+  });
+
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list is null and menu order exists', async () => {
+    const testData = {
+      customerName: 'Okezie',
+      menuList: null,
+    };
+    const response = await chai.request(app).put(`/api/v1/orders/${testOrderId}`).send(testData);
+    expect(response).to.have.status(400);
+    expect(response).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Menu list is required');
+  });
+
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list is undefined and menu order exists', async () => {
+    const testData = {
+      customerName: 'Okezie',
+      menuList: undefined,
     };
     const response = await chai.request(app).put(`/api/v1/orders/${testOrderId}`).send(testData);
     expect(response).to.have.status(400);

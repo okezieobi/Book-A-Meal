@@ -179,38 +179,37 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
       }
     }, _callee5);
   })));
-  it('should not update a menu order at "/api/v1/orders" with PUT if customer name is an empty string and menu order does not exist',
+  it('should not update a menu order at "/api/v1/orders" with PUT if customer name is undefined and menu order exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee6() {
-    var testData, wrongId, response;
+    var testData, response;
     return regeneratorRuntime.wrap(function _callee6$(_context6) {
       while (1) {
         switch (_context6.prev = _context6.next) {
           case 0:
             testData = {
-              customerName: '',
+              customerName: undefined,
               menuList: 'Lunch Dinner'
             };
-            wrongId = testOrderId + 10;
-            _context6.next = 4;
-            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(wrongId)).send(testData);
+            _context6.next = 3;
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
 
-          case 4:
+          case 3:
             response = _context6.sent;
             (0, _index.expect)(response).to.have.status(400);
             (0, _index.expect)(response).to.be.an('object');
             (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Customer name is required');
 
-          case 8:
+          case 7:
           case "end":
             return _context6.stop();
         }
       }
     }, _callee6);
   })));
-  it('should not update a menu order at "/api/v1/orders" with PUT if customer name are not letters and menu order exists',
+  it('should not update a menu order at "/api/v1/orders" with PUT if customer name is null and menu order exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -221,7 +220,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
         switch (_context7.prev = _context7.next) {
           case 0:
             testData = {
-              customerName: 'oor](iuiro/{',
+              customerName: null,
               menuList: 'Lunch Dinner'
             };
             _context7.next = 3;
@@ -231,7 +230,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
             response = _context7.sent;
             (0, _index.expect)(response).to.have.status(400);
             (0, _index.expect)(response).to.be.an('object');
-            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Customer name must be letters');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Customer name is required');
 
           case 7:
           case "end":
@@ -240,7 +239,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
       }
     }, _callee7);
   })));
-  it('should not update a menu order at "/api/v1/orders" with PUT if customer name are not letters and menu order does NOT exist',
+  it('should not update a menu order at "/api/v1/orders" with PUT if customer name is an empty string and menu order does not exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -251,7 +250,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
         switch (_context8.prev = _context8.next) {
           case 0:
             testData = {
-              customerName: 'oor](iuiro/{',
+              customerName: '',
               menuList: 'Lunch Dinner'
             };
             wrongId = testOrderId + 10;
@@ -262,7 +261,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
             response = _context8.sent;
             (0, _index.expect)(response).to.have.status(400);
             (0, _index.expect)(response).to.be.an('object');
-            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Customer name must be letters');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Customer name is required');
 
           case 8:
           case "end":
@@ -271,7 +270,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
       }
     }, _callee8);
   })));
-  it('should not update a menu order at "/api/v1/orders" with PUT if menu list does not exist and menu order exists',
+  it('should not update a menu order at "/api/v1/orders" with PUT if customer name are not letters and menu order exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -282,7 +281,8 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
         switch (_context9.prev = _context9.next) {
           case 0:
             testData = {
-              customerName: 'Okezie'
+              customerName: 'oor](iuiro/{',
+              menuList: 'Lunch Dinner'
             };
             _context9.next = 3;
             return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
@@ -291,7 +291,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
             response = _context9.sent;
             (0, _index.expect)(response).to.have.status(400);
             (0, _index.expect)(response).to.be.an('object');
-            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu list is required');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Customer name must be letters');
 
           case 7:
           case "end":
@@ -300,7 +300,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
       }
     }, _callee9);
   })));
-  it('should not update a menu order at "/api/v1/orders" with PUT if menu list and menu order do not exist',
+  it('should not update a menu order at "/api/v1/orders" with PUT if customer name are not letters and menu order does NOT exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -311,7 +311,8 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
         switch (_context10.prev = _context10.next) {
           case 0:
             testData = {
-              customerName: 'Okezie'
+              customerName: 'oor](iuiro/{',
+              menuList: 'Lunch Dinner'
             };
             wrongId = testOrderId + 10;
             _context10.next = 4;
@@ -321,7 +322,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
             response = _context10.sent;
             (0, _index.expect)(response).to.have.status(400);
             (0, _index.expect)(response).to.be.an('object');
-            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu list is required');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Customer name must be letters');
 
           case 8:
           case "end":
@@ -330,7 +331,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
       }
     }, _callee10);
   })));
-  it('should not update a menu order at "/api/v1/orders" with PUT if menu list is an empty string and menu order exists',
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list does not exist and menu order exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -341,8 +342,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
         switch (_context11.prev = _context11.next) {
           case 0:
             testData = {
-              customerName: 'Okezie',
-              menuList: ''
+              customerName: 'Okezie'
             };
             _context11.next = 3;
             return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
@@ -360,7 +360,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
       }
     }, _callee11);
   })));
-  it('should not update a menu order at "/api/v1/orders" with PUT if menu list is an empty string and menu order does not exist',
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list and menu order do not exist',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -371,8 +371,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
         switch (_context12.prev = _context12.next) {
           case 0:
             testData = {
-              customerName: 'Okezie',
-              menuList: ''
+              customerName: 'Okezie'
             };
             wrongId = testOrderId + 10;
             _context12.next = 4;
@@ -391,7 +390,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
       }
     }, _callee12);
   })));
-  it('should not update a menu order at "/api/v1/orders" with PUT if menu list are not letters and menu order exists',
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list is an empty string and menu order exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -403,7 +402,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
           case 0:
             testData = {
               customerName: 'Okezie',
-              menuList: '0r94d0[}(uui'
+              menuList: ''
             };
             _context13.next = 3;
             return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
@@ -412,7 +411,7 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
             response = _context13.sent;
             (0, _index.expect)(response).to.have.status(400);
             (0, _index.expect)(response).to.be.an('object');
-            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu list is required');
 
           case 7:
           case "end":
@@ -421,36 +420,157 @@ describe('Test endpoint at "/api/v1/orders/:id" to update or create a menu order
       }
     }, _callee13);
   })));
-  it('should not update a menu order at "/api/v1/orders" with PUT if menu list are not letters and menu order exists',
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list is null and menu order exists',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee14() {
-    var testData, wrongId, response;
+    var testData, response;
     return regeneratorRuntime.wrap(function _callee14$(_context14) {
       while (1) {
         switch (_context14.prev = _context14.next) {
           case 0:
             testData = {
               customerName: 'Okezie',
-              menuList: '0r94d0[}(uui'
+              menuList: null
+            };
+            _context14.next = 3;
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
+
+          case 3:
+            response = _context14.sent;
+            (0, _index.expect)(response).to.have.status(400);
+            (0, _index.expect)(response).to.be.an('object');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu list is required');
+
+          case 7:
+          case "end":
+            return _context14.stop();
+        }
+      }
+    }, _callee14);
+  })));
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list is undefined and menu order exists',
+  /*#__PURE__*/
+  _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee15() {
+    var testData, response;
+    return regeneratorRuntime.wrap(function _callee15$(_context15) {
+      while (1) {
+        switch (_context15.prev = _context15.next) {
+          case 0:
+            testData = {
+              customerName: 'Okezie',
+              menuList: undefined
+            };
+            _context15.next = 3;
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
+
+          case 3:
+            response = _context15.sent;
+            (0, _index.expect)(response).to.have.status(400);
+            (0, _index.expect)(response).to.be.an('object');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu list is required');
+
+          case 7:
+          case "end":
+            return _context15.stop();
+        }
+      }
+    }, _callee15);
+  })));
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list is an empty string and menu order does not exist',
+  /*#__PURE__*/
+  _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee16() {
+    var testData, wrongId, response;
+    return regeneratorRuntime.wrap(function _callee16$(_context16) {
+      while (1) {
+        switch (_context16.prev = _context16.next) {
+          case 0:
+            testData = {
+              customerName: 'Okezie',
+              menuList: ''
             };
             wrongId = testOrderId + 10;
-            _context14.next = 4;
+            _context16.next = 4;
             return _index.chai.request(_index.app).put("/api/v1/orders/".concat(wrongId)).send(testData);
 
           case 4:
-            response = _context14.sent;
+            response = _context16.sent;
+            (0, _index.expect)(response).to.have.status(400);
+            (0, _index.expect)(response).to.be.an('object');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu list is required');
+
+          case 8:
+          case "end":
+            return _context16.stop();
+        }
+      }
+    }, _callee16);
+  })));
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list are not letters and menu order exists',
+  /*#__PURE__*/
+  _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee17() {
+    var testData, response;
+    return regeneratorRuntime.wrap(function _callee17$(_context17) {
+      while (1) {
+        switch (_context17.prev = _context17.next) {
+          case 0:
+            testData = {
+              customerName: 'Okezie',
+              menuList: '0r94d0[}(uui'
+            };
+            _context17.next = 3;
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(testOrderId)).send(testData);
+
+          case 3:
+            response = _context17.sent;
+            (0, _index.expect)(response).to.have.status(400);
+            (0, _index.expect)(response).to.be.an('object');
+            (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces');
+
+          case 7:
+          case "end":
+            return _context17.stop();
+        }
+      }
+    }, _callee17);
+  })));
+  it('should not update a menu order at "/api/v1/orders" with PUT if menu list are not letters and menu order exists',
+  /*#__PURE__*/
+  _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee18() {
+    var testData, wrongId, response;
+    return regeneratorRuntime.wrap(function _callee18$(_context18) {
+      while (1) {
+        switch (_context18.prev = _context18.next) {
+          case 0:
+            testData = {
+              customerName: 'Okezie',
+              menuList: '0r94d0[}(uui'
+            };
+            wrongId = testOrderId + 10;
+            _context18.next = 4;
+            return _index.chai.request(_index.app).put("/api/v1/orders/".concat(wrongId)).send(testData);
+
+          case 4:
+            response = _context18.sent;
             (0, _index.expect)(response).to.have.status(400);
             (0, _index.expect)(response).to.be.an('object');
             (0, _index.expect)(response.body).to.have.property('message').equal('Fail! Menu list must be letters and seperated by spaces');
 
           case 8:
           case "end":
-            return _context14.stop();
+            return _context18.stop();
         }
       }
-    }, _callee14);
+    }, _callee18);
   })));
 });
 //# sourceMappingURL=updateOneOrder.js.map

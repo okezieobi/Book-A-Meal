@@ -50,6 +50,28 @@ describe('Test endpoint at "/api/v1/meals" to create a meal option with POST', (
     expect(response.body).to.have.property('message').equal('Fail! Meal option name is required');
   });
 
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option name in request is undefined', async () => {
+    const testData = {
+      mealOptionName: undefined,
+      mealOptionPrice: 10,
+    };
+    const response = await chai.request(app).post('/api/v1/meals').send(testData);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option name is required');
+  });
+
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option name in request is an null', async () => {
+    const testData = {
+      mealOptionName: null,
+      mealOptionPrice: 10,
+    };
+    const response = await chai.request(app).post('/api/v1/meals').send(testData);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option name is required');
+  });
+
   it('should not create a meal option at "/api/v1/meals" with POST if meal option name in request are not letters', async () => {
     const testData = {
       mealOptionName: '0(}fieidfjd',
@@ -75,6 +97,28 @@ describe('Test endpoint at "/api/v1/meals" to create a meal option with POST', (
     const testData = {
       mealOptionName: 'Dodo',
       mealOptionPrice: '',
+    };
+    const response = await chai.request(app).post('/api/v1/meals').send(testData);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required');
+  });
+
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option price in request is null', async () => {
+    const testData = {
+      mealOptionName: 'Dodo',
+      mealOptionPrice: null,
+    };
+    const response = await chai.request(app).post('/api/v1/meals').send(testData);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required');
+  });
+
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option price in request is an undefined', async () => {
+    const testData = {
+      mealOptionName: 'Dodo',
+      mealOptionPrice: undefined,
     };
     const response = await chai.request(app).post('/api/v1/meals').send(testData);
     expect(response).to.have.status(400);

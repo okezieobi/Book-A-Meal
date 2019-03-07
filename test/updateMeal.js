@@ -80,9 +80,55 @@ describe('Test endpoint at "/api/v1/meals/:id" to update OR create a meal option
     expect(response.body).to.have.property('message').equal('Fail! Meal option name is required');
   });
 
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option name in request is undefined and meal option exists', async () => {
+    const testDataTwo = {
+      mealOptionName: undefined,
+      mealOptionPrice: 100,
+    };
+    const response = await chai.request(app).put(`/api/v1/meals/${testId}`).send(testDataTwo);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option name is required');
+  });
+
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option name in request is null and meal option exists', async () => {
+    const testDataTwo = {
+      mealOptionName: null,
+      mealOptionPrice: 100,
+    };
+    const response = await chai.request(app).put(`/api/v1/meals/${testId}`).send(testDataTwo);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option name is required');
+  });
+
   it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option name in request is an empty string and meal option does NOT exist', async () => {
     const testDataTwo = {
       mealOptionName: '',
+      mealOptionPrice: 100,
+    };
+    const wrongId = testId + 10;
+    const response = await chai.request(app).put(`/api/v1/meals/${wrongId}`).send(testDataTwo);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option name is required');
+  });
+
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option name in request is undefined and meal option does NOT exist', async () => {
+    const testDataTwo = {
+      mealOptionName: undefined,
+      mealOptionPrice: 100,
+    };
+    const wrongId = testId + 10;
+    const response = await chai.request(app).put(`/api/v1/meals/${wrongId}`).send(testDataTwo);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option name is required');
+  });
+
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option name in request is null and meal option does NOT exist', async () => {
+    const testDataTwo = {
+      mealOptionName: null,
       mealOptionPrice: 100,
     };
     const wrongId = testId + 10;
@@ -140,6 +186,28 @@ describe('Test endpoint at "/api/v1/meals/:id" to update OR create a meal option
     const testDataTwo = {
       mealOptionName: 'Dodo',
       mealOptionPrice: '',
+    };
+    const response = await chai.request(app).put(`/api/v1/meals/${testId}`).send(testDataTwo);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required');
+  });
+
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option price in request is null and meal option exists', async () => {
+    const testDataTwo = {
+      mealOptionName: 'Dodo',
+      mealOptionPrice: null,
+    };
+    const response = await chai.request(app).put(`/api/v1/meals/${testId}`).send(testDataTwo);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Meal option price is required');
+  });
+
+  it('should NOT update a meal option at "/api/v1/meals/:id" with PUT if meal option price in request is undefined and meal option exists', async () => {
+    const testDataTwo = {
+      mealOptionName: 'Dodo',
+      mealOptionPrice: undefined,
     };
     const response = await chai.request(app).put(`/api/v1/meals/${testId}`).send(testDataTwo);
     expect(response).to.have.status(400);

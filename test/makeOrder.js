@@ -52,6 +52,28 @@ describe('Test endpoint at "/api/v1/orders" to select meal option with POST', ()
     expect(response.body).to.have.property('message').equal('Fail! Customer name is required');
   });
 
+  it('should not select a menu option at "/api/v1/orders" with POST if customer name in request is undefined', async () => {
+    const testData = {
+      customerName: undefined,
+      menuList: 'BreakFast Dinner',
+    };
+    const response = await chai.request(app).post('/api/v1/orders').send(testData);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Customer name is required');
+  });
+
+  it('should not select a menu option at "/api/v1/orders" with POST if customer name in request is null', async () => {
+    const testData = {
+      customerName: null,
+      menuList: 'BreakFast Dinner',
+    };
+    const response = await chai.request(app).post('/api/v1/orders').send(testData);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Customer name is required');
+  });
+
   it('should not select a menu option at "/api/v1/orders" with POST if customer name in request are not letters', async () => {
     const testData = {
       customerName: '0or]f{(uu',
@@ -77,6 +99,28 @@ describe('Test endpoint at "/api/v1/orders" to select meal option with POST', ()
     const testData = {
       customerName: 'Frank',
       menuList: '',
+    };
+    const response = await chai.request(app).post('/api/v1/orders').send(testData);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Menu list is required');
+  });
+
+  it('should not create a menu at "/api/v1/menus" with POST if menu options in request is undefined', async () => {
+    const testData = {
+      customerName: 'Frank',
+      menuList: undefined,
+    };
+    const response = await chai.request(app).post('/api/v1/orders').send(testData);
+    expect(response).to.have.status(400);
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('message').equal('Fail! Menu list is required');
+  });
+
+  it('should not create a menu at "/api/v1/menus" with POST if menu options in request is null', async () => {
+    const testData = {
+      customerName: 'Frank',
+      menuList: null,
     };
     const response = await chai.request(app).post('/api/v1/orders').send(testData);
     expect(response).to.have.status(400);
