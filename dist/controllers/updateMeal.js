@@ -42,12 +42,12 @@ function () {
               break;
             }
 
-            _services.default.updateOneRes(res, _models.default.mealOptionList, _models.default.mealFormat(req.body), 'Meal option found! Meal option successfully updated', findMeal.id);
+            _services.default.resAction(200, res, 'Meal option found! Meal option successfully updated', _services.default.updateOneRes(_models.default.mealOptionList, _models.default.mealFormat(req.body), findMeal.id));
 
             return _context.abrupt("return");
 
           case 6:
-            _services.default.createOneRes(res, _models.default.mealOptionList, _models.default.mealFormat(req.body), 'Meal option not found! Meal option successfully created');
+            _services.default.resAction(201, res, 'Meal option not found! Meal option successfully created', _services.default.createOneRes(_models.default.mealOptionList, _models.default.mealFormat(req.body)));
 
             return _context.abrupt("return");
 

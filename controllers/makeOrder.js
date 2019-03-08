@@ -9,7 +9,7 @@ bookAMeal.selectOneMeal = async (req, res) => {
     services.processErr400(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', services.stringToArrayErr('Menu list'), res);
     return;
   }
-  services.createOneRes(res, data.orderList, data.orderFormat(req.body), 'Success! Menu selected and order made');
+  services.resAction(201, res, 'Success! Menu selected and order made', services.createOneRes(data.orderList, data.orderFormat(req.body)));
 };
 
 export default bookAMeal.selectOneMeal;

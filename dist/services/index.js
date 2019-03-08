@@ -68,40 +68,12 @@ function () {
     }
   }, {
     key: "createOneRes",
-    value: function () {
-      var _createOneRes = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(dataRes, arrayData, dataFormat, dataMessage) {
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return dataFormat;
-
-              case 2:
-                this.createdItem = _context2.sent;
-                this.createdItem.id = arrayData.length;
-                _context2.next = 6;
-                return arrayData.push(this.createdItem);
-
-              case 6:
-                this.resAction(201, dataRes, dataMessage, this.createdItem);
-
-              case 7:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function createOneRes(_x4, _x5, _x6, _x7) {
-        return _createOneRes.apply(this, arguments);
-      }
-
-      return createOneRes;
-    }()
+    value: function createOneRes(arrayData, dataFormat) {
+      this.createdItem = dataFormat;
+      this.createdItem.id = arrayData.length;
+      arrayData.push(this.createdItem);
+      return this.createdItem;
+    }
   }, {
     key: "resAction",
     value: function resAction(number, dataRes, dataMessage, sendData) {
@@ -113,52 +85,24 @@ function () {
     }
   }, {
     key: "updateOneRes",
-    value: function () {
-      var _updateOneRes = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee3(dataRes, arrayData, dataFormat, dataMessage, updateId) {
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.next = 2;
-                return dataFormat;
-
-              case 2:
-                this.updatedItem = _context3.sent;
-                this.updatedItem.id = updateId;
-                _context3.next = 6;
-                return arrayData.splice(updateId, 1, this.updatedItem);
-
-              case 6:
-                this.resAction(200, dataRes, dataMessage, this.updatedItem);
-
-              case 7:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this);
-      }));
-
-      function updateOneRes(_x8, _x9, _x10, _x11, _x12) {
-        return _updateOneRes.apply(this, arguments);
-      }
-
-      return updateOneRes;
-    }()
+    value: function updateOneRes(arrayData, dataFormat, updateId) {
+      this.updatedItem = dataFormat;
+      this.updatedItem.id = updateId;
+      arrayData.splice(updateId, 1, this.updatedItem);
+      return this.updatedItem;
+    }
   }, {
     key: "deleteOne",
     value: function () {
       var _deleteOne = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee4(dataRes, arrayData, deleteId) {
-        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+      regeneratorRuntime.mark(function _callee2(dataRes, arrayData, deleteId) {
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 this.id = deleteId;
-                _context4.next = 3;
+                _context2.next = 3;
                 return arrayData.splice(this.id, 1);
 
               case 3:
@@ -166,13 +110,13 @@ function () {
 
               case 4:
               case "end":
-                return _context4.stop();
+                return _context2.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee2, this);
       }));
 
-      function deleteOne(_x13, _x14, _x15) {
+      function deleteOne(_x4, _x5, _x6) {
         return _deleteOne.apply(this, arguments);
       }
 

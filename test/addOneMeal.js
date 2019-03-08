@@ -61,7 +61,7 @@ describe('Test endpoint at "/api/v1/meals" to create a meal option with POST', (
     expect(response.body).to.have.property('message').equal('Fail! Meal option name is required');
   });
 
-  it('should not create a meal option at "/api/v1/meals" with POST if meal option name in request is an null', async () => {
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option name in request is null', async () => {
     const testData = {
       mealOptionName: null,
       mealOptionPrice: 10,
@@ -115,7 +115,7 @@ describe('Test endpoint at "/api/v1/meals" to create a meal option with POST', (
     expect(response.body).to.have.property('message').equal('Fail! Meal option price is required');
   });
 
-  it('should not create a meal option at "/api/v1/meals" with POST if meal option price in request is an undefined', async () => {
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option price in request is undefined', async () => {
     const testData = {
       mealOptionName: 'Dodo',
       mealOptionPrice: undefined,

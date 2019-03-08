@@ -139,7 +139,7 @@ describe('Test endpoint at "/api/v1/meals" to create a meal option with POST', f
       }
     }, _callee4);
   })));
-  it('should not create a meal option at "/api/v1/meals" with POST if meal option name in request is an null',
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option name in request is null',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
@@ -288,7 +288,7 @@ describe('Test endpoint at "/api/v1/meals" to create a meal option with POST', f
       }
     }, _callee9);
   })));
-  it('should not create a meal option at "/api/v1/meals" with POST if meal option price in request is an undefined',
+  it('should not create a meal option at "/api/v1/meals" with POST if meal option price in request is undefined',
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/

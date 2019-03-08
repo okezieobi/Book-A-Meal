@@ -9,7 +9,7 @@ bookAMeal.setMenu = async (req, res) => {
     services.processErr400(req.body.menuName, req.body.menuOptions, 'Menu name', 'Menu options', services.stringToArrayErr('Menu options'), res);
     return;
   }
-  services.createOneRes(res, data.menuList, data.menuFormat(req.body), 'Success! Menu created');
+  services.resAction(201, res, 'Success! Menu created', services.createOneRes(data.menuList, data.menuFormat(req.body)));
 };
 
 export default bookAMeal.setMenu;

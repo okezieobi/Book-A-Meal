@@ -17,11 +17,11 @@ class Services {
     return this.testResult;
   }
 
-  async createOneRes(dataRes, arrayData, dataFormat, dataMessage) {
-    this.createdItem = await dataFormat;
+  createOneRes(arrayData, dataFormat) {
+    this.createdItem = dataFormat;
     this.createdItem.id = arrayData.length;
-    await arrayData.push(this.createdItem);
-    this.resAction(201, dataRes, dataMessage, this.createdItem);
+    arrayData.push(this.createdItem);
+    return this.createdItem;
   }
 
   resAction(number, dataRes, dataMessage, sendData) {
@@ -32,11 +32,11 @@ class Services {
     });
   }
 
-  async updateOneRes(dataRes, arrayData, dataFormat, dataMessage, updateId) {
-    this.updatedItem = await dataFormat;
+  updateOneRes(arrayData, dataFormat, updateId) {
+    this.updatedItem = dataFormat;
     this.updatedItem.id = updateId;
-    await arrayData.splice(updateId, 1, this.updatedItem);
-    this.resAction(200, dataRes, dataMessage, this.updatedItem);
+    arrayData.splice(updateId, 1, this.updatedItem);
+    return this.updatedItem;
   }
 
   async deleteOne(dataRes, arrayData, deleteId) {

@@ -9,7 +9,7 @@ bookAMeal.addOneMealOption = async (req, res) => {
     services.processErr400(req.body.mealOptionName, req.body.mealOptionPrice, 'Meal option name', 'Meal option price', services.mustBeNumbersErr('Meal option price'), res);
     return;
   }
-  services.createOneRes(res, data.mealOptionList, data.mealFormat(req.body), 'Success! Meal option created');
+  services.resAction(201, res, 'Success! Meal option created', services.createOneRes(data.mealOptionList, data.mealFormat(req.body)));
 };
 
 export default bookAMeal.addOneMealOption;

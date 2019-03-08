@@ -42,12 +42,12 @@ function () {
               break;
             }
 
-            _services.default.updateOneRes(res, _models.default.orderList, _models.default.orderFormat(req.body), 'Menu order found, menu order successfully updated', findOrder.id);
+            _services.default.resAction(200, res, 'Menu order found, menu order successfully updated', _services.default.updateOneRes(_models.default.orderList, _models.default.orderFormat(req.body), findOrder.id));
 
             return _context.abrupt("return");
 
           case 6:
-            _services.default.createOneRes(res, _models.default.orderList, _models.default.orderFormat(req.body), 'Menu order not found, menu order successfully created');
+            _services.default.resAction(201, res, 'Menu order not found, menu order successfully created', _services.default.createOneRes(_models.default.orderList, _models.default.orderFormat(req.body)));
 
             return _context.abrupt("return");
 

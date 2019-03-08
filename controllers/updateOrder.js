@@ -8,10 +8,10 @@ bookAMeal.updateOrder = async (req, res) => {
   if (testUpdateOrder) {
     const findOrder = services.findOne(req.params, data.orderList);
     if (findOrder) {
-      services.updateOneRes(res, data.orderList, data.orderFormat(req.body), 'Menu order found, menu order successfully updated', findOrder.id);
+      services.resAction(200, res, 'Menu order found, menu order successfully updated', services.updateOneRes(data.orderList, data.orderFormat(req.body), findOrder.id));
       return;
     }
-    services.createOneRes(res, data.orderList, data.orderFormat(req.body), 'Menu order not found, menu order successfully created');
+    services.resAction(201, res, 'Menu order not found, menu order successfully created', services.createOneRes(data.orderList, data.orderFormat(req.body)));
     return;
   }
   services.processErr400(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', services.stringToArrayErr('Menu list'), res);

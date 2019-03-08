@@ -40,7 +40,7 @@ function () {
             return _context.abrupt("return");
 
           case 4:
-            _services.default.createOneRes(res, _models.default.menuList, _models.default.menuFormat(req.body), 'Success! Menu created');
+            _services.default.resAction(201, res, 'Success! Menu created', _services.default.createOneRes(_models.default.menuList, _models.default.menuFormat(req.body)));
 
           case 5:
           case "end":
