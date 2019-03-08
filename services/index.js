@@ -13,7 +13,7 @@ class Services {
   }
 
   testItem(dataOne, dataTwo, dataOneTest, dataTwoTest) {
-    this.testResult = (dataOne && dataTwo && dataOneTest && dataTwoTest) && (dataOne && dataTwo) !== '';
+    this.testResult = (dataOne && dataTwo && dataOneTest && dataTwoTest) === true;
     return this.testResult;
   }
 
@@ -77,7 +77,7 @@ class Services {
   }
 
   processErr(dataOne, dataTwo, nameOne, nameTwo, dataTwoTestRes, resData) {
-    if (!dataOne || dataOne === '') {
+    if (!dataOne) {
       this.sendErr400(this.requiredNameErr(nameOne), resData);
       return;
     }
@@ -85,7 +85,7 @@ class Services {
       this.sendErr400(this.mustBeLettersErr(nameOne), resData);
       return;
     }
-    if (!dataTwo || dataTwo === '') {
+    if (!dataTwo) {
       this.sendErr400(this.requiredNameErr(nameTwo), resData);
       return;
     }

@@ -63,7 +63,7 @@ function () {
   }, {
     key: "testItem",
     value: function testItem(dataOne, dataTwo, dataOneTest, dataTwoTest) {
-      this.testResult = dataOne && dataTwo && dataOneTest && dataTwoTest && (dataOne && dataTwo) !== '';
+      this.testResult = (dataOne && dataTwo && dataOneTest && dataTwoTest) === true;
       return this.testResult;
     }
   }, {
@@ -216,7 +216,7 @@ function () {
   }, {
     key: "processErr",
     value: function processErr(dataOne, dataTwo, nameOne, nameTwo, dataTwoTestRes, resData) {
-      if (!dataOne || dataOne === '') {
+      if (!dataOne) {
         this.sendErr400(this.requiredNameErr(nameOne), resData);
         return;
       }
@@ -226,7 +226,7 @@ function () {
         return;
       }
 
-      if (!dataTwo || dataTwo === '') {
+      if (!dataTwo) {
         this.sendErr400(this.requiredNameErr(nameTwo), resData);
         return;
       }
