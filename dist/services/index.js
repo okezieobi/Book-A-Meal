@@ -33,10 +33,7 @@ function () {
             switch (_context.prev = _context.next) {
               case 0:
                 this.data = array;
-                dataRes.status(200).send({
-                  message: dataMessage,
-                  data: this.data
-                });
+                this.resAction(200, dataRes, dataMessage, this.data);
 
               case 2:
               case "end":

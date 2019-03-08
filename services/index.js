@@ -1,10 +1,7 @@
 class Services {
   async getAll(dataRes, dataMessage, array) {
     this.data = array;
-    dataRes.status(200).send({
-      message: dataMessage,
-      data: this.data,
-    });
+    this.resAction(200, dataRes, dataMessage, this.data);
   }
 
   findOne(dataParams, arrayData) {
