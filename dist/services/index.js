@@ -86,10 +86,7 @@ function () {
                 return arrayData.push(this.createdItem);
 
               case 6:
-                dataRes.status(201).send({
-                  message: dataMessage,
-                  data: this.createdItem
-                });
+                this.resAction(201, dataRes, dataMessage, this.createdItem);
 
               case 7:
               case "end":
@@ -105,6 +102,15 @@ function () {
 
       return createOneRes;
     }()
+  }, {
+    key: "resAction",
+    value: function resAction(number, dataRes, dataMessage, sendData) {
+      this.number = number;
+      dataRes.status(this.number).send({
+        message: dataMessage,
+        data: sendData
+      });
+    }
   }, {
     key: "updateOneRes",
     value: function () {
@@ -125,10 +131,7 @@ function () {
                 return arrayData.splice(updateId, 1, this.updatedItem);
 
               case 6:
-                dataRes.status(200).send({
-                  message: dataMessage,
-                  data: this.updatedItem
-                });
+                this.resAction(200, dataRes, dataMessage, this.updatedItem);
 
               case 7:
               case "end":
@@ -208,30 +211,30 @@ function () {
       return this.message;
     }
   }, {
-    key: "sendErr400",
-    value: function sendErr400(message, dataRes) {
-      this.error = dataRes.status(400).send(message);
+    key: "sendErr",
+    value: function sendErr(number, message, dataRes) {
+      this.error = dataRes.status(number).send(message);
       return this.error;
     }
   }, {
     key: "processErr",
     value: function processErr(dataOne, dataTwo, nameOne, nameTwo, dataTwoTestRes, resData) {
       if (!dataOne) {
-        this.sendErr400(this.requiredNameErr(nameOne), resData);
+        this.sendErr(400, this.requiredNameErr(nameOne), resData);
         return;
       }
 
       if (/^[A-Za-z]+$/.test(dataOne) === false) {
-        this.sendErr400(this.mustBeLettersErr(nameOne), resData);
+        this.sendErr(400, this.mustBeLettersErr(nameOne), resData);
         return;
       }
 
       if (!dataTwo) {
-        this.sendErr400(this.requiredNameErr(nameTwo), resData);
+        this.sendErr(400, this.requiredNameErr(nameTwo), resData);
         return;
       }
 
-      this.sendErr400(dataTwoTestRes, resData);
+      this.sendErr(400, dataTwoTestRes, resData);
     }
   }]);
 
