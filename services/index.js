@@ -36,10 +36,10 @@ class Services {
     return this.updatedItem;
   }
 
-  async deleteOne(dataRes, arrayData, deleteId) {
+  deleteOne(dataRes, arrayData, deleteId) {
     this.id = deleteId;
-    await arrayData.splice(this.id, 1);
-    dataRes.status(204).send({});
+    arrayData.splice(this.id, 1);
+    this.resAction(204, dataRes, false, false);
   }
 
   requiredNameErr(name) {

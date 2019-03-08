@@ -90,35 +90,11 @@ function () {
     }
   }, {
     key: "deleteOne",
-    value: function () {
-      var _deleteOne = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(dataRes, arrayData, deleteId) {
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                this.id = deleteId;
-                _context2.next = 3;
-                return arrayData.splice(this.id, 1);
-
-              case 3:
-                dataRes.status(204).send({});
-
-              case 4:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function deleteOne(_x4, _x5, _x6) {
-        return _deleteOne.apply(this, arguments);
-      }
-
-      return deleteOne;
-    }()
+    value: function deleteOne(dataRes, arrayData, deleteId) {
+      this.id = deleteId;
+      arrayData.splice(this.id, 1);
+      this.resAction(204, dataRes, false, false);
+    }
   }, {
     key: "requiredNameErr",
     value: function requiredNameErr(name) {
