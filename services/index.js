@@ -78,7 +78,7 @@ class Services {
     return this.error;
   }
 
-  processErr(dataOne, dataTwo, nameOne, nameTwo, dataTwoTestRes, resData) {
+  processErr400(dataOne, dataTwo, nameOne, nameTwo, dataTwoTestRes, resData) {
     if (!dataOne) {
       this.sendErr(400, this.requiredNameErr(nameOne), resData);
       return;

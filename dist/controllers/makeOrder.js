@@ -35,7 +35,7 @@ function () {
               break;
             }
 
-            _services.default.processErr(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', _services.default.stringToArrayErr('Menu list'), res);
+            _services.default.processErr400(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', _services.default.stringToArrayErr('Menu list'), res);
 
             return _context.abrupt("return");
 

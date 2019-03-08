@@ -14,7 +14,7 @@ bookAMeal.updateOneMealOption = async (req, res) => {
     services.createOneRes(res, data.mealOptionList, data.mealFormat(req.body), 'Meal option not found! Meal option successfully created');
     return;
   }
-  services.processErr(req.body.mealOptionName, req.body.mealOptionPrice, 'Meal option name', 'Meal option price', services.mustBeNumbersErr('Meal option price'), res);
+  services.processErr400(req.body.mealOptionName, req.body.mealOptionPrice, 'Meal option name', 'Meal option price', services.mustBeNumbersErr('Meal option price'), res);
 };
 
 export default bookAMeal.updateOneMealOption;

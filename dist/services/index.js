@@ -217,8 +217,8 @@ function () {
       return this.error;
     }
   }, {
-    key: "processErr",
-    value: function processErr(dataOne, dataTwo, nameOne, nameTwo, dataTwoTestRes, resData) {
+    key: "processErr400",
+    value: function processErr400(dataOne, dataTwo, nameOne, nameTwo, dataTwoTestRes, resData) {
       if (!dataOne) {
         this.sendErr(400, this.requiredNameErr(nameOne), resData);
         return;
