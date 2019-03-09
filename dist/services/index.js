@@ -130,28 +130,44 @@ function () {
   }, {
     key: "sendErr",
     value: function sendErr(number, message, dataRes) {
-      this.error = dataRes.status(number).send(message);
-      return this.error;
+      this.res = dataRes;
+      this.res.status(number).send(message);
     }
   }, {
     key: "processErr400",
-    value: function processErr400(dataOne, dataTwo, nameOne, nameTwo, dataTwoTestRes, resData) {
+    value: function processErr400(dataOne, dataTwo, nameOne, nameTwo, dataTwoTestRes) {
+      if (!dataOne) {
+        this.reqErr = this.requiredNameErr(nameOne);
+        return this.reqErr;
+      }
+
+      if (/^[A-Za-z]+$/.test(dataOne) === false) {
+        this.reqErr = this.mustBeLettersErr(nameOne);
+        return this.reqErr;
+      }
+
+      if (!dataTwo) {
+        this.reqErr = this.requiredNameErr(nameTwo);
+        return this.reqErr;
+      }
+
+      this.reqErr = dataTwoTestRes;
+      return this.reqErr;
+      /*
       if (!dataOne) {
         this.sendErr(400, this.requiredNameErr(nameOne), resData);
         return;
       }
-
-      if (/^[A-Za-z]+$/.test(dataOne) === false) {
+      if ((/^[A-Za-z]+$/).test(dataOne) === false) {
         this.sendErr(400, this.mustBeLettersErr(nameOne), resData);
         return;
       }
-
       if (!dataTwo) {
         this.sendErr(400, this.requiredNameErr(nameTwo), resData);
         return;
       }
-
       this.sendErr(400, dataTwoTestRes, resData);
+      */
     }
   }]);
 

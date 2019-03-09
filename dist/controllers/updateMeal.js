@@ -52,7 +52,7 @@ function () {
             return _context.abrupt("return");
 
           case 8:
-            _services.default.processErr400(req.body.mealOptionName, req.body.mealOptionPrice, 'Meal option name', 'Meal option price', _services.default.mustBeNumbersErr('Meal option price'), res);
+            _services.default.sendErr(400, _services.default.processErr400(req.body.mealOptionName, req.body.mealOptionPrice, 'Meal option name', 'Meal option price', _services.default.mustBeNumbersErr('Meal option price')), res);
 
           case 9:
           case "end":

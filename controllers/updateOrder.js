@@ -14,7 +14,7 @@ bookAMeal.updateOrder = async (req, res) => {
     services.resAction(201, res, 'Menu order not found, menu order successfully created', services.createOneRes(data.orderList, data.orderFormat(req.body)));
     return;
   }
-  services.processErr400(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', services.stringToArrayErr('Menu list'), res);
+  services.sendErr(400, services.processErr400(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', services.stringToArrayErr('Menu list')), res);
 };
 
 export default bookAMeal.updateOrder;
