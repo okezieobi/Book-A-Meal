@@ -23,26 +23,13 @@ function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(req, res) {
-    var testMakeOrder;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            testMakeOrder = _services.default.testItem(req.body.customerName, req.body.menuList, /^[A-Za-z]+$/.test(req.body.customerName), /^[A-Za-z\s]+$/.test(req.body.menuList));
+            _services.default.createOne(req.body.customerName, req.body.menuList, /^[A-Za-z]+$/.test(req.body.customerName), /^[A-Za-z\s]+$/.test(req.body.menuList), _models.default.orderList, res, _models.default.orderFormat(req.body), 'Success! Menu selected and order made', 'Customer name', 'Menu list', _services.default.stringToArrayErr('Menu list'));
 
-            if (testMakeOrder) {
-              _context.next = 4;
-              break;
-            }
-
-            _services.default.sendErr(400, _services.default.processErr400(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', _services.default.stringToArrayErr('Menu list')), res);
-
-            return _context.abrupt("return");
-
-          case 4:
-            _services.default.resAction(201, res, 'Success! Menu selected and order made', _services.default.createOneRes(_models.default.orderList, _models.default.orderFormat(req.body)));
-
-          case 5:
+          case 1:
           case "end":
             return _context.stop();
         }

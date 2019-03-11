@@ -23,26 +23,13 @@ function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(req, res) {
-    var testAddMeal;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            testAddMeal = _services.default.testItem(req.body.mealOptionName, req.body.mealOptionPrice, /^[A-Za-z]+$/.test(req.body.mealOptionName), /^[0-9]+$/.test(req.body.mealOptionPrice));
+            _services.default.createOne(req.body.mealOptionName, req.body.mealOptionPrice, /^[A-Za-z]+$/.test(req.body.mealOptionName), /^[0-9]+$/.test(req.body.mealOptionPrice), _models.default.mealOptionList, res, _models.default.mealFormat(req.body), 'Success! Meal option created', 'Meal option name', 'Meal option price', _services.default.mustBeNumbersErr('Meal option price'));
 
-            if (testAddMeal) {
-              _context.next = 4;
-              break;
-            }
-
-            _services.default.sendErr(400, _services.default.processErr400(req.body.mealOptionName, req.body.mealOptionPrice, 'Meal option name', 'Meal option price', _services.default.mustBeNumbersErr('Meal option price')), res);
-
-            return _context.abrupt("return");
-
-          case 4:
-            _services.default.resAction(201, res, 'Success! Meal option created', _services.default.createOneRes(_models.default.mealOptionList, _models.default.mealFormat(req.body)));
-
-          case 5:
+          case 1:
           case "end":
             return _context.stop();
         }

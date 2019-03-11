@@ -23,37 +23,13 @@ function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(req, res) {
-    var testUpadateMeal, findMeal;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            testUpadateMeal = _services.default.testItem(req.body.mealOptionName, req.body.mealOptionPrice, /^[A-Za-z]+$/.test(req.body.mealOptionName), /^[0-9]+$/.test(req.body.mealOptionPrice));
-            findMeal = _services.default.findOne(req.params, _models.default.mealOptionList);
+            _services.default.updateOne(req.body.mealOptionName, req.body.mealOptionPrice, /^[A-Za-z]+$/.test(req.body.mealOptionName), /^[0-9]+$/.test(req.body.mealOptionPrice), req.params, _models.default.mealOptionList, res, _models.default.mealFormat(req.body), 'Meal option found! Meal option successfully updated', 'Meal option not found! Meal option successfully created', 'Meal option name', 'Meal option price', _services.default.mustBeNumbersErr('Meal option price'));
 
-            if (!(testUpadateMeal && findMeal)) {
-              _context.next = 5;
-              break;
-            }
-
-            _services.default.resAction(200, res, 'Meal option found! Meal option successfully updated', _services.default.updateOneRes(_models.default.mealOptionList, _models.default.mealFormat(req.body), findMeal.id));
-
-            return _context.abrupt("return");
-
-          case 5:
-            if (!testUpadateMeal) {
-              _context.next = 8;
-              break;
-            }
-
-            _services.default.resAction(201, res, 'Meal option not found! Meal option successfully created', _services.default.createOneRes(_models.default.mealOptionList, _models.default.mealFormat(req.body)));
-
-            return _context.abrupt("return");
-
-          case 8:
-            _services.default.sendErr(400, _services.default.processErr400(req.body.mealOptionName, req.body.mealOptionPrice, 'Meal option name', 'Meal option price', _services.default.mustBeNumbersErr('Meal option price')), res);
-
-          case 9:
+          case 1:
           case "end":
             return _context.stop();
         }

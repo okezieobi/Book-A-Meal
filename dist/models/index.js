@@ -55,24 +55,30 @@ function () {
   }, {
     key: "menuFormat",
     value: function menuFormat(data) {
-      this.menuData = {
-        date: new Date(),
-        id: data.menuId,
-        menuName: data.menuName,
-        mealOptions: data.menuOptions.split(' '),
-        total: this.totalPrice(data.menuOptions.split(' '), this.mealOptionList)
-      };
+      if (data.menuOptions) {
+        this.menuData = {
+          date: new Date(),
+          id: data.menuId,
+          menuName: data.menuName,
+          mealOptions: data.menuOptions.split(' '),
+          total: this.totalPrice(data.menuOptions.split(' '), this.mealOptionList)
+        };
+      }
+
       return this.menuData;
     }
   }, {
     key: "orderFormat",
     value: function orderFormat(data) {
-      this.orderData = {
-        id: data.orderId,
-        customer: data.customerName,
-        menu: data.menuList.split(' '),
-        total: this.totalPrice(data.menuList.split(' '), this.menuList)
-      };
+      if (data.menuList) {
+        this.orderData = {
+          id: data.orderId,
+          customer: data.customerName,
+          menu: data.menuList.split(' '),
+          total: this.totalPrice(data.menuList.split(' '), this.menuList)
+        };
+      }
+
       return this.orderData;
     }
   }]);

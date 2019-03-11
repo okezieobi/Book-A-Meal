@@ -4,12 +4,10 @@ import services from '../services';
 import bookAMeal from './index';
 
 bookAMeal.selectOneMeal = async (req, res) => {
-  const testMakeOrder = services.testItem(req.body.customerName, req.body.menuList, (/^[A-Za-z]+$/).test(req.body.customerName), (/^[A-Za-z\s]+$/).test(req.body.menuList));
-  if (!testMakeOrder) {
-    services.sendErr(400, services.processErr400(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', services.stringToArrayErr('Menu list')), res);
-    return;
-  }
-  services.resAction(201, res, 'Success! Menu selected and order made', services.createOneRes(data.orderList, data.orderFormat(req.body)));
+  services.createOne(req.body.customerName, req.body.menuList,
+    (/^[A-Za-z]+$/).test(req.body.customerName), (/^[A-Za-z\s]+$/).test(req.body.menuList),
+    data.orderList, res, data.orderFormat(req.body), 'Success! Menu selected and order made',
+    'Customer name', 'Menu list', services.stringToArrayErr('Menu list'));
 };
 
 export default bookAMeal.selectOneMeal;

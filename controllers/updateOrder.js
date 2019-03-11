@@ -4,17 +4,12 @@ import services from '../services';
 import bookAMeal from './index';
 
 bookAMeal.updateOrder = async (req, res) => {
-  const testUpdateOrder = services.testItem(req.body.customerName, req.body.menuList, (/^[A-Za-z]+$/).test(req.body.customerName), (/^[A-Za-z\s]+$/).test(req.body.menuList));
-  const findOrder = services.findOne(req.params, data.orderList);
-  if (findOrder && testUpdateOrder) {
-    services.resAction(200, res, 'Menu order found, menu order successfully updated', services.updateOneRes(data.orderList, data.orderFormat(req.body), findOrder.id));
-    return;
-  }
-  if (testUpdateOrder) {
-    services.resAction(201, res, 'Menu order not found, menu order successfully created', services.createOneRes(data.orderList, data.orderFormat(req.body)));
-    return;
-  }
-  services.sendErr(400, services.processErr400(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', services.stringToArrayErr('Menu list')), res);
+  services.updateOne(req.body.customerName, req.body.menuList,
+    (/^[A-Za-z]+$/).test(req.body.customerName), (/^[A-Za-z\s]+$/).test(req.body.menuList),
+    req.params, data.orderList, res, data.orderFormat(req.body),
+    'Menu order found, menu order successfully updated',
+    'Menu order not found, menu order successfully created',
+    'Customer name', 'Menu list', services.stringToArrayErr('Menu list'));
 };
 
 export default bookAMeal.updateOrder;

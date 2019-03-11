@@ -36,6 +36,37 @@ class Services {
     return this.updatedItem;
   }
 
+  updateOne(dataOne, dataTwo, dataOneTest, dataTwoTest, dataParams,
+    arrayData, dataRes, dataFormat, updateMessage, createMessage,
+    nameOne, nameTwo, dataTwoTestRes) {
+    this.testInputs = this.testItem(dataOne, dataTwo, dataOneTest, dataTwoTest);
+    this.findUpdate = this.findOne(dataParams, arrayData);
+    if (this.testInputs && this.findUpdate) {
+      this.resAction(200, dataRes, updateMessage,
+        this.updateOneRes(arrayData, dataFormat, this.findUpdate.id));
+      return;
+    }
+    if (this.testInputs) {
+      this.resAction(201, dataRes, createMessage, this.createOneRes(arrayData, dataFormat));
+      return;
+    }
+    this.sendErr(400, this.processErr400(dataOne, dataTwo,
+      nameOne, nameTwo, dataTwoTestRes), dataRes);
+  }
+
+  createOne(dataOne, dataTwo, dataOneTest, dataTwoTest,
+    arrayData, dataRes, dataFormat, createMessage,
+    nameOne, nameTwo, dataTwoTestRes) {
+    this.testInputs = this.testItem(dataOne, dataTwo, dataOneTest, dataTwoTest);
+    if (this.testInputs) {
+      this.resAction(201, dataRes, createMessage, this.createOneRes(arrayData, dataFormat));
+      return;
+    }
+    this.sendErr(400, this.processErr400(dataOne, dataTwo,
+      nameOne, nameTwo, dataTwoTestRes), dataRes);
+  }
+
+
   deleteOne(dataRes, arrayData, deleteId) {
     this.id = deleteId;
     arrayData.splice(this.id, 1);

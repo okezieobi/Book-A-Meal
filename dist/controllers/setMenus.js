@@ -23,26 +23,13 @@ function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(req, res) {
-    var testSetMenu;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            testSetMenu = _services.default.testItem(req.body.menuName, req.body.menuOptions, /^[A-Za-z]+$/.test(req.body.menuName), /^[A-Za-z\s]+$/.test(req.body.menuOptions));
+            _services.default.createOne(req.body.menuName, req.body.menuOptions, /^[A-Za-z]+$/.test(req.body.menuName), /^[A-Za-z\s]+$/.test(req.body.menuOptions), _models.default.menuList, res, _models.default.menuFormat(req.body), 'Success! Menu created', 'Menu name', 'Menu options', _services.default.stringToArrayErr('Menu options'));
 
-            if (testSetMenu) {
-              _context.next = 4;
-              break;
-            }
-
-            _services.default.sendErr(400, _services.default.processErr400(req.body.menuName, req.body.menuOptions, 'Menu name', 'Menu options', _services.default.stringToArrayErr('Menu options')), res);
-
-            return _context.abrupt("return");
-
-          case 4:
-            _services.default.resAction(201, res, 'Success! Menu created', _services.default.createOneRes(_models.default.menuList, _models.default.menuFormat(req.body)));
-
-          case 5:
+          case 1:
           case "end":
             return _context.stop();
         }

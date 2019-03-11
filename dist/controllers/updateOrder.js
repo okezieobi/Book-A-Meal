@@ -23,37 +23,13 @@ function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(req, res) {
-    var testUpdateOrder, findOrder;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            testUpdateOrder = _services.default.testItem(req.body.customerName, req.body.menuList, /^[A-Za-z]+$/.test(req.body.customerName), /^[A-Za-z\s]+$/.test(req.body.menuList));
-            findOrder = _services.default.findOne(req.params, _models.default.orderList);
+            _services.default.updateOne(req.body.customerName, req.body.menuList, /^[A-Za-z]+$/.test(req.body.customerName), /^[A-Za-z\s]+$/.test(req.body.menuList), req.params, _models.default.orderList, res, _models.default.orderFormat(req.body), 'Menu order found, menu order successfully updated', 'Menu order not found, menu order successfully created', 'Customer name', 'Menu list', _services.default.stringToArrayErr('Menu list'));
 
-            if (!(findOrder && testUpdateOrder)) {
-              _context.next = 5;
-              break;
-            }
-
-            _services.default.resAction(200, res, 'Menu order found, menu order successfully updated', _services.default.updateOneRes(_models.default.orderList, _models.default.orderFormat(req.body), findOrder.id));
-
-            return _context.abrupt("return");
-
-          case 5:
-            if (!testUpdateOrder) {
-              _context.next = 8;
-              break;
-            }
-
-            _services.default.resAction(201, res, 'Menu order not found, menu order successfully created', _services.default.createOneRes(_models.default.orderList, _models.default.orderFormat(req.body)));
-
-            return _context.abrupt("return");
-
-          case 8:
-            _services.default.sendErr(400, _services.default.processErr400(req.body.customerName, req.body.menuList, 'Customer name', 'Menu list', _services.default.stringToArrayErr('Menu list')), res);
-
-          case 9:
+          case 1:
           case "end":
             return _context.stop();
         }
