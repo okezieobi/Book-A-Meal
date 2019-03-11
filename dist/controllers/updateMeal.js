@@ -29,16 +29,10 @@ function () {
         switch (_context.prev = _context.next) {
           case 0:
             testUpadateMeal = _services.default.testItem(req.body.mealOptionName, req.body.mealOptionPrice, /^[A-Za-z]+$/.test(req.body.mealOptionName), /^[0-9]+$/.test(req.body.mealOptionPrice));
-
-            if (!testUpadateMeal) {
-              _context.next = 8;
-              break;
-            }
-
             findMeal = _services.default.findOne(req.params, _models.default.mealOptionList);
 
-            if (!findMeal) {
-              _context.next = 6;
+            if (!(testUpadateMeal && findMeal)) {
+              _context.next = 5;
               break;
             }
 
@@ -46,7 +40,12 @@ function () {
 
             return _context.abrupt("return");
 
-          case 6:
+          case 5:
+            if (!testUpadateMeal) {
+              _context.next = 8;
+              break;
+            }
+
             _services.default.resAction(201, res, 'Meal option not found! Meal option successfully created', _services.default.createOneRes(_models.default.mealOptionList, _models.default.mealFormat(req.body)));
 
             return _context.abrupt("return");

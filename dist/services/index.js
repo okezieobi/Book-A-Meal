@@ -153,21 +153,6 @@ function () {
 
       this.reqErr = dataTwoTestRes;
       return this.reqErr;
-      /*
-      if (!dataOne) {
-        this.sendErr(400, this.requiredNameErr(nameOne), resData);
-        return;
-      }
-      if ((/^[A-Za-z]+$/).test(dataOne) === false) {
-        this.sendErr(400, this.mustBeLettersErr(nameOne), resData);
-        return;
-      }
-      if (!dataTwo) {
-        this.sendErr(400, this.requiredNameErr(nameTwo), resData);
-        return;
-      }
-      this.sendErr(400, dataTwoTestRes, resData);
-      */
     }
   }]);
 

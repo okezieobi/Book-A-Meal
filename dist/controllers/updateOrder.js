@@ -29,16 +29,10 @@ function () {
         switch (_context.prev = _context.next) {
           case 0:
             testUpdateOrder = _services.default.testItem(req.body.customerName, req.body.menuList, /^[A-Za-z]+$/.test(req.body.customerName), /^[A-Za-z\s]+$/.test(req.body.menuList));
-
-            if (!testUpdateOrder) {
-              _context.next = 8;
-              break;
-            }
-
             findOrder = _services.default.findOne(req.params, _models.default.orderList);
 
-            if (!findOrder) {
-              _context.next = 6;
+            if (!(findOrder && testUpdateOrder)) {
+              _context.next = 5;
               break;
             }
 
@@ -46,7 +40,12 @@ function () {
 
             return _context.abrupt("return");
 
-          case 6:
+          case 5:
+            if (!testUpdateOrder) {
+              _context.next = 8;
+              break;
+            }
+
             _services.default.resAction(201, res, 'Menu order not found, menu order successfully created', _services.default.createOneRes(_models.default.orderList, _models.default.orderFormat(req.body)));
 
             return _context.abrupt("return");
