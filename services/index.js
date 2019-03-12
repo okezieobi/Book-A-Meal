@@ -36,10 +36,11 @@ class Services {
     return this.updatedItem;
   }
 
-  updateOne(dataOne, dataTwo, dataOneTest, dataTwoTest, dataParams,
+  updateOne(dataOne, dataTwo, dataOneTest, dataTwoTest, dataReq, dataParams,
     arrayData, dataRes, dataFormat, updateMessage, createMessage,
     nameOne, nameTwo, dataTwoTestRes) {
-    this.testInputs = this.testItem(dataOne, dataTwo, dataOneTest, dataTwoTest);
+    this.testInputs = this.testItem(dataReq.body[dataOne], dataReq.body[dataTwo],
+      dataOneTest.test([dataReq.body[dataOne]]), dataTwoTest.test([dataReq.body[dataTwo]]));
     this.findUpdate = this.findOne(dataParams, arrayData);
     if (this.testInputs && this.findUpdate) {
       this.resAction(200, dataRes, updateMessage,
@@ -50,7 +51,7 @@ class Services {
       this.resAction(201, dataRes, createMessage, this.createOneRes(arrayData, dataFormat));
       return;
     }
-    this.sendErr(400, this.processErr400(dataOne, dataTwo,
+    this.sendErr(400, this.processErr400(dataReq.body[dataOne], dataReq.body[dataTwo],
       nameOne, nameTwo, dataTwoTestRes), dataRes);
   }
 

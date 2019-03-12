@@ -27,7 +27,7 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _services.default.updateOne(req.body.mealOptionName, req.body.mealOptionPrice, /^[A-Za-z]+$/.test(req.body.mealOptionName), /^[0-9]+$/.test(req.body.mealOptionPrice), req.params, _models.default.mealOptionList, res, _models.default.mealFormat(req.body), 'Meal option found! Meal option successfully updated', 'Meal option not found! Meal option successfully created', 'Meal option name', 'Meal option price', _services.default.mustBeNumbersErr('Meal option price'));
+            _services.default.updateOne('mealOptionName', 'mealOptionPrice', /^[A-Za-z]+$/, /^[0-9]+$/, req, req.params, _models.default.mealOptionList, res, _models.default.mealFormat(req.body), 'Meal option found! Meal option successfully updated', 'Meal option not found! Meal option successfully created', 'Meal option name', 'Meal option price', _services.default.mustBeNumbersErr('Meal option price'));
 
           case 1:
           case "end":

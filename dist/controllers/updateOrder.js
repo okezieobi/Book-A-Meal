@@ -27,7 +27,7 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _services.default.updateOne(req.body.customerName, req.body.menuList, /^[A-Za-z]+$/.test(req.body.customerName), /^[A-Za-z\s]+$/.test(req.body.menuList), req.params, _models.default.orderList, res, _models.default.orderFormat(req.body), 'Menu order found, menu order successfully updated', 'Menu order not found, menu order successfully created', 'Customer name', 'Menu list', _services.default.stringToArrayErr('Menu list'));
+            _services.default.updateOne('customerName', 'menuList', /^[A-Za-z]+$/, /^[A-Za-z\s]+$/, req, req.params, _models.default.orderList, res, _models.default.orderFormat(req.body), 'Menu order found, menu order successfully updated', 'Menu order not found, menu order successfully created', 'Customer name', 'Menu list', _services.default.stringToArrayErr('Menu list'));
 
           case 1:
           case "end":
