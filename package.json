@@ -57,6 +57,8 @@
     "jsonwebtoken": "^8.4.0",
     "node-cron": "^2.0.3",
     "nodemailer": "^5.1.1",
-    "sequelize": "^4.42.0"
+    "pg": "^7.8.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.43.0"
   }
 }
