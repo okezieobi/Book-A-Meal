@@ -27,7 +27,7 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _services.default.createOne(req.body.menuName, req.body.menuOptions, /^[A-Za-z]+$/.test(req.body.menuName), /^[A-Za-z\s]+$/.test(req.body.menuOptions), _models.default.menuList, res, _models.default.menuFormat(req.body), 'Success! Menu created', 'Menu name', 'Menu options', _services.default.stringToArrayErr('Menu options'));
+            _services.default.createOne(req, 'menuName', 'menuOptions', /^[A-Za-z]+$/, /^[A-Za-z\s]+$/, _models.default.menuList, res, _models.default.menuFormat(req.body), 'Success! Menu created', 'Menu name', 'Menu options', _services.default.stringToArrayErr('Menu options'));
 
           case 1:
           case "end":

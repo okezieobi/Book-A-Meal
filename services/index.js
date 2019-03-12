@@ -54,15 +54,16 @@ class Services {
       nameOne, nameTwo, dataTwoTestRes), dataRes);
   }
 
-  createOne(dataOne, dataTwo, dataOneTest, dataTwoTest,
+  createOne(dataReq, dataOne, dataTwo, dataOneTest, dataTwoTest,
     arrayData, dataRes, dataFormat, createMessage,
     nameOne, nameTwo, dataTwoTestRes) {
-    this.testInputs = this.testItem(dataOne, dataTwo, dataOneTest, dataTwoTest);
+    this.testInputs = this.testItem(dataReq.body[dataOne], dataReq.body[dataTwo],
+      dataOneTest.test([dataReq.body[dataOne]]), dataTwoTest.test([dataReq.body[dataTwo]]));
     if (this.testInputs) {
       this.resAction(201, dataRes, createMessage, this.createOneRes(arrayData, dataFormat));
       return;
     }
-    this.sendErr(400, this.processErr400(dataOne, dataTwo,
+    this.sendErr(400, this.processErr400(dataReq.body[dataOne], dataReq.body[dataTwo],
       nameOne, nameTwo, dataTwoTestRes), dataRes);
   }
 

@@ -27,7 +27,7 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _services.default.createOne(req.body.mealOptionName, req.body.mealOptionPrice, /^[A-Za-z]+$/.test(req.body.mealOptionName), /^[0-9]+$/.test(req.body.mealOptionPrice), _models.default.mealOptionList, res, _models.default.mealFormat(req.body), 'Success! Meal option created', 'Meal option name', 'Meal option price', _services.default.mustBeNumbersErr('Meal option price'));
+            _services.default.createOne(req, 'mealOptionName', 'mealOptionPrice', /^[A-Za-z]+$/, /^[0-9]+$/, _models.default.mealOptionList, res, _models.default.mealFormat(req.body), 'Success! Meal option created', 'Meal option name', 'Meal option price', _services.default.mustBeNumbersErr('Meal option price'));
 
           case 1:
           case "end":
